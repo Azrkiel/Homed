@@ -1,55 +1,14 @@
 [
   {
-    "id": "p-fixture-lofts",
-    "slug": "fixture-lofts",
-    "name": "Fixture Lofts",
-    "address": "100 Example Ave, Charlottesville, VA 22903",
-    "location": {
-      "lat": 38.02975,
-      "lng": -78.5089
-    },
-    "kind": "apartment_complex",
-    "onGrounds": false,
-    "neighborhood": "JPA",
-    "yearBuilt": 2019,
-    "landlordId": "ll-fixture",
-    "amenities": {
-      "gym": true,
-      "studyRooms": true,
-      "rooftop": false,
-      "pool": false,
-      "elevator": true,
-      "parkingAvailable": true,
-      "petsAllowed": false,
-      "parkingMonthly": 75
-    },
-    "noiseLevel": "moderate",
-    "litRouteToGrounds": true,
-    "onBusRoute": true,
-    "busRoutes": [
-      "UTS Northline"
-    ],
-    "studyAbroadFriendly": true,
-    "noGuarantorOption": true,
-    "source": "fixture",
-    "dataStatus": "unverified_seed",
-    "lastVerified": "2026-10-18"
-  },
-  {
-    "id": "p-fixture-rugby-house",
-    "slug": "fixture-rugby-house",
-    "name": "Fixture Rugby House",
-    "address": "200 Example Rd, Charlottesville, VA 22903",
-    "location": {
-      "lat": 38.0389,
-      "lng": -78.5041
-    },
+    "id": "p-119-washington-ave",
+    "slug": "119-washington-ave",
+    "name": "119 Washington Ave",
+    "address": "119 Washington Ave, Charlottesville, VA 22903",
     "kind": "house",
     "onGrounds": false,
-    "neighborhood": "Rugby Road",
-    "yearBuilt": 1925,
-    "yearRenovated": 2015,
-    "landlordId": "ll-fixture",
+    "neighborhood": "JPA",
+    "landlordId": "ll-inv-group",
+    "website": "https://cvillehousing.com",
     "amenities": {
       "gym": false,
       "studyRooms": false,
@@ -57,56 +16,1541 @@
       "pool": false,
       "elevator": false,
       "parkingAvailable": true,
-      "petsAllowed": true,
-      "parkingMonthly": 0
+      "petsAllowed": true
     },
-    "noiseLevel": "social",
-    "litRouteToGrounds": true,
     "onBusRoute": false,
     "busRoutes": [],
     "studyAbroadFriendly": false,
     "noGuarantorOption": false,
-    "source": "fixture",
+    "source": "https://cvillehousing.com/detail.cfm?ID=8607 ; https://cvillehousing.com (2027-28 dates published; lease end inferred as 12 months after start; lease liability not published; rent is whole-house/unit price)",
     "dataStatus": "unverified_seed",
-    "lastVerified": "2026-09-20"
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.02798,
+      "lng": -78.51384
+    }
   },
   {
-    "id": "p-fixture-on-grounds",
-    "slug": "fixture-on-grounds",
-    "name": "Fixture Upperclass Apartments",
-    "address": "On Grounds, Charlottesville, VA 22904",
-    "location": {
-      "lat": 38.0383,
-      "lng": -78.5102
-    },
-    "kind": "on_grounds",
-    "onGrounds": true,
-    "neighborhood": "On Grounds",
-    "yearBuilt": 2003,
+    "id": "p-1201-gordon-ave",
+    "slug": "1201-gordon-ave",
+    "name": "1201 Gordon Ave",
+    "address": "1201 Gordon Ave, Charlottesville, VA 22903",
+    "kind": "house",
+    "onGrounds": false,
+    "neighborhood": "Venable",
+    "landlordId": "ll-inv-group",
+    "website": "https://cvillehousing.com",
     "amenities": {
       "gym": false,
-      "studyRooms": true,
+      "studyRooms": false,
       "rooftop": false,
       "pool": false,
-      "elevator": true,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": true
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://cvillehousing.com/detail.cfm?ID=8432 ; https://cvillehousing.com (2027-28 dates published; lease end inferred as 12 months after start; lease liability not published; rent is whole-house/unit price)",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03851,
+      "lng": -78.49525
+    }
+  },
+  {
+    "id": "p-1303-gordon-ave",
+    "slug": "1303-gordon-ave",
+    "name": "1303 Gordon Ave",
+    "address": "1303 Gordon Avenue, Charlottesville, VA 22903",
+    "kind": "house",
+    "onGrounds": false,
+    "neighborhood": "Venable",
+    "landlordId": "ll-inv-group",
+    "website": "https://cvillehousing.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": true
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.apartmentlist.com/va/charlottesville/gordon-ave-heart-of-uva-6-br-2-bath-leasing-year-2027-2028 ; https://cvillehousing.com (2027-28 dates published; lease end inferred as 12 months after start; lease liability not published; rent is whole-house/unit price); AC/dishwasher 'No' per ApartmentList; ForRent/UVA portal show differing 2026-27 price $6,750",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03913,
+      "lng": -78.49598
+    }
+  },
+  {
+    "id": "p-1701-gordon-avenue",
+    "slug": "1701-gordon-avenue",
+    "name": "1701 Gordon Avenue",
+    "address": "1701 Gordon Avenue, Charlottesville, VA 22903",
+    "kind": "house",
+    "onGrounds": false,
+    "neighborhood": "Venable",
+    "landlordId": "ll-msc",
+    "website": "https://www.livewithmsc.com/property/1701-gordon-avenue",
+    "amenities": {
+      "gym": true,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": true
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.livewithmsc.com/property/1701-gordon-avenue ; https://www.apartmentlist.com/va/charlottesville/1701-gordon-avenue-student-housing ; lowest published price of two 1BR plans used for each plan; 12-month lease, dates inferred Aug 2027-Jul 2028; lease liability not published; converted Victorian, gym is MSC's shared gym",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.04051,
+      "lng": -78.50002
+    }
+  },
+  {
+    "id": "p-1930-ivy-road",
+    "slug": "1930-ivy-road",
+    "name": "1930 Ivy Road (four-unit building)",
+    "address": "1930 Ivy Road, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Fontaine",
+    "landlordId": "ll-1930-ivy-road-owner",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
       "parkingAvailable": false,
       "petsAllowed": false
     },
-    "noiseLevel": "quiet",
-    "litRouteToGrounds": true,
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://offgroundshousing.student.virginia.edu/housing/property/1930-4-ivy-road/ocp4qy1ymj ; https://offgroundshousing.student.virginia.edu/housing/property/1930-3-ivy-road (UVA off-grounds listings; listing dates stale, no owner named)",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.04017,
+      "lng": -78.50709
+    }
+  },
+  {
+    "id": "p-2101-jefferson-park-apartments",
+    "slug": "2101-jefferson-park-apartments",
+    "name": "2101 Jefferson Park Apartments",
+    "address": "2101 Jefferson Park Avenue, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "JPA",
+    "landlordId": "ll-management-services-corporation",
+    "amenities": {
+      "gym": true,
+      "studyRooms": true,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.brac.com/configDetails.cfm?config=5720 ; $4,125-$4,200 per unit (lowest used), fixed term starting Jul/Aug 2027, leased by full apartment; lease length not published, 2027-28 dates inferred; bus: source says inner/outer bus loops, no named route",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.02652,
+      "lng": -78.5138
+    }
+  },
+  {
+    "id": "p-2114-ivy-rd",
+    "slug": "2114-ivy-rd",
+    "name": "2114 Ivy Rd Apartments",
+    "address": "2114 Ivy Rd, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Fontaine",
+    "landlordId": "ll-braden-property",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://bradenproperty.appfolio.com/listings/detail/4d9d809d-5d24-40ff-85c8-64bf4e26c0d0 (AppFolio listings index read 2026-10-19). Lease length not published: 12-month inferred from listed availability date; lease liability not published ; 1 lot parking space and water/sewer/trash included; no pets; shared laundry in building",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.04291,
+      "lng": -78.51267
+    }
+  },
+  {
+    "id": "p-2202-jpa",
+    "slug": "2202-jpa",
+    "name": "2202 JPA",
+    "address": "2202 Jefferson Park Avenue, Charlottesville, VA 22903",
+    "kind": "house",
+    "onGrounds": false,
+    "neighborhood": "JPA",
+    "landlordId": "ll-university-apartments",
+    "website": "https://u-apts.com/",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.u-apts.com/property.cfm?id=5916 ; $760 per bedroom (two listings, Jun and Jul 2027 availability), leased by full apartment; lease length not published, 2027-28 dates inferred; amenities not published on that page",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.02488,
+      "lng": -78.51464
+    }
+  },
+  {
+    "id": "p-32-university-circle",
+    "slug": "32-university-circle",
+    "name": "32 University Circle",
+    "address": "32 University Cir, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Barracks Road",
+    "landlordId": "ll-braden-property",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://bradenproperty.appfolio.com/listings/detail/4d9d809d-5d24-40ff-85c8-64bf4e26c0d0 (AppFolio listings index read 2026-10-19). Lease length not published: 12-month inferred from listed availability date; lease liability not published ; Ting internet, water/sewer, heat, trash included; card laundry room; window AC units; no pets",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.04314,
+      "lng": -78.50312
+    }
+  },
+  {
+    "id": "p-500-14th-st-nw",
+    "slug": "500-14th-st-nw",
+    "name": "500 14th St NW",
+    "address": "500 14th Street NW, Charlottesville, VA 22903",
+    "kind": "house",
+    "onGrounds": false,
+    "neighborhood": "Rugby Road",
+    "landlordId": "ll-inv-group",
+    "website": "https://cvillehousing.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": true
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://cvillehousing.com/detail.cfm?ID=8947 ; https://cvillehousing.com (2027-28 dates published; lease end inferred as 12 months after start; lease liability not published; rent is whole-house/unit price); optional amenities package $175/mo (trash, internet, parking) listed separately; utilities-included=false",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.0393,
+      "lng": -78.49649
+    }
+  },
+  {
+    "id": "p-504-14th-st-nw",
+    "slug": "504-14th-st-nw",
+    "name": "504 14th St NW",
+    "address": "504 14th St NW, Charlottesville, VA 22903",
+    "kind": "house",
+    "onGrounds": false,
+    "neighborhood": "Rugby Road",
+    "landlordId": "ll-inv-group",
+    "website": "https://cvillehousing.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": true
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://cvillehousing.com/detail.cfm?ID=8446 ; https://cvillehousing.com (2027-28 dates published; lease end inferred as 12 months after start; lease liability not published; rent is whole-house/unit price)",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03954,
+      "lng": -78.49633
+    }
+  },
+  {
+    "id": "p-506-14th-st-nw",
+    "slug": "506-14th-st-nw",
+    "name": "506 14th St NW",
+    "address": "506 14th St NW, Charlottesville, VA 22903",
+    "kind": "house",
+    "onGrounds": false,
+    "neighborhood": "Rugby Road",
+    "landlordId": "ll-inv-group",
+    "website": "https://cvillehousing.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": true
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://cvillehousing.com/detail.cfm?ID=8950 ; https://cvillehousing.com (2027-28 dates published; lease end inferred as 12 months after start; lease liability not published; rent is whole-house/unit price)",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03965,
+      "lng": -78.49628
+    }
+  },
+  {
+    "id": "p-508-14th-st-nw",
+    "slug": "508-14th-st-nw",
+    "name": "508 14th St NW",
+    "address": "508 14th St NW, Charlottesville, VA 22903",
+    "kind": "house",
+    "onGrounds": false,
+    "neighborhood": "Rugby Road",
+    "landlordId": "ll-inv-group",
+    "website": "https://cvillehousing.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": true
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://cvillehousing.com/detail.cfm?ID=8956 ; https://cvillehousing.com (2027-28 dates published; lease end inferred as 12 months after start; lease liability not published; rent is whole-house/unit price)",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03978,
+      "lng": -78.49621
+    }
+  },
+  {
+    "id": "p-515-14th-st-nw-apt-b",
+    "slug": "515-14th-st-nw-apt-b",
+    "name": "515 14th St NW Apt B",
+    "address": "515 14th St NW Apt B, Charlottesville, VA 22903",
+    "kind": "house",
+    "onGrounds": false,
+    "neighborhood": "Rugby Road",
+    "landlordId": "ll-inv-group",
+    "website": "https://cvillehousing.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": true
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://cvillehousing.com/detail.cfm?ID=9054 ; https://cvillehousing.com (2027-28 dates published; lease end inferred as 12 months after start; lease liability not published; rent is whole-house/unit price)",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03947,
+      "lng": -78.49677
+    }
+  },
+  {
+    "id": "p-525-ridge-street",
+    "slug": "525-ridge-street",
+    "name": "525 Ridge Street",
+    "address": "525 Ridge Street, Charlottesville, VA 22902",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Downtown",
+    "landlordId": "ll-management-services-corporation",
+    "amenities": {
+      "gym": true,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": true,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": true
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "gradHeavy": true,
+    "source": "https://www.brac.com/configDetails.cfm?config=8066 ; rent range $2,195-$2,620, lowest used ; 12-month, July/August 2026 move-in published (2027-28 dates inferred from 2026-27) ; lease liability not published ; listing says graduate and professional students only",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.027,
+      "lng": -78.48718
+    }
+  },
+  {
+    "id": "p-5th-street-place",
+    "slug": "5th-street-place",
+    "name": "5th Street Place",
+    "address": "411 Afton Pond Court, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Venable",
+    "landlordId": "ll-greystar",
+    "website": "https://www.greystar.com/5th-street-place-charlottesville-va/p_22995",
+    "amenities": {
+      "gym": true,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": true,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.greystar.com/5th-street-place-charlottesville-va/p_22995 ; https://www.greystar.com/s/charlottesville-va (Greystar listing page, pricing snapshot dated May 25, 2025, stale) ; https://apartments.com/listing/2sz66l8 (floor plan sizes, third-party)",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.00681,
+      "lng": -78.51498
+    }
+  },
+  {
+    "id": "p-610-rugby-rd-apt-c",
+    "slug": "610-rugby-rd-apt-c",
+    "name": "610 Rugby Rd Apt C",
+    "address": "610 Rugby Rd Apt C, Charlottesville, VA 22903",
+    "kind": "house",
+    "onGrounds": false,
+    "neighborhood": "Rugby Road",
+    "landlordId": "ll-inv-group",
+    "website": "https://cvillehousing.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": true
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://cvillehousing.com/detail.cfm?ID=9138 ; https://cvillehousing.com (2027-28 dates published; lease end inferred as 12 months after start; lease liability not published; rent is whole-house/unit price)",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.04193,
+      "lng": -78.50021
+    }
+  },
+  {
+    "id": "p-bice-house",
+    "slug": "bice-house",
+    "name": "Bice House",
+    "address": "583 Brandon Avenue, Charlottesville, VA",
+    "kind": "on_grounds",
+    "onGrounds": true,
+    "neighborhood": "On Grounds",
+    "landlordId": "ll-uva-hrl",
+    "website": "https://housing.virginia.edu/bice",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
     "onBusRoute": true,
     "busRoutes": [
-      "UTS Inner Loop"
+      "Orange",
+      "Silver"
     ],
-    "studyAbroadFriendly": true,
+    "studyAbroadFriendly": false,
     "noGuarantorOption": true,
     "onGroundsInfo": {
       "program": "upperclass_apartment",
-      "eligibility": "Rising 2nd-4th years via the upperclass housing application.",
-      "hrlUrl": "https://housing.virginia.edu/"
+      "eligibility": "Upperclass on-Grounds apartment; housing not guaranteed; apply by the Oct 23 priority deadline via the housing portal (no other criteria stated).",
+      "hrlUrl": "https://housing.virginia.edu/bice",
+      "applicationOpens": "2026-10-01",
+      "applicationDeadline": "2026-10-23"
     },
-    "source": "fixture",
+    "source": "https://housing.virginia.edu/bice ; https://housing.virginia.edu/housing-rates ; https://housing.virginia.edu/upperclass-faq ; https://housing.virginia.edu/upperclass-housing-numbers-capacities ; https://housing.virginia.edu/upperclass-housing-deadlines ; https://housing.virginia.edu/2026-2027-dates ; https://housing.virginia.edu/returning-undergraduates ; Rates are HRL published 2026-27 per-person academic-year rates (2027-28 rates not yet published); contract is 9 months per HRL upperclass FAQ; rentAmount = yearly / 9 rounded: 2BR 4-person apartment, double room (per person) $9,410/yr / 9 months = $1046/mo; 3BR 6-person apartment, double room (per person) $9,410/yr / 9 months = $1046/mo. Lease dates for 2027-28 not published, inferred from 2026-27 (Aug 23 2026 upperclass move-in, May 15 2027 move-out) (2027-28 dates inferred from 2026-27).",
     "dataStatus": "unverified_seed",
-    "lastVerified": "2026-10-18"
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.02953,
+      "lng": -78.50498
+    }
+  },
+  {
+    "id": "p-bond-house",
+    "slug": "bond-house",
+    "name": "Bond House",
+    "address": "Brandon Avenue (street number not published), Charlottesville, VA",
+    "kind": "on_grounds",
+    "onGrounds": true,
+    "neighborhood": "On Grounds",
+    "landlordId": "ll-uva-hrl",
+    "website": "https://housing.virginia.edu/bond",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": false
+    },
+    "onBusRoute": true,
+    "busRoutes": [
+      "Orange",
+      "Silver"
+    ],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": true,
+    "onGroundsInfo": {
+      "program": "upperclass_apartment",
+      "eligibility": "Upperclass on-Grounds apartment; housing not guaranteed; apply by the Oct 23 priority deadline via the housing portal (no other criteria stated).",
+      "hrlUrl": "https://housing.virginia.edu/bond",
+      "applicationOpens": "2026-10-01",
+      "applicationDeadline": "2026-10-23"
+    },
+    "source": "https://housing.virginia.edu/bond ; https://housing.virginia.edu/housing-rates ; https://housing.virginia.edu/upperclass-faq ; https://housing.virginia.edu/upperclass-housing-numbers-capacities ; https://housing.virginia.edu/upperclass-housing-deadlines ; https://housing.virginia.edu/2026-2027-dates ; https://housing.virginia.edu/returning-undergraduates ; Rates are HRL published 2026-27 per-person academic-year rates (2027-28 rates not yet published); contract is 9 months per HRL upperclass FAQ; rentAmount = yearly / 9 rounded: 4BR 4-person apartment, single bedroom (per person) $10,560/yr / 9 months = $1173/mo. Lease dates for 2027-28 not published, inferred from 2026-27 (Aug 23 2026 upperclass move-in, May 15 2027 move-out) (2027-28 dates inferred from 2026-27). Underground parking listed by HRL (price not published). First available Fall 2019.",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.0293,
+      "lng": -78.50422
+    }
+  },
+  {
+    "id": "p-brown-college",
+    "slug": "brown-college",
+    "name": "Brown Residential College",
+    "address": "Gibbons House (HRL office), 425 Tree House Drive, Charlottesville, VA 22904 (office address; residence street address not published)",
+    "kind": "on_grounds",
+    "onGrounds": true,
+    "neighborhood": "On Grounds",
+    "landlordId": "ll-uva-hrl",
+    "website": "https://housing.virginia.edu/brown",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": true,
+    "busRoutes": [
+      "Orange",
+      "Silver"
+    ],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": true,
+    "onGroundsInfo": {
+      "program": "residential_college",
+      "eligibility": "Returning undergraduates; requires a separate Brown College application in addition to the Returning Student Housing Application; upperclass residents must be on a meal plan.",
+      "hrlUrl": "https://housing.virginia.edu/brown",
+      "applicationOpens": "2026-10-01",
+      "applicationDeadline": "2026-10-18"
+    },
+    "source": "https://housing.virginia.edu/brown ; https://housing.virginia.edu/housing-rates ; https://housing.virginia.edu/upperclass-faq ; https://housing.virginia.edu/upperclass-housing-numbers-capacities ; https://housing.virginia.edu/upperclass-housing-deadlines ; https://housing.virginia.edu/2026-2027-dates ; https://housing.virginia.edu/returning-undergraduates ; Rates are HRL published 2026-27 per-person academic-year rates (2027-28 rates not yet published); contract is 9 months per HRL upperclass FAQ; rentAmount = yearly / 9 rounded: Semi-private single (2 singles sharing a bath), per person $10,060/yr / 9 months = $1118/mo. Lease dates for 2027-28 not published, inferred from 2026-27 (Aug 23 2026 upperclass move-in, May 15 2027 move-out) (2027-28 dates inferred from 2026-27). HRL rate table gives no room type for Brown; capacities page lists semi-private singles. Separate Brown application dates not published (RC deadline shown).",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03313,
+      "lng": -78.51479
+    }
+  },
+  {
+    "id": "p-camden-courtyard",
+    "slug": "camden-courtyard",
+    "name": "Camden Courtyard",
+    "address": "222 14th Street NW, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "The Corner",
+    "landlordId": "ll-woodard-properties",
+    "website": "https://woodardproperties.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.brac.com/propertyDetails.cfm?propID=2763 ; https://woodardproperties.com ; 1BR $899 per bedroom, 3BR $3,399 per unit, 12 mo per BRAC list (availability 2026 now); baths 1/2 from BRAC list; 2027-28 dates inferred; lease liability not published; amenities not published",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03554,
+      "lng": -78.4985
+    }
+  },
+  {
+    "id": "p-casa-bolivar",
+    "slug": "casa-bolivar",
+    "name": "Casa Bolivar (Spanish House)",
+    "address": "Jefferson Park Avenue between Maison Francaise and Shea House, Charlottesville, VA (street number not published)",
+    "kind": "on_grounds",
+    "onGrounds": true,
+    "neighborhood": "On Grounds",
+    "landlordId": "ll-uva-hrl",
+    "website": "https://housing.virginia.edu/spanish",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": false
+    },
+    "onBusRoute": true,
+    "busRoutes": [
+      "Orange",
+      "Silver"
+    ],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": true,
+    "onGroundsInfo": {
+      "program": "language_house",
+      "eligibility": "Open to all upperclass undergraduates; students earn one academic credit.",
+      "hrlUrl": "https://housing.virginia.edu/spanish",
+      "applicationOpens": "2026-10-01",
+      "applicationDeadline": "2026-10-18"
+    },
+    "source": "https://housing.virginia.edu/spanish ; https://housing.virginia.edu/housing-rates ; https://housing.virginia.edu/upperclass-faq ; https://housing.virginia.edu/upperclass-housing-numbers-capacities ; https://housing.virginia.edu/upperclass-housing-deadlines ; https://housing.virginia.edu/2026-2027-dates ; https://housing.virginia.edu/returning-undergraduates ; Rates are HRL published 2026-27 per-person academic-year rates (2027-28 rates not yet published); contract is 9 months per HRL upperclass FAQ; rentAmount = yearly / 9 rounded: Double room, per person $9,410/yr / 9 months = $1046/mo; Single room $10,560/yr / 9 months = $1173/mo. Lease dates for 2027-28 not published, inferred from 2026-27 (Aug 23 2026 upperclass move-in, May 15 2027 move-out) (2027-28 dates inferred from 2026-27). Dishwasher from an HRL photo caption only. Limited parking listed (price not published).",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.0317,
+      "lng": -78.50241
+    }
+  },
+  {
+    "id": "p-cherry-suites",
+    "slug": "cherry-suites",
+    "name": "Cherry Suites",
+    "address": "1001-1003 Cherry Avenue, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "West Main",
+    "landlordId": "ll-woodard-properties",
+    "website": "https://woodardproperties.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.brac.com/configDetails.cfm?config=3561 ; per-bedroom rent range $799-$875, lowest used ; leasing Aug 2026, fixed term (length unpublished) (2027-28 dates inferred from 2026-27) ; lease liability not published",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.02755,
+      "lng": -78.49987
+    }
+  },
+  {
+    "id": "p-copeley-apartments",
+    "slug": "copeley-apartments",
+    "name": "Copeley Apartments",
+    "address": "Copeley (North Grounds, across from the Law School), Charlottesville, VA (street number not published)",
+    "kind": "on_grounds",
+    "onGrounds": true,
+    "neighborhood": "On Grounds",
+    "landlordId": "ll-uva-hrl",
+    "website": "https://housing.virginia.edu/copeley",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": true,
+    "busRoutes": [
+      "Orange",
+      "Silver"
+    ],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": true,
+    "onGroundsInfo": {
+      "program": "upperclass_apartment",
+      "eligibility": "Upperclass on-Grounds apartment; housing not guaranteed; apply by the Oct 23 priority deadline via the housing portal (no other criteria stated).",
+      "hrlUrl": "https://housing.virginia.edu/copeley",
+      "applicationOpens": "2026-10-01",
+      "applicationDeadline": "2026-10-23"
+    },
+    "source": "https://housing.virginia.edu/copeley ; https://housing.virginia.edu/housing-rates ; https://housing.virginia.edu/upperclass-faq ; https://housing.virginia.edu/upperclass-housing-numbers-capacities ; https://housing.virginia.edu/upperclass-housing-deadlines ; https://housing.virginia.edu/2026-2027-dates ; https://housing.virginia.edu/returning-undergraduates ; Rates are HRL published 2026-27 per-person academic-year rates (2027-28 rates not yet published); contract is 9 months per HRL upperclass FAQ; rentAmount = yearly / 9 rounded: 2BR 2-person apartment, single bedroom (per person) $10,560/yr / 9 months = $1173/mo. Lease dates for 2027-28 not published, inferred from 2026-27 (Aug 23 2026 upperclass move-in, May 15 2027 move-out) (2027-28 dates inferred from 2026-27). Complex includes laundry facilities and a vending area per HRL.",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.04959,
+      "lng": -78.5093
+    }
+  },
+  {
+    "id": "p-faulkner-apartments",
+    "slug": "faulkner-apartments",
+    "name": "Faulkner Apartments",
+    "address": "Hench, Mitchell and Younger buildings near John Paul Jones Arena, Charlottesville, VA (street number not published)",
+    "kind": "on_grounds",
+    "onGrounds": true,
+    "neighborhood": "On Grounds",
+    "landlordId": "ll-uva-hrl",
+    "website": "https://housing.virginia.edu/faulkner",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": true,
+    "busRoutes": [
+      "Gold"
+    ],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": true,
+    "onGroundsInfo": {
+      "program": "upperclass_apartment",
+      "eligibility": "Upperclass on-Grounds apartment; housing not guaranteed; apply by the Oct 23 priority deadline via the housing portal (no other criteria stated).",
+      "hrlUrl": "https://housing.virginia.edu/faulkner",
+      "applicationOpens": "2026-10-01",
+      "applicationDeadline": "2026-10-23"
+    },
+    "source": "https://housing.virginia.edu/faulkner ; https://housing.virginia.edu/housing-rates ; https://housing.virginia.edu/upperclass-faq ; https://housing.virginia.edu/upperclass-housing-numbers-capacities ; https://housing.virginia.edu/upperclass-housing-deadlines ; https://housing.virginia.edu/2026-2027-dates ; https://housing.virginia.edu/returning-undergraduates ; Rates are HRL published 2026-27 per-person academic-year rates (2027-28 rates not yet published); contract is 9 months per HRL upperclass FAQ; rentAmount = yearly / 9 rounded: 4BR 4-person apartment, single bedroom (per person) $10,560/yr / 9 months = $1173/mo. Lease dates for 2027-28 not published, inferred from 2026-27 (Aug 23 2026 upperclass move-in, May 15 2027 move-out) (2027-28 dates inferred from 2026-27).",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.04869,
+      "lng": -78.5139
+    }
+  },
+  {
+    "id": "p-first-and-main",
+    "slug": "first-and-main",
+    "name": "First & Main",
+    "address": "100 First Street North, Charlottesville, VA 22902",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Downtown",
+    "landlordId": "ll-woodard-properties",
+    "website": "https://woodardproperties.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.brac.com/propertyDetails.cfm?propID=4963 ; lowest of two listed units (Apt 204 $1,699; Apt 303 $1,899) ; lease liability not published ; lease term/dates not published for 2027-28, 12-month Aug-Jul 2027-08-01 to 2028-07-31 inferred",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03092,
+      "lng": -78.48153
+    }
+  },
+  {
+    "id": "p-flats-at-west-village",
+    "slug": "flats-at-west-village",
+    "name": "Flats at West Village",
+    "address": "852 W Main St, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "West Main",
+    "landlordId": "ll-flats-at-west-village-office",
+    "website": "https://www.flatsatwestvillage.com/",
+    "amenities": {
+      "gym": true,
+      "studyRooms": true,
+      "rooftop": true,
+      "pool": true,
+      "elevator": true,
+      "parkingAvailable": true,
+      "petsAllowed": true
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.flatsatwestvillage.com/ ; https://www.flatsatwestvillage.com/rates-floorplans (2027-28 per-person monthly rates, lowest per plan; rates page header says 2027-28 term Aug 18 2027-Jul 26 2028 though a footnote lists 2026-27 dates; furniture, internet included; per-person contracts; sqft not published; 1BR bath count inferred) ; https://www.veryapt.com/ApartmentReview-a25669-the-flats-west-village-charlottesville (rooftop deck, pool, elevators, garage, pets; third-party)",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03188,
+      "lng": -78.49292
+    }
+  },
+  {
+    "id": "p-grady-apartments",
+    "slug": "grady-apartments",
+    "name": "Grady Apartments",
+    "address": "1410 Grady Avenue, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Grady Ave",
+    "landlordId": "ll-woodard-properties",
+    "website": "https://woodardproperties.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.brac.com/propertyDetails.cfm?propID=5023 ; https://woodardproperties.com ; 1BR $1,399 per unit (lowest of $1,399-$1,599), 12 mo, Aug 2027 availability per BRAC; baths 1 per BRAC list; 2027-28 dates inferred from BRAC availability; lease liability not published; amenities not published on sources read",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.04022,
+      "lng": -78.49689
+    }
+  },
+  {
+    "id": "p-hereford-college",
+    "slug": "hereford-college",
+    "name": "Hereford Residential College",
+    "address": "Norris and Whyburn Houses, Charlottesville, VA (street address not published; HRL office: 425 Tree House Drive, Charlottesville, VA 22904)",
+    "kind": "on_grounds",
+    "onGrounds": true,
+    "neighborhood": "On Grounds",
+    "landlordId": "ll-uva-hrl",
+    "website": "https://housing.virginia.edu/hereford",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": true,
+    "busRoutes": [
+      "Gold",
+      "Green"
+    ],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": true,
+    "onGroundsInfo": {
+      "program": "residential_college",
+      "eligibility": "Upperclass singles and doubles for returning undergraduates; upperclass residents must be on a meal plan.",
+      "hrlUrl": "https://housing.virginia.edu/hereford",
+      "applicationOpens": "2026-10-01",
+      "applicationDeadline": "2026-10-18"
+    },
+    "source": "https://housing.virginia.edu/hereford ; https://housing.virginia.edu/housing-rates ; https://housing.virginia.edu/upperclass-faq ; https://housing.virginia.edu/upperclass-housing-numbers-capacities ; https://housing.virginia.edu/upperclass-housing-deadlines ; https://housing.virginia.edu/2026-2027-dates ; https://housing.virginia.edu/returning-undergraduates ; Rates are HRL published 2026-27 per-person academic-year rates (2027-28 rates not yet published); contract is 9 months per HRL upperclass FAQ; rentAmount = yearly / 9 rounded: Single room (hall style, shared bath) $9,490/yr / 9 months = $1054/mo; Double room (hall style, shared bath), per person $8,790/yr / 9 months = $977/mo. Lease dates for 2027-28 not published, inferred from 2026-27 (Aug 23 2026 upperclass move-in, May 15 2027 move-out) (2027-28 dates inferred from 2026-27). Bus service every 20 min per HRL page.",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03027,
+      "lng": -78.52082
+    }
+  },
+  {
+    "id": "p-international-residential-college",
+    "slug": "international-residential-college",
+    "name": "International Residential College (IRC)",
+    "address": "Munford/Gwathmey Houses on Emmet Street and Yen/Hoxton Houses on Sprigg Lane, Charlottesville, VA (street numbers not published)",
+    "kind": "on_grounds",
+    "onGrounds": true,
+    "neighborhood": "On Grounds",
+    "landlordId": "ll-uva-hrl",
+    "website": "https://housing.virginia.edu/irc",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": true,
+    "busRoutes": [
+      "Gold",
+      "Green",
+      "Silver"
+    ],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": true,
+    "onGroundsInfo": {
+      "program": "residential_college",
+      "eligibility": "Returning and incoming undergraduates, domestic and international (over 300 students); no formal eligibility criteria stated on the page.",
+      "hrlUrl": "https://housing.virginia.edu/irc",
+      "applicationOpens": "2026-10-01",
+      "applicationDeadline": "2026-10-18"
+    },
+    "source": "https://housing.virginia.edu/irc ; https://housing.virginia.edu/housing-rates ; https://housing.virginia.edu/upperclass-faq ; https://housing.virginia.edu/upperclass-housing-numbers-capacities ; https://housing.virginia.edu/upperclass-housing-deadlines ; https://housing.virginia.edu/2026-2027-dates ; https://housing.virginia.edu/returning-undergraduates ; Rates are HRL published 2026-27 per-person academic-year rates (2027-28 rates not yet published); contract is 9 months per HRL upperclass FAQ; rentAmount = yearly / 9 rounded: Double room (shared bath), per person $8,790/yr / 9 months = $977/mo; Single room (shared bath) $10,060/yr / 9 months = $1118/mo; Single room with private bath $10,560/yr / 9 months = $1173/mo. Lease dates for 2027-28 not published, inferred from 2026-27 (Aug 23 2026 upperclass move-in, May 15 2027 move-out) (2027-28 dates inferred from 2026-27).",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03941,
+      "lng": -78.50775
+    }
+  },
+  {
+    "id": "p-ivy-garden",
+    "slug": "ivy-garden",
+    "name": "Ivy Garden Apartments",
+    "address": "100 Ivy Dr, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Barracks Road",
+    "landlordId": "ll-ivy-garden",
+    "website": "https://www.ivygarden.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": true,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.ivygarden.com (read 2026-10-19; starting rents, lowest of published range per plan). Pet policy, lease terms, fees not on site (no-pets only from third-party Virginia Navigator listing, not applied). Lease terms not published: dates inferred as 12-month Aug 2027-Jul 2028 (2027-28 dates inferred); lease liability not published",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.04682,
+      "lng": -78.51595
+    }
+  },
+  {
+    "id": "p-lambeth-field-apartments",
+    "slug": "lambeth-field-apartments",
+    "name": "Lambeth Field Apartments",
+    "address": "Lambeth Field, Charlottesville, VA (street number not published)",
+    "kind": "on_grounds",
+    "onGrounds": true,
+    "neighborhood": "On Grounds",
+    "landlordId": "ll-uva-hrl",
+    "website": "https://housing.virginia.edu/lambeth",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": true,
+    "busRoutes": [
+      "Gold",
+      "Silver"
+    ],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": true,
+    "onGroundsInfo": {
+      "program": "upperclass_apartment",
+      "eligibility": "Upperclass on-Grounds apartment; housing not guaranteed; apply by the Oct 23 priority deadline via the housing portal (no other criteria stated).",
+      "hrlUrl": "https://housing.virginia.edu/lambeth",
+      "applicationOpens": "2026-10-01",
+      "applicationDeadline": "2026-10-23"
+    },
+    "source": "https://housing.virginia.edu/lambeth ; https://housing.virginia.edu/housing-rates ; https://housing.virginia.edu/upperclass-faq ; https://housing.virginia.edu/upperclass-housing-numbers-capacities ; https://housing.virginia.edu/upperclass-housing-deadlines ; https://housing.virginia.edu/2026-2027-dates ; https://housing.virginia.edu/returning-undergraduates ; Rates are HRL published 2026-27 per-person academic-year rates (2027-28 rates not yet published); contract is 9 months per HRL upperclass FAQ; rentAmount = yearly / 9 rounded: 2BR 4-person apartment, double room (per person) $9,410/yr / 9 months = $1046/mo; 3BR 6-person apartment, double room (per person) $9,410/yr / 9 months = $1046/mo; 3BR 3-person apartment, single bedroom (per person) $10,560/yr / 9 months = $1173/mo. Lease dates for 2027-28 not published, inferred from 2026-27 (Aug 23 2026 upperclass move-in, May 15 2027 move-out) (2027-28 dates inferred from 2026-27). HRL page lists routes as Gold, Siver (typo, read as Silver). Singles in 3BR subject to availability.",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.04106,
+      "lng": -78.50312
+    }
+  },
+  {
+    "id": "p-lark-on-main",
+    "slug": "lark-on-main",
+    "name": "Lark on Main",
+    "address": "1000 W Main St, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "West Main",
+    "landlordId": "ll-scion-group",
+    "website": "https://www.larkonmain.com/",
+    "amenities": {
+      "gym": true,
+      "studyRooms": true,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": false,
+      "parkingMonthly": 150
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.larkonmain.com/ ; https://www.larkonmain.com/rates-floorplans (2027-28 per-person monthly rates, lowest per plan; covered parking $150/mo, garage $175/mo; rates include furniture, in-unit laundry, internet, trash; lease liability not published; ac/dishwasher not published; sqft not published)",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03267,
+      "lng": -78.49547
+    }
+  },
+  {
+    "id": "p-maywood-on-jpa",
+    "slug": "maywood-on-jpa",
+    "name": "Maywood on Jefferson Park Avenue",
+    "address": "1718 Jefferson Park Avenue, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "JPA",
+    "landlordId": "ll-cbs-rentals",
+    "website": "https://www.cbsrentals.com/maywood.cfm",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.brac.com/propertyDetails.cfm?propID=251 ; https://www.cbsrentals.com/maywood.cfm ; rent per tenant per month, 12 mo per BRAC listing, Jun 2027 availability; 2027-28 dates inferred from 2026-27; lease liability not published (individual payments accepted per BRAC)",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.02927,
+      "lng": -78.50888
+    }
+  },
+  {
+    "id": "p-mcintire-plaza",
+    "slug": "mcintire-plaza",
+    "name": "McIntire Plaza Apartments",
+    "address": "1745-1750 Allied Street, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Downtown",
+    "landlordId": "ll-woodard-properties",
+    "website": "https://woodardproperties.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": true,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.brac.com/propertyDetails.cfm?propID=5417 ; lease liability not published ; lease term/dates not published for 2027-28, 12-month Aug-Jul 2027-08-01 to 2028-07-31 inferred",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.04152,
+      "lng": -78.47929
+    }
+  },
+  {
+    "id": "p-meriwether-on-market",
+    "slug": "meriwether-on-market",
+    "name": "The Meriwether on Market Street",
+    "address": "1000 East Market Street, Charlottesville, VA 22902",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Downtown",
+    "landlordId": "ll-cbs-rentals",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "gradHeavy": true,
+    "source": "https://www.brac.com/configDetails.cfm?config=302 ; ZIP not on listing, 22902 assumed for downtown East Market St ; 12-month lease from June 2026 published, short-term leases also available (2027-28 dates inferred from 2026-27) ; lease liability not published ; listing says no undergraduates",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.02854,
+      "lng": -78.47309
+    }
+  },
+  {
+    "id": "p-one-hundred-avon",
+    "slug": "one-hundred-avon",
+    "name": "One Hundred Avon",
+    "address": "100 Avon Street, Charlottesville, VA 22902",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Downtown",
+    "landlordId": "ll-cbs-rentals",
+    "website": "https://onehundredavon.com/floorplans",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "gradHeavy": true,
+    "source": "https://www.brac.com/propertyDetails.cfm?propID=5946 ; lowest of listed ranges (units 113 & 114 $1,655-$1,805) ; listing says no undergraduates ; lease liability not published ; lease term/dates not published for 2027-28, 12-month Aug-Jul 2027-08-01 to 2028-07-31 inferred",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.02785,
+      "lng": -78.4753
+    }
+  },
+  {
+    "id": "p-oxbridge-courtyard",
+    "slug": "oxbridge-courtyard",
+    "name": "Oxbridge Courtyard Apartments",
+    "address": "314 14th Street NW, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "The Corner",
+    "landlordId": "ll-woodard-properties",
+    "website": "https://woodardproperties.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.brac.com/propertyDetails.cfm?propID=3852 ; https://woodardproperties.com ; 1BR $1,825 and 2BR $2,399 per unit, 12 mo, Aug 2027 per BRAC list; baths 1/2 from BRAC list; 2027-28 dates inferred; lease liability not published; amenities not published",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03653,
+      "lng": -78.49782
+    }
+  },
+  {
+    "id": "p-preston-square",
+    "slug": "preston-square",
+    "name": "Preston Square Apartments",
+    "address": "1111-1123 Preston Avenue, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Venable",
+    "landlordId": "ll-management-services-corporation",
+    "amenities": {
+      "gym": true,
+      "studyRooms": true,
+      "rooftop": false,
+      "pool": true,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": true
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.brac.com/configDetails.cfm?config=1199 ; 3BR rent range $2,990-$3,050, lowest used ; leasing 2027-2028, fixed term starting June or July 2027 (2027-07-01 to 2028-06-30 inferred) ; leased by full apartment, not by bedroom",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03879,
+      "lng": -78.49103
+    }
+  },
+  {
+    "id": "p-shea-house",
+    "slug": "shea-house",
+    "name": "Shea House",
+    "address": "Jefferson Park Avenue, Charlottesville, VA (street number not published)",
+    "kind": "on_grounds",
+    "onGrounds": true,
+    "neighborhood": "On Grounds",
+    "landlordId": "ll-uva-hrl",
+    "website": "https://housing.virginia.edu/shea",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": true,
+    "busRoutes": [
+      "Orange",
+      "Silver"
+    ],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": true,
+    "onGroundsInfo": {
+      "program": "language_house",
+      "eligibility": "Multi-language immersion house (about 75 students); requires a separate application in addition to the Returning Student Housing Application.",
+      "hrlUrl": "https://housing.virginia.edu/shea",
+      "applicationOpens": "2026-10-01",
+      "applicationDeadline": "2026-10-18"
+    },
+    "source": "https://housing.virginia.edu/shea ; https://housing.virginia.edu/housing-rates ; https://housing.virginia.edu/upperclass-faq ; https://housing.virginia.edu/upperclass-housing-numbers-capacities ; https://housing.virginia.edu/upperclass-housing-deadlines ; https://housing.virginia.edu/2026-2027-dates ; https://housing.virginia.edu/returning-undergraduates ; Rates are HRL published 2026-27 per-person academic-year rates (2027-28 rates not yet published); contract is 9 months per HRL upperclass FAQ; rentAmount = yearly / 9 rounded: Double room, per person $9,410/yr / 9 months = $1046/mo; Single room $10,560/yr / 9 months = $1173/mo. Lease dates for 2027-28 not published, inferred from 2026-27 (Aug 23 2026 upperclass move-in, May 15 2027 move-out) (2027-28 dates inferred from 2026-27). Separate Shea application dates not published (language house deadline shown). Page does not say furnished but lists beds, desks, wardrobes.",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03171,
+      "lng": -78.50268
+    }
+  },
+  {
+    "id": "p-tarleton-square",
+    "slug": "tarleton-square",
+    "name": "Tarleton Square",
+    "address": "701 East High Street, Charlottesville, VA",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Downtown",
+    "landlordId": "ll-great-eastern-management",
+    "website": "https://tarletonsquare.com",
+    "amenities": {
+      "gym": true,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": true,
+      "parkingAvailable": true,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.brac.com/propertyDetails.cfm?propID=661 ; ranges, lowest used (Efficiency $1,224-$1,399; 1BR $1,439-$1,544; 2BR $1,539-$1,779) ; ZIP not published ; lease liability not published ; lease term/dates not published for 2027-28, 12-month Aug-Jul 2027-08-01 to 2028-07-31 inferred",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03167,
+      "lng": -78.47575
+    }
+  },
+  {
+    "id": "p-the-kenilworth",
+    "slug": "the-kenilworth",
+    "name": "The Kenilworth",
+    "address": "1725 Jefferson Park Avenue, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "JPA",
+    "landlordId": "ll-university-apartments",
+    "website": "https://u-apts.com/",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.u-apts.com/property.cfm?id=5646 ; https://u-apts.com/ ; rents are lowest published per-bedroom (4BR $1,200-1,225, 2BR $1,400-1,750); leased by whole apartment (2027-28 dates inferred from published 2027 availability; lease length not published); lease liability not published",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.02954,
+      "lng": -78.50958
+    }
+  },
+  {
+    "id": "p-the-pavilions",
+    "slug": "the-pavilions",
+    "name": "The Pavilions",
+    "address": "2112 Jefferson Park Avenue, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "JPA",
+    "landlordId": "ll-denstock-management",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.brac.com/configDetails.cfm?config=1033 ; $975 per bedroom, 12 month lease, start May-Aug 2027-28; lease liability not published; ZIP not listed on source (22903 assumed)",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.02618,
+      "lng": -78.51356
+    }
+  },
+  {
+    "id": "p-the-v",
+    "slug": "the-v",
+    "name": "The V",
+    "address": "201 15th Street NW, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "The Corner",
+    "landlordId": "ll-veliky-rentals",
+    "website": "https://www.velikyrentals.com",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": true,
+      "parkingAvailable": true,
+      "petsAllowed": false
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.brac.com/propertyDetails.cfm?propID=2354 ; https://www.velikyrentals.com/detail.cfm?ID=2845 ; https://www.velikyrentals.com ; units G and H 2BR/2BA $2,210 per unit; lease term not published, dates inferred (BRAC: Jun or Aug); lease liability not published",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.03607,
+      "lng": -78.49973
+    }
+  },
+  {
+    "id": "p-university-heights",
+    "slug": "university-heights",
+    "name": "University Heights Apartments",
+    "address": "250 Colonnade Dr, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Barracks Road",
+    "landlordId": "ll-frye-properties",
+    "website": "http://www.uheights.net",
+    "amenities": {
+      "gym": true,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": true,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": true
+    },
+    "onBusRoute": true,
+    "busRoutes": [
+      "UTS"
+    ],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://brac.com/propertyDetails.cfm?propID=42 (undated page; lowest of each published range used; third-party listings show higher, e.g. 1BR $1,250-$1,365, so verify) ; http://www.uheights.net (amenities; UVA bus stops in community; no rents published). Lease terms not published: dates inferred 12-month Aug 2027-Jul 2028 (2027-28 dates inferred); lease liability not published",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.04336,
+      "lng": -78.51648
+    }
+  },
+  {
+    "id": "p-verve-charlottesville",
+    "slug": "verve-charlottesville",
+    "name": "VERVE Charlottesville",
+    "address": "100 Stadium Rd, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "Fontaine",
+    "landlordId": "ll-subtext",
+    "website": "https://verve-charlottesville.prospectportal.com/charlottesville/verve-charlottesville/",
+    "amenities": {
+      "gym": true,
+      "studyRooms": true,
+      "rooftop": false,
+      "pool": true,
+      "elevator": false,
+      "parkingAvailable": false,
+      "petsAllowed": true
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://subtextliving.com/p/verve-charlottesville/ ; https://verve-charlottesville.prospectportal.com/charlottesville/verve-charlottesville/student/ (prices taken from web-search excerpts of the official leasing portal; direct fetch blocked 403). Rendering-only, under construction, delivering summer 2027. Studio S2 $1,910 (VIP variant $2,010), S3 $1,935 (one excerpt showed $1,925), S5 $2,330; 1BR A1 $2,520, A3 $2,630; portal lists 41-42 floor plans; rent is the LOWEST published for each plan. Lease 08/17/2027-07/28/2028 annual as published; lease liability not published; 2BR-4BR prices not retrieved.",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.0322,
+      "lng": -78.50922
+    }
+  },
+  {
+    "id": "p-wertland-apartments-1115",
+    "slug": "wertland-apartments-1115",
+    "name": "Wertland Apartments (1115 Wertland St)",
+    "address": "1115 Wertland St, Charlottesville, VA 22903",
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "The Corner",
+    "landlordId": "ll-university-apartments",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": true
+    },
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "https://www.padmapper.com/address/1115-wertland-st-charlottesville-va-22903-usa (32 units; leased by whole apartment; 4BR/2BA range $4,900-$5,100 so lowest used; $250/mo utility fee covers Ting fiber, water/sewer, trash; $1000 deposit, $900 restoration fee, $395 pet fee; lease dates not published, 2027-08-01 to 2028-07-31 inferred as typical 12 month; lease liability treated as joint (whole-unit lease); sqft not published; dishwasher and in-unit W/D listed)",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-19",
+    "location": {
+      "lat": 38.035,
+      "lng": -78.4957
+    }
   }
 ]
