@@ -68,9 +68,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     <Link href="/settings" className="rounded-sm px-3 py-2 text-sm text-ink hover:bg-surface-2">
                       Settings
                     </Link>
-                    <Link href="/signout" className="rounded-sm px-3 py-2 text-sm text-ink hover:bg-surface-2">
-                      Sign out
-                    </Link>
+                    <form action="/signout" method="post">
+                      <button type="submit" className="w-full rounded-sm px-3 py-2 text-left text-sm text-ink hover:bg-surface-2">
+                        Sign out
+                      </button>
+                    </form>
                   </div>
                 </details>
               ) : (
