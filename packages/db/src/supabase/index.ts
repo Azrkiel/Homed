@@ -1,6 +1,6 @@
 // Supabase store. Phase 4 owns this folder.
-// Done: catalog, users, saves (client.ts, mappers.ts, seed.ts, catalog.ts, users.ts, saves.ts).
-// PLACEHOLDER: groups, alerts, reviews, landlords, applications. Each stub throws 'not implemented: <method>'
+// Done: catalog, users, saves, groups, alerts, reviews.
+// PLACEHOLDER: landlords, applications. Each stub throws 'not implemented: <method>'
 // until its owning engineer replaces the stub with a real implementation.
 import type { Repository, StoreClock } from '../repository';
 import type { AuthProvider } from '../auth';
@@ -8,6 +8,9 @@ import { notImplemented } from '@homed/core';
 import { createCtx } from './client';
 import { catalogRepo } from './catalog';
 import { saveRepo } from './saves';
+import { groupRepo } from './groups';
+import { alertRepo } from './alerts';
+import { reviewRepo } from './reviews';
 import { userRepo } from './users';
 
 export interface SupabaseStoreOptions {
@@ -25,43 +28,6 @@ function stub(name: string): () => Promise<never> {
     throw new Error(`not implemented: ${name}`);
   };
 }
-
-// PLACEHOLDER: groups area (replace with groupRepo(ctx) from ./groups).
-const groupStubs = {
-  createGroup: stub('createGroup'),
-  getGroup: stub('getGroup'),
-  getGroupByInviteCode: stub('getGroupByInviteCode'),
-  listGroupsForUser: stub('listGroupsForUser'),
-  listMembers: stub('listMembers'),
-  joinGroup: stub('joinGroup'),
-  leaveGroup: stub('leaveGroup'),
-  updateMember: stub('updateMember'),
-  listShortlist: stub('listShortlist'),
-  addToShortlist: stub('addToShortlist'),
-  removeFromShortlist: stub('removeFromShortlist'),
-  castVote: stub('castVote'),
-  listVotes: stub('listVotes'),
-};
-
-// PLACEHOLDER: alerts area (replace with alertRepo(ctx) from ./alerts).
-const alertStubs = {
-  listAlerts: stub('listAlerts'),
-  listAllAlerts: stub('listAllAlerts'),
-  createAlert: stub('createAlert'),
-  deleteAlert: stub('deleteAlert'),
-  addAlertEvents: stub('addAlertEvents'),
-  listAlertEvents: stub('listAlertEvents'),
-  markAlertEventsRead: stub('markAlertEventsRead'),
-};
-
-// PLACEHOLDER: reviews area (replace with reviewRepo(ctx) from ./reviews).
-const reviewStubs = {
-  listReviews: stub('listReviews'),
-  createReview: stub('createReview'),
-  listPendingReviews: stub('listPendingReviews'),
-  moderateReview: stub('moderateReview'),
-  replyToReview: stub('replyToReview'),
-};
 
 // PLACEHOLDER: landlords area (replace with landlordRepo(ctx) from ./landlords).
 const landlordStubs = {
@@ -104,9 +70,9 @@ export function createSupabaseRepository(opts: SupabaseStoreOptions): Repository
     ...catalogRepo(ctx),
     ...userRepo(ctx),
     ...saveRepo(ctx),
-    ...groupStubs,
-    ...alertStubs,
-    ...reviewStubs,
+    ...groupRepo(ctx),
+    ...alertRepo(ctx),
+    ...reviewRepo(ctx),
     ...landlordStubs,
     ...applicationStubs,
   };
