@@ -2,13 +2,13 @@
 import type { SeedData } from '@homed/data';
 import type { Repository, StoreClock } from '../repository';
 import { alertRepo } from './alerts';
+import { applicationRepo } from './applications';
 import { catalogRepo } from './catalog';
 import { groupRepo } from './groups';
 import { landlordRepo } from './landlords';
 import { reviewRepo } from './reviews';
 import { saveRepo } from './saves';
 import { createCtx } from './store';
-import { stubs } from './stubs';
 import { userRepo } from './users';
 
 export interface JsonStoreOptions {
@@ -25,7 +25,6 @@ export function createJsonRepository(opts: JsonStoreOptions): Repository {
   const ctx = createCtx(opts);
   return {
     backend: 'json',
-    ...stubs(),
     ...catalogRepo(ctx),
     ...userRepo(ctx),
     ...saveRepo(ctx),
@@ -33,5 +32,6 @@ export function createJsonRepository(opts: JsonStoreOptions): Repository {
     ...alertRepo(ctx),
     ...reviewRepo(ctx),
     ...landlordRepo(ctx),
+    ...applicationRepo(ctx),
   };
 }

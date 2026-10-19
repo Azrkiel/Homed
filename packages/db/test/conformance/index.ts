@@ -1,6 +1,7 @@
 import { describe } from 'vitest';
 import type { Repository } from '../../src/repository';
 import { alertsConformance } from './alerts';
+import { applicationsConformance } from './applications';
 import { catalogConformance } from './catalog';
 import { groupsConformance } from './groups';
 import { landlordsConformance } from './landlords';
@@ -18,5 +19,6 @@ export function runRepositoryConformance(name: string, makeRepo: () => Promise<R
     alertsConformance(makeRepo);
     reviewsConformance(makeRepo);
     landlordsConformance(makeRepo);
+    applicationsConformance(makeRepo);
   });
 }
