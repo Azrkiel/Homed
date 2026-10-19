@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+dist/
+coverage/
+.env
+.env.local
+.env.*.local
+# local JSON store (seeded from packages/data on first run)
+.data/
+apps/mobile/.expo/
+apps/mobile/dist/
+*.tsbuildinfo
+playwright-report/
+test-results/

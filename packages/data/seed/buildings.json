@@ -1,0 +1,32 @@
+[
+  {
+    "id": "b-thornton",
+    "code": "THN",
+    "name": "Thornton Hall",
+    "entrance": {
+      "lat": 38.03317,
+      "lng": -78.50995
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-rouss-robertson",
+    "code": "RRH",
+    "name": "Rouss & Robertson Halls",
+    "entrance": {
+      "lat": 38.03264,
+      "lng": -78.50381
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-clemons",
+    "code": "CLEM",
+    "name": "Clemons Library",
+    "entrance": {
+      "lat": 38.03621,
+      "lng": -78.50612
+    },
+    "kind": "library"
+  }
+]

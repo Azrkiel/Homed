@@ -1,0 +1,20 @@
+[
+  {
+    "id": "ph-lofts-1",
+    "propertyId": "p-fixture-lofts",
+    "url": "/placeholder/building.svg",
+    "alt": "Fixture Lofts exterior (placeholder)",
+    "isRendering": false,
+    "looksRating": 4.2,
+    "ratingCount": 12
+  },
+  {
+    "id": "ph-lofts-2",
+    "propertyId": "p-fixture-lofts",
+    "floorPlanId": "fp-lofts-4x4",
+    "url": "/placeholder/rendering.svg",
+    "alt": "4x4 kitchen rendering (placeholder)",
+    "isRendering": true,
+    "ratingCount": 0
+  }
+]

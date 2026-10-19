@@ -1,0 +1,9 @@
+[
+  {
+    "id": "ll-fixture",
+    "name": "Fixture Property Management",
+    "email": "leasing@fixture.example",
+    "verified": false,
+    "createdAt": "2026-10-18T00:00:00.000Z"
+  }
+]

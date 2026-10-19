@@ -1,0 +1,29 @@
+[
+  {
+    "id": "lawn",
+    "name": "The Lawn (Rotunda)",
+    "location": {
+      "lat": 38.03566,
+      "lng": -78.50345
+    },
+    "kind": "other"
+  },
+  {
+    "id": "corner",
+    "name": "The Corner",
+    "location": {
+      "lat": 38.03466,
+      "lng": -78.50025
+    },
+    "kind": "social"
+  },
+  {
+    "id": "afc",
+    "name": "Aquatic & Fitness Center",
+    "location": {
+      "lat": 38.03315,
+      "lng": -78.51393
+    },
+    "kind": "gym"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "m-engineering",
+    "name": "Engineering (undeclared)",
+    "school": "SEAS",
+    "buildings": [
+      {
+        "buildingId": "b-thornton",
+        "share": 0.8
+      },
+      {
+        "buildingId": "b-clemons",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 12
+  },
+  {
+    "id": "m-commerce",
+    "name": "Commerce (pre-comm)",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-rouss-robertson",
+        "share": 0.6
+      },
+      {
+        "buildingId": "b-clemons",
+        "share": 0.4
+      }
+    ],
+    "meetingsPerWeek": 10
+  }
+]

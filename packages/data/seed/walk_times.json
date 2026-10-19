@@ -1,0 +1,146 @@
+[
+  {
+    "propertyId": "p-fixture-lofts",
+    "targetId": "b-thornton",
+    "targetKind": "building",
+    "walkMinutes": 6,
+    "busMinutes": 10,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-lofts",
+    "targetId": "b-rouss-robertson",
+    "targetKind": "building",
+    "walkMinutes": 9,
+    "busMinutes": 13,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-lofts",
+    "targetId": "b-clemons",
+    "targetKind": "building",
+    "walkMinutes": 12,
+    "busMinutes": 16,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-lofts",
+    "targetId": "lawn",
+    "targetKind": "landmark",
+    "walkMinutes": 13,
+    "busMinutes": 17,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-lofts",
+    "targetId": "corner",
+    "targetKind": "landmark",
+    "walkMinutes": 15,
+    "busMinutes": 19,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-lofts",
+    "targetId": "afc",
+    "targetKind": "landmark",
+    "walkMinutes": 9,
+    "busMinutes": 13,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-rugby-house",
+    "targetId": "b-thornton",
+    "targetKind": "building",
+    "walkMinutes": 13,
+    "busMinutes": null,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-rugby-house",
+    "targetId": "b-rouss-robertson",
+    "targetKind": "building",
+    "walkMinutes": 11,
+    "busMinutes": null,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-rugby-house",
+    "targetId": "b-clemons",
+    "targetKind": "building",
+    "walkMinutes": 6,
+    "busMinutes": null,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-rugby-house",
+    "targetId": "lawn",
+    "targetKind": "landmark",
+    "walkMinutes": 6,
+    "busMinutes": null,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-rugby-house",
+    "targetId": "corner",
+    "targetKind": "landmark",
+    "walkMinutes": 9,
+    "busMinutes": null,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-rugby-house",
+    "targetId": "afc",
+    "targetKind": "landmark",
+    "walkMinutes": 17,
+    "busMinutes": null,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-on-grounds",
+    "targetId": "b-thornton",
+    "targetKind": "building",
+    "walkMinutes": 9,
+    "busMinutes": 13,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-on-grounds",
+    "targetId": "b-rouss-robertson",
+    "targetKind": "building",
+    "walkMinutes": 14,
+    "busMinutes": 18,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-on-grounds",
+    "targetId": "b-clemons",
+    "targetKind": "building",
+    "walkMinutes": 7,
+    "busMinutes": 11,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-on-grounds",
+    "targetId": "lawn",
+    "targetKind": "landmark",
+    "walkMinutes": 11,
+    "busMinutes": 15,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-on-grounds",
+    "targetId": "corner",
+    "targetKind": "landmark",
+    "walkMinutes": 16,
+    "busMinutes": 20,
+    "source": "estimate"
+  },
+  {
+    "propertyId": "p-fixture-on-grounds",
+    "targetId": "afc",
+    "targetKind": "landmark",
+    "walkMinutes": 11,
+    "busMinutes": 15,
+    "source": "estimate"
+  }
+]
