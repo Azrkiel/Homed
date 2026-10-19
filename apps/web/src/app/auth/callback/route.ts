@@ -1,4 +1,4 @@
-// Magic-link landing: exchanges ?code=... for a Homed session. Supabase mode only.
+// Magic-link landing: verifies ?token_hash=...&type=email and starts a Homed session. Supabase mode only.
 import { NextResponse } from 'next/server';
 import { getAuth } from '@/lib/repo';
 import { startSession } from '@/lib/session';
@@ -11,18 +11,18 @@ function safeNext(raw: string | null): string | null {
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
-  const code = url.searchParams.get('code');
+  const tokenHash = url.searchParams.get('token_hash');
   const next = safeNext(url.searchParams.get('next'));
   const fail = (reason: string) =>
     NextResponse.redirect(new URL(`/signin?error=${encodeURIComponent(reason)}`, url));
 
   const auth = getAuth();
   if (!auth.completeSignIn) return fail('Magic-link sign-in is not enabled.');
-  if (!code) return fail('Sign-in link is missing its code.');
+  if (!tokenHash) return fail('Sign-in link is missing its token.');
 
   let result;
   try {
-    result = await auth.completeSignIn({ code });
+    result = await auth.completeSignIn({ tokenHash });
   } catch {
     return fail('Could not complete sign-in. Try again.');
   }

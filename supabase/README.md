@@ -49,3 +49,15 @@ Notes
 - Some references have no FK on purpose (swipes, alert_events, applications to floor plans or groups) to match the JSON store, which keeps those rows when a floor plan is deleted.
 - Encrypted data (`applicant_profiles.sensitive_ciphertext`, `application_documents.ciphertext`) and `application_members.invite_token` are not selectable by anon or authenticated; only the service role reads them.
 - RLS identity: JWT email, lower-cased, matched to `users.email`.
+
+## Magic-link sign-in (token-hash flow)
+
+Sign-in is stateless: the email links to `<HOMED_APP_URL>/auth/callback?token_hash=...&type=email`,
+and the callback calls `verifyOtp`. Nothing is held in server memory, so links work after restarts
+and on any instance.
+
+- Local stack: `config.toml` already points the `magic_link` and `confirmation` templates at
+  `supabase/templates/*.html`.
+- Hosted project: in the dashboard (Authentication > Email Templates), set the **Magic Link** and
+  **Confirm signup** bodies to the contents of those two files, and add
+  `<HOMED_APP_URL>/auth/callback` to the redirect allow list.

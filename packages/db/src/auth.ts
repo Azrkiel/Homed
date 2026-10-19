@@ -11,9 +11,9 @@ export interface AuthProvider {
   /**
    * Students must use an @virginia.edu address; landlords may use any address.
    * local: no email is sent. The user is found or created and signed in at once (dev and demo only).
-   * supabase: sends a magic link to <redirectTo>?code=...; the web callback route calls completeSignIn.
+   * supabase: emails a link to <redirectTo>?token_hash=...&type=email; the web callback calls completeSignIn.
    */
   startSignIn(input: { email: string; name?: string; role: 'student' | 'landlord' }): Promise<SignInResult>;
-  /** supabase only: exchange the magic-link code, then find or create the Homed user. */
-  completeSignIn?(input: { code: string }): Promise<SignInResult>;
+  /** supabase only: verify the emailed token hash (stateless), then find or create the Homed user. */
+  completeSignIn?(input: { tokenHash: string }): Promise<SignInResult>;
 }
