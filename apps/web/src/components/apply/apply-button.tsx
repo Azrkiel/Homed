@@ -1,5 +1,20 @@
-// Placeholder: Phase 7 replaces this with the "Apply" entry point (solo, group, add to batch).
-// The listing page (Phase 5) renders it; its props are the contract.
-export function ApplyButton(_props: { floorPlanId: string }) {
-  return null;
+import { Button } from '@/components/ui';
+import { effectiveRole, getCurrentUser } from '@/lib/session';
+
+/**
+ * Apply entry point on a listing. Server component: signed-out -> sign in, students -> the batch builder,
+ * landlords and admins -> nothing.
+ */
+export async function ApplyButton({ floorPlanId }: { floorPlanId: string }) {
+  const applyPath = `/apply/new?fp=${encodeURIComponent(floorPlanId)}`;
+  const user = await getCurrentUser();
+  if (!user) {
+    return (
+      <Button href={`/signin?next=${encodeURIComponent(applyPath)}`} variant="secondary">
+        Sign in to apply
+      </Button>
+    );
+  }
+  if (effectiveRole(user) !== 'student') return null;
+  return <Button href={applyPath}>Apply</Button>;
 }
