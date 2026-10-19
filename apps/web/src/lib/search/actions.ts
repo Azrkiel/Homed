@@ -42,7 +42,13 @@ export async function toggleSave(floorPlanId: string, path?: string): Promise<Ac
 export async function createSearchAlert(filters: ListingFilters): Promise<ActionResult> {
   const user = await requireUser(undefined, '/search');
   const clean = filtersFromParams(filtersToParams(filters ?? {}));
+  const key = filtersToParams(clean).toString();
   try {
+    const existing = await getRepo().listAlerts(user.id);
+    // Idempotent: the same search alerted twice is one alert.
+    if (existing.some((al) => al.target.kind === 'search' && filtersToParams(al.target.filters).toString() === key)) {
+      return { ok: true };
+    }
     await getRepo().createAlert({
       userId: user.id,
       triggers: ['new_listing', 'price_drop', 'few_left'],
@@ -59,6 +65,11 @@ export async function createSearchAlert(filters: ListingFilters): Promise<Action
 export async function createPropertyAlert(propertyId: string, path?: string): Promise<ActionResult> {
   const user = await requireUser(undefined, path ?? '/search');
   try {
+    const existing = await getRepo().listAlerts(user.id);
+    // Idempotent: watching a building twice is one alert.
+    if (existing.some((al) => al.target.kind === 'property' && al.target.propertyId === propertyId)) {
+      return { ok: true };
+    }
     await getRepo().createAlert({
       userId: user.id,
       triggers: ['new_listing', 'price_drop', 'few_left'],
