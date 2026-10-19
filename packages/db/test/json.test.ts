@@ -45,6 +45,6 @@ describe('json store persistence', () => {
 
   it('unimplemented methods throw a not implemented error', async () => {
     const r = createJsonRepository({ seed: loadFixture(), encryptionKey: KEY, clock });
-    expect(() => r.listReviews('x')).toThrow('not implemented: listReviews');
+    expect(() => r.getApplicantProfile('x')).toThrow('not implemented: getApplicantProfile');
   });
 });

@@ -4,6 +4,8 @@ import type { Repository, StoreClock } from '../repository';
 import { alertRepo } from './alerts';
 import { catalogRepo } from './catalog';
 import { groupRepo } from './groups';
+import { landlordRepo } from './landlords';
+import { reviewRepo } from './reviews';
 import { saveRepo } from './saves';
 import { createCtx } from './store';
 import { stubs } from './stubs';
@@ -29,5 +31,7 @@ export function createJsonRepository(opts: JsonStoreOptions): Repository {
     ...saveRepo(ctx),
     ...groupRepo(ctx),
     ...alertRepo(ctx),
+    ...reviewRepo(ctx),
+    ...landlordRepo(ctx),
   };
 }

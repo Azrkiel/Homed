@@ -3,6 +3,8 @@ import type { Repository } from '../../src/repository';
 import { alertsConformance } from './alerts';
 import { catalogConformance } from './catalog';
 import { groupsConformance } from './groups';
+import { landlordsConformance } from './landlords';
+import { reviewsConformance } from './reviews';
 import { savesConformance } from './saves';
 import { usersConformance } from './users';
 
@@ -14,5 +16,7 @@ export function runRepositoryConformance(name: string, makeRepo: () => Promise<R
     savesConformance(makeRepo);
     groupsConformance(makeRepo);
     alertsConformance(makeRepo);
+    reviewsConformance(makeRepo);
+    landlordsConformance(makeRepo);
   });
 }

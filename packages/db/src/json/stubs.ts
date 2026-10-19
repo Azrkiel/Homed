@@ -1,4 +1,4 @@
-import type { ApplicationRepo, LandlordRepo, ReviewRepo } from '../repository';
+import type { ApplicationRepo } from '../repository';
 
 function stub(name: string): () => never {
   return () => {
@@ -7,13 +7,8 @@ function stub(name: string): () => never {
 }
 
 /** Methods owned by later tasks. Remove entries here as they are implemented. */
-export function stubs(): ReviewRepo & ApplicationRepo & LandlordRepo {
+export function stubs(): ApplicationRepo {
   return {
-    listReviews: stub('listReviews'),
-    createReview: stub('createReview'),
-    listPendingReviews: stub('listPendingReviews'),
-    moderateReview: stub('moderateReview'),
-    replyToReview: stub('replyToReview'),
     getApplicantProfile: stub('getApplicantProfile'),
     saveApplicantProfile: stub('saveApplicantProfile'),
     createApplicationBatch: stub('createApplicationBatch'),
@@ -29,16 +24,5 @@ export function stubs(): ReviewRepo & ApplicationRepo & LandlordRepo {
     listDocuments: stub('listDocuments'),
     getDocumentBytes: stub('getDocumentBytes'),
     purgeExpiredDocuments: stub('purgeExpiredDocuments'),
-    getLandlord: stub('getLandlord'),
-    getLandlordByUser: stub('getLandlordByUser'),
-    listLandlords: stub('listLandlords'),
-    createLandlord: stub('createLandlord'),
-    upsertProperty: stub('upsertProperty'),
-    upsertFloorPlan: stub('upsertFloorPlan'),
-    deleteFloorPlan: stub('deleteFloorPlan'),
-    upsertPhoto: stub('upsertPhoto'),
-    deletePhoto: stub('deletePhoto'),
-    upsertAccessibility: stub('upsertAccessibility'),
-    confirmAvailability: stub('confirmAvailability'),
   };
 }
