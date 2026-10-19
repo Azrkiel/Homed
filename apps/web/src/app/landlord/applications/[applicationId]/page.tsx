@@ -16,7 +16,7 @@ import { landlordSafeProfile } from '@/lib/landlord/application-pdf';
 import { landlordActions, memberDisplayName, memberKindLabel } from '@/lib/landlord/application-view';
 import { requireLandlord } from '@/lib/landlord/server';
 import { money, shortDate } from '@/lib/format';
-import { getRepo } from '@/lib/repo';
+import { getRepo, today } from '@/lib/repo';
 
 export const metadata: Metadata = { title: 'Application | Homed' };
 
@@ -33,6 +33,8 @@ export default async function LandlordApplicationPage({ params }: Props) {
 
   const { application, property, floorPlan, members } = record;
   const repo = getRepo();
+  // Backstop for the 90-day limit: cheap, and this is where expired files would otherwise be read.
+  await repo.purgeExpiredDocuments(today());
   const status = statusLabel(application.status);
 
   const profiles = new Map<string, ApplicantProfile>();

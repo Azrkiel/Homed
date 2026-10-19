@@ -68,20 +68,25 @@ export async function uploadApplicantDocument(_prev: UploadState, formData: Form
 
   try {
     const repo = getRepo();
-    const { uploadMember } = await loadApplicantDocuments(repo, user.id);
-    if (!uploadMember) return { error: 'You can attach documents once you start an application.' };
+    await repo.purgeExpiredDocuments(today());
+    const { uploadMembers } = await loadApplicantDocuments(repo, user.id);
+    if (uploadMembers.length === 0) return { error: 'You can attach documents once you start an application.' };
 
     const bytes = new Uint8Array(await file.arrayBuffer());
     if (!contentMatchesType(bytes, check.mime)) {
       return { error: "That file's contents don't look like a real PDF, PNG or JPG. Export it again and retry." };
     }
-    await repo.putDocument({
-      memberId: uploadMember.id,
-      filename: safeFilename(file.name),
-      mime: check.mime,
-      bytes,
-      deleteAfter: deleteAfterDate(today()),
-    });
+    // One copy per open application in the batch, so each landlord sees it and each copy can be
+    // deleted with its own application's decision.
+    for (const member of uploadMembers) {
+      await repo.putDocument({
+        memberId: member.id,
+        filename: safeFilename(file.name),
+        mime: check.mime,
+        bytes,
+        deleteAfter: deleteAfterDate(today()),
+      });
+    }
   } catch (e) {
     return { error: failureMessage(e, 'Could not upload the file. Please try again.') };
   }

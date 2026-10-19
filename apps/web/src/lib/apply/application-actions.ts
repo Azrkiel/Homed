@@ -10,6 +10,7 @@ import { effectiveRole, requireUser } from '@/lib/session';
 import { readField } from './form-input';
 import { checkedChecklistItems, leaderMember, missingChecklistItems } from '../../components/apply/application-logic';
 import { profileCompleteness } from './profile-form';
+import { changeApplicationStatus } from './status';
 import { batchLocked, canSubmitBatch, draftApps, nextActions } from './tracker';
 
 export interface ApplicationActionState {
@@ -147,7 +148,7 @@ export async function withdrawApplications(_prev: ApplicationActionState, formDa
 
     const repo = getRepo();
     for (const app of targets) {
-      await repo.updateApplicationStatus(app.id, 'withdrawn', who.userId);
+      await changeApplicationStatus(repo, app.id, 'withdrawn', who.userId);
     }
     revalidateTracker(batchId, targets.map((a) => a.id));
     return { ok: true, message: targets.length === 1 ? 'Application withdrawn.' : `${targets.length} applications withdrawn.` };
@@ -175,7 +176,7 @@ export async function signLease(_prev: ApplicationActionState, formData: FormDat
       return { error: `Tick every item on the lease checklist before you sign (${missing.length} not ticked).` };
     }
 
-    await getRepo().updateApplicationStatus(app.id, 'signed', who.userId);
+    await changeApplicationStatus(getRepo(), app.id, 'signed', who.userId);
     revalidateTracker(app.batchId, [app.id]);
     return { ok: true, message: 'Lease signed. You are all set.' };
   } catch (e) {

@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache';
 import { statusLabel } from '@homed/core';
 import { RepoError } from '@homed/db';
 import { getRepo } from '@/lib/repo';
+import { changeApplicationStatus } from '@/lib/apply/status';
 import { requireUser } from '@/lib/session';
 import { landlordApplicationFor } from './application-access';
 import { isLandlordMove, parseStatus } from './application-view';
@@ -33,7 +34,7 @@ export async function updateApplicationStatusAction(
   }
 
   try {
-    await getRepo().updateApplicationStatus(applicationId, to, user.id);
+    await changeApplicationStatus(getRepo(), applicationId, to, user.id);
   } catch (e) {
     if (e instanceof RepoError) return fail(e.message || 'Could not update the status. Please try again.');
     throw e;

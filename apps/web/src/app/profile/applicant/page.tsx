@@ -30,7 +30,7 @@ export default async function ApplicantProfilePage() {
   if (effectiveRole(user) === 'landlord') redirect('/');
 
   let profile: ApplicantProfileDraft | null = null;
-  let docs: ApplicantDocuments = { groups: [] };
+  let docs: ApplicantDocuments = { uploadMembers: [], groups: [] };
   let loadError = false;
   try {
     const repo = getRepo();

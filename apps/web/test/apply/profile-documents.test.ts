@@ -4,6 +4,7 @@ import {
   groupDocumentsByApplication,
   loadApplicantDocuments,
   pickUploadMember,
+  pickUploadMembers,
   type ApplicationDocuments,
   type ProfileDocumentRepo,
 } from '../../src/lib/apply/profile-documents';
@@ -129,6 +130,30 @@ describe('loadApplicantDocuments', () => {
       listApplicationMembers: async () => [],
       listDocuments: async () => [],
     };
-    expect(await loadApplicantDocuments(repo, ME)).toEqual({ uploadMember: undefined, groups: [] });
+    expect(await loadApplicantDocuments(repo, ME)).toEqual({ uploadMember: undefined, uploadMembers: [], groups: [] });
+  });
+});
+
+describe('pickUploadMembers', () => {
+  const T = '2026-10-01T00:00:00.000Z';
+  const inBatch = (id: string, status: Application['status'], batchId = 'b-1'): Application => ({ ...app(id, T), batchId, status });
+
+  it('returns the user row on every open application in the newest batch, so every landlord gets the file', () => {
+    const apps = [inBatch('a1', 'draft'), inBatch('a2', 'submitted'), inBatch('a3', 'draft')];
+    const byApp = new Map(apps.map((a) => [a.id, [member(`m-${a.id}`, a.id, ME), member(`x-${a.id}`, a.id, OTHER)]]));
+    expect(pickUploadMembers(apps, byApp, ME).map((m) => m.id)).toEqual(['m-a1', 'm-a2', 'm-a3']);
+  });
+
+  it('skips decided applications (documents are deleted after the decision) and older batches', () => {
+    const old = { ...inBatch('old', 'draft', 'b-old'), createdAt: '2026-09-01T00:00:00.000Z' };
+    const apps = [old, inBatch('a1', 'withdrawn'), inBatch('a2', 'denied'), inBatch('a3', 'under_review')];
+    const byApp = new Map(apps.map((a) => [a.id, [member(`m-${a.id}`, a.id, ME)]]));
+    expect(pickUploadMembers(apps, byApp, ME).map((m) => m.id)).toEqual(['m-a3']);
+  });
+
+  it('is empty when every application is decided or the user has none', () => {
+    const apps = [inBatch('a1', 'signed')];
+    expect(pickUploadMembers(apps, new Map([['a1', [member('m', 'a1', ME)]]]), ME)).toEqual([]);
+    expect(pickUploadMembers([], new Map(), ME)).toEqual([]);
   });
 });

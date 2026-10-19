@@ -1,4 +1,5 @@
-// Document rows on the applicant profile. Uploads attach to the user's member row on their newest application.
+// Document rows on the applicant profile. Uploads attach to the user's member rows on every still-open
+// application in their newest batch, so each landlord in the batch gets the file.
 import type { Application, ApplicationDocument, ApplicationMember, ID } from '@homed/core';
 import type { ApplicationRepo } from '@homed/db';
 
@@ -14,6 +15,8 @@ export interface ApplicationDocuments {
 export interface ApplicantDocuments {
   /** Member row that new uploads attach to. Undefined when the user has no application yet. */
   uploadMember?: ApplicationMember;
+  /** Every member row a new upload is copied to (open applications in the newest batch). */
+  uploadMembers: ApplicationMember[];
   /** Only applications with at least one document, newest application first. */
   groups: ApplicationDocuments[];
 }
@@ -36,6 +39,25 @@ export function pickUploadMember(
   return undefined;
 }
 
+/** Statuses after which an application's documents are deleted, so nothing new attaches to them. */
+export const DOCUMENTS_CLOSED: ReadonlySet<Application['status']> = new Set(['denied', 'withdrawn', 'signed']);
+
+/** The user's member rows on every open application in the batch of their newest open application. */
+export function pickUploadMembers(
+  applications: readonly Application[],
+  membersByApplication: ReadonlyMap<ID, readonly ApplicationMember[]>,
+  userId: ID,
+): ApplicationMember[] {
+  const open = applications.filter(
+    (a) => !DOCUMENTS_CLOSED.has(a.status) && membersByApplication.get(a.id)?.some((m) => m.userId === userId),
+  );
+  const newest = newestFirst(open, (a) => a.createdAt)[0];
+  if (!newest) return [];
+  return open
+    .filter((a) => a.batchId === newest.batchId)
+    .map((a) => membersByApplication.get(a.id)!.find((m) => m.userId === userId)!);
+}
+
 /** Drops empty groups, sorts applications newest first and each group's documents newest first. */
 export function groupDocumentsByApplication(groups: readonly ApplicationDocuments[]): ApplicationDocuments[] {
   const withDocs = groups
@@ -52,6 +74,7 @@ export async function loadApplicantDocuments(repo: ProfileDocumentRepo, userId: 
   );
   const membersByApplication = new Map<ID, ApplicationMember[]>(entries.map((e) => [e.application.id, e.members]));
   const uploadMember = pickUploadMember(applications, membersByApplication, userId);
+  const uploadMembers = pickUploadMembers(applications, membersByApplication, userId);
 
   const groups: ApplicationDocuments[] = [];
   for (const { application, members } of entries) {
@@ -61,5 +84,5 @@ export async function loadApplicantDocuments(repo: ProfileDocumentRepo, userId: 
       groups.push({ application, member, documents });
     }
   }
-  return { uploadMember, groups: groupDocumentsByApplication(groups) };
+  return { uploadMember, uploadMembers, groups: groupDocumentsByApplication(groups) };
 }
