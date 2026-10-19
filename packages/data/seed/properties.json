@@ -938,7 +938,7 @@
     "busRoutes": [],
     "studyAbroadFriendly": false,
     "noGuarantorOption": false,
-    "source": "https://amberstudent.com/places/crestline-charlottesville-2606189538639 (third-party Amber snapshot read 2026-10-19; lowest published price per plan; rooms available from 20 Aug 2027; lease length not stated, leaseEnd 2028-07-31 inferred) ; https://www.universityliving.com/united-states/charlottesville-virginia/property/crestline (states individual leases per bedroom, 853 W Main St, amenities, $50 app fee) ; https://en.uhomes.com/us/charlottesville (lists Yugo Crestline at 853 West Main Street, short lease). Note: ForRent lists a 'Crestline Charlottesville' at 108 10th St NW (The Standard); address conflict not resolved, 853 W Main used per three sources",
+    "source": "https://amberstudent.com/places/crestline-charlottesville-2606189538639 (third-party Amber snapshot read 2026-10-19; lowest published price per plan; rooms available from 20 Aug 2027; lease length not stated, leaseEnd 2028-07-31 inferred) ; https://www.universityliving.com/united-states/charlottesville-virginia/property/crestline (states individual leases per bedroom, 853 W Main St, amenities, $50 app fee) ; https://en.uhomes.com/us/charlottesville (lists Yugo Crestline at 853 West Main Street, short lease). Note: ForRent lists a 'Crestline Charlottesville' at 108 10th St NW (The Standard); address conflict not resolved, 853 W Main used per three sources; lease type: individual leases per bedroom per a University Living listing (unverified)",
     "dataStatus": "unverified_seed",
     "lastVerified": "2026-10-19",
     "location": {
