@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { addDaysIso, isIsoDate } from '../../src/lib/apply/dates';
-import { deleteAfterDate, MAX_UPLOAD_BYTES, safeFilename, validateUpload } from '../../src/lib/apply/documents';
+import { contentMatchesType, deleteAfterDate, MAX_UPLOAD_BYTES, safeFilename, validateUpload } from '../../src/lib/apply/documents';
 
 const ok = { name: 'transcript.pdf', size: 1024, type: 'application/pdf' };
 
@@ -93,5 +93,20 @@ describe('safeFilename', () => {
     expect(out.length).toBe(120);
     expect(out.endsWith('.pdf')).toBe(true);
     expect(safeFilename('b'.repeat(300)).length).toBe(120);
+  });
+});
+
+describe('contentMatchesType', () => {
+  const bytes = (...b: number[]) => new Uint8Array([...b, 0, 0, 0, 0]);
+  it('accepts real PDF, PNG and JPEG signatures', () => {
+    expect(contentMatchesType(new TextEncoder().encode('%PDF-1.7\n...'), 'application/pdf')).toBe(true);
+    expect(contentMatchesType(bytes(0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a), 'image/png')).toBe(true);
+    expect(contentMatchesType(bytes(0xff, 0xd8, 0xff, 0xe0), 'image/jpeg')).toBe(true);
+  });
+  it('rejects a file whose bytes are not what its name and type claim', () => {
+    expect(contentMatchesType(new TextEncoder().encode('<html><script>alert(1)</script>'), 'application/pdf')).toBe(false);
+    expect(contentMatchesType(new TextEncoder().encode('%PDF-1.7'), 'image/png')).toBe(false);
+    expect(contentMatchesType(new Uint8Array([0xff, 0xd8]), 'image/jpeg')).toBe(false);
+    expect(contentMatchesType(new Uint8Array(), 'application/pdf')).toBe(false);
   });
 });

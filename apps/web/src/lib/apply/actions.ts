@@ -5,7 +5,7 @@ import { RepoError } from '@homed/db';
 import { getRepo, today } from '@/lib/repo';
 import { effectiveRole, requireUser } from '@/lib/session';
 import { readField } from './form-input';
-import { deleteAfterDate, safeFilename, validateUpload } from './documents';
+import { contentMatchesType, deleteAfterDate, safeFilename, validateUpload } from './documents';
 import { loadApplicantDocuments } from './profile-documents';
 import { parseProfileForm, profileToFormValues } from './profile-form';
 
@@ -72,6 +72,9 @@ export async function uploadApplicantDocument(_prev: UploadState, formData: Form
     if (!uploadMember) return { error: 'You can attach documents once you start an application.' };
 
     const bytes = new Uint8Array(await file.arrayBuffer());
+    if (!contentMatchesType(bytes, check.mime)) {
+      return { error: "That file's contents don't look like a real PDF, PNG or JPG. Export it again and retry." };
+    }
     await repo.putDocument({
       memberId: uploadMember.id,
       filename: safeFilename(file.name),

@@ -37,6 +37,18 @@ export function validateUpload(input: UploadInput): UploadCheck {
   return { ok: true, mime };
 }
 
+const SIGNATURES: Record<UploadMime, readonly number[]> = {
+  'application/pdf': [0x25, 0x50, 0x44, 0x46, 0x2d], // "%PDF-"
+  'image/png': [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a],
+  'image/jpeg': [0xff, 0xd8, 0xff],
+};
+
+/** The file's first bytes match its declared type, so a renamed HTML or script file is refused. */
+export function contentMatchesType(bytes: Uint8Array, mime: UploadMime): boolean {
+  const sig = SIGNATURES[mime];
+  return bytes.length >= sig.length && sig.every((b, i) => bytes[i] === b);
+}
+
 /** Upload deletion date: today + 90 days (UTC calendar math). */
 export function deleteAfterDate(today: ISODate): ISODate {
   return addDaysIso(today, DELETE_AFTER_DAYS);
