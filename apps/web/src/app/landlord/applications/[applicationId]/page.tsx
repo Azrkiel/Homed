@@ -15,7 +15,7 @@ import { landlordApplicationFor } from '@/lib/landlord/application-access';
 import { landlordSafeProfile } from '@/lib/landlord/application-pdf';
 import { landlordActions, memberDisplayName, memberKindLabel } from '@/lib/landlord/application-view';
 import { requireLandlord } from '@/lib/landlord/server';
-import { money, shortDate } from '@/lib/format';
+import { money, localDate, shortDate } from '@/lib/format';
 import { getRepo, today } from '@/lib/repo';
 
 export const metadata: Metadata = { title: 'Application | Homed' };
@@ -142,7 +142,7 @@ export default async function LandlordApplicationPage({ params }: Props) {
           <ol className="grid gap-2 text-sm">
             {application.statusHistory.map((h, i) => (
               <li key={`${h.at}-${i}`} className="flex flex-wrap gap-2">
-                <span className="text-ink-2">{shortDate(h.at.slice(0, 10))}</span>
+                <span className="text-ink-2">{shortDate(localDate(h.at))}</span>
                 <span className="font-medium text-ink">{statusLabel(h.status).label}</span>
                 <span className="text-ink-2">by {actors.get(h.by) ?? 'Unknown'}</span>
               </li>
@@ -196,7 +196,7 @@ function MemberCard({
                   >
                     {d.filename}
                   </a>
-                  <span className="text-ink-2"> · uploaded {shortDate(d.createdAt.slice(0, 10))}</span>
+                  <span className="text-ink-2"> · uploaded {shortDate(localDate(d.createdAt))}</span>
                 </li>
               ))}
             </ul>

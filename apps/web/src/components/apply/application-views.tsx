@@ -11,7 +11,7 @@ import {
 } from '@homed/core';
 import { Alert, Badge } from '@/components/ui';
 import { inviteUrl, trackerView } from '@/lib/apply/tracker';
-import { moneyPrecise, plural, shortDate } from '@/lib/format';
+import { moneyPrecise, plural, localDate, shortDate } from '@/lib/format';
 import { applicationStatusTone } from './application-logic';
 
 export function placeName(listing: Listing | null | undefined): string {
@@ -154,7 +154,7 @@ export function StatusTimeline({ history }: { history: Application['statusHistor
         <li key={`${h.status}-${h.at}-${i}`} className="flex flex-wrap justify-between gap-2 border-b border-line pb-2 last:border-0">
           <span className="font-medium text-ink">{statusLabel(h.status).label}</span>
           <time dateTime={h.at} className="text-ink-2">
-            {shortDate(h.at.slice(0, 10))}
+            {shortDate(localDate(h.at))}
           </time>
         </li>
       ))}

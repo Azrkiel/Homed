@@ -8,7 +8,7 @@ import { requireUser } from '@/lib/session';
 import { activeFilterEntries } from '@/lib/search/describe';
 import { searchHref } from '@/lib/search/href';
 import { eventDate, eventListingHref, sortEventsNewestFirst, triggerLabel } from '@/lib/search/alerts';
-import { shortDate } from '@/lib/format';
+import { localDate, shortDate } from '@/lib/format';
 
 export const metadata: Metadata = { title: 'Alerts | Homed' };
 // No loading.tsx here: requireUser redirects, and a loading boundary would stream a 200 first.
@@ -142,7 +142,7 @@ export default async function AlertsPage() {
                           <Badge key={tr}>{triggerLabel(tr)}</Badge>
                         ))}
                       </div>
-                      <p className="text-sm text-ink-2">Created {shortDate(a.createdAt.slice(0, 10))}</p>
+                      <p className="text-sm text-ink-2">Created {shortDate(localDate(a.createdAt))}</p>
                       <DeleteAlertButton alertId={a.id} label={t.kind === 'property' ? name : `search alert, ${entries.length > 0 ? entries.map((x) => x.label).join(', ') : 'all places'}`} />
                     </CardBody>
                   </Card>

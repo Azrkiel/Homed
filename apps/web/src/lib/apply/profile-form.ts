@@ -1,4 +1,5 @@
 import { isEmail, type ApplicantProfile, type ApplicantSensitive, type ID, type ISODate, type RentalHistoryEntry, type Reference } from '@homed/core';
+import { localDate } from '../format';
 import { isIsoDate } from './dates';
 import { readField, type FormSource } from './form-input';
 
@@ -43,7 +44,7 @@ function isIncomeSource(v: string): v is IncomeSource {
  * Blank repeated rows are skipped. Any SSN-looking key is never read.
  */
 export function parseProfileForm(fd: FormSource, userId: ID, options: ProfileFormOptions = {}): ProfileFormResult {
-  const today = options.today ?? new Date().toISOString().slice(0, 10);
+  const today = options.today ?? localDate(new Date().toISOString());
   const errors: Record<string, string> = {};
   const fail = (key: string, message: string) => {
     if (!(key in errors)) errors[key] = message;

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Badge, Card, CardBody, EmptyState, PageHeader } from '@/components/ui';
-import { shortDate } from '@/lib/format';
+import { localDate, shortDate } from '@/lib/format';
 import { requireLandlord } from '@/lib/landlord/server';
 import { getRepo } from '@/lib/repo';
 import { statusLabel } from '@homed/core';
@@ -63,7 +63,7 @@ export default async function LandlordApplicationsPage() {
                       </h2>
                       <p className="text-sm text-ink-2">
                         Leader: {leader?.name || 'Unknown'}
-                        {app.submittedAt ? ` · Submitted ${shortDate(app.submittedAt.slice(0, 10))}` : ''}
+                        {app.submittedAt ? ` · Submitted ${shortDate(localDate(app.submittedAt))}` : ''}
                       </p>
                     </div>
                     <div className="flex flex-wrap items-center gap-2">

@@ -1,6 +1,6 @@
 // Alerts page helpers. Pure.
 import type { AlertEvent, AlertTrigger, Listing } from '@homed/core';
-import { shortDate } from '../format';
+import { localDate, shortDate } from '../format';
 
 export const TRIGGER_LABELS: Record<AlertTrigger, string> = {
   new_listing: 'New listing',
@@ -26,5 +26,5 @@ export function eventListingHref(event: AlertEvent, listings: Listing[]): string
 
 /** "Oct 18, 2026" from an ISO date-time. */
 export function eventDate(createdAt: string): string {
-  return shortDate(createdAt.slice(0, 10));
+  return shortDate(localDate(createdAt));
 }

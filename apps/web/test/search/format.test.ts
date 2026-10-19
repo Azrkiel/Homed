@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { bedBath, minutes, money, moneyPrecise, plural, shortDate } from '../../src/lib/format';
+import { bedBath, localDate, minutes, money, moneyPrecise, plural, shortDate } from '../../src/lib/format';
 
 describe('money', () => {
   it('whole dollars with grouping', () => {
@@ -64,5 +64,19 @@ describe('bedBath', () => {
   });
   it('studio for zero beds', () => {
     expect(bedBath(0, 1)).toBe('Studio / 1 ba');
+  });
+});
+
+describe('localDate', () => {
+  it('uses the Charlottesville calendar day, not UTC', () => {
+    // 10:30 pm EDT on Oct 18 is already Oct 19 in UTC.
+    expect(localDate('2026-10-19T02:30:00.000Z')).toBe('2026-10-18');
+    expect(localDate('2026-10-19T12:00:00.000Z')).toBe('2026-10-19');
+    // Winter (EST, UTC-5).
+    expect(localDate('2027-01-15T04:59:00.000Z')).toBe('2027-01-14');
+  });
+  it('passes through a plain date and anything unparseable', () => {
+    expect(localDate('2026-10-19')).toBe('2026-10-19');
+    expect(localDate('not a date')).toBe('not a date');
   });
 });

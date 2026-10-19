@@ -28,6 +28,15 @@ export function minutes(n: number): string {
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 /** "2027-08-15" -> "Aug 15, 2027". Parsed as calendar parts, so no timezone shift. Invalid input is returned unchanged. */
+const NY_DAY = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit' });
+
+/** Calendar day (YYYY-MM-DD) of an ISO timestamp in Charlottesville. Plain dates and junk pass through. */
+export function localDate(timestamp: string): string {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(timestamp)) return timestamp;
+  const t = Date.parse(timestamp);
+  return Number.isNaN(t) ? timestamp : NY_DAY.format(t);
+}
+
 export function shortDate(iso: string): string {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
   if (!m) return iso;

@@ -2,6 +2,7 @@
 import { useState, useTransition } from 'react';
 import { Alert, Badge, Button, Card, CardBody } from '@/components/ui';
 import { moderateReviewAction } from '@/lib/reviews/actions';
+import { localDate, shortDate } from '@/lib/format';
 
 export interface PendingReviewRow {
   id: string;
@@ -48,7 +49,7 @@ export function ModerationList({ rows }: { rows: PendingReviewRow[] }) {
                   {r.accommodation !== undefined ? ` · Accommodation ${r.accommodation}/5` : ''}
                 </p>
                 <p className="whitespace-pre-line text-ink">{r.text}</p>
-                <p className="text-xs text-ink-2">Submitted {r.createdAt.slice(0, 10)}</p>
+                <p className="text-xs text-ink-2">Submitted {shortDate(localDate(r.createdAt))}</p>
                 <div className="flex flex-wrap gap-2">
                   <Button
                     size="sm"

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { Alert, Card, CardBody, PageHeader } from '@/components/ui';
-import { shortDate } from '@/lib/format';
+import { localDate, shortDate } from '@/lib/format';
 import { loadApplicantDocuments, type ApplicantDocuments } from '@/lib/apply/profile-documents';
 import { profileCompleteness, profileToFormValues, type ApplicantProfileDraft } from '@/lib/apply/profile-form';
 import { getRepo } from '@/lib/repo';
@@ -81,7 +81,7 @@ export default async function ApplicantProfilePage() {
               {docs.groups.map((group) => (
                 <div key={group.member.id} className="grid gap-2">
                   <h3 className="text-sm font-semibold text-ink">
-                    Application started {shortDate(group.application.createdAt.slice(0, 10))}
+                    Application started {shortDate(localDate(group.application.createdAt))}
                   </h3>
                   <ul className="grid gap-2">
                     {group.documents.map((d) => (
@@ -91,7 +91,7 @@ export default async function ApplicantProfilePage() {
                       >
                         <span className="min-w-0 break-all font-medium text-ink">{d.filename}</span>
                         <span className="text-ink-2">
-                          {MIME_LABELS[d.mime] ?? d.mime} · uploaded {shortDate(d.createdAt.slice(0, 10))} · deletes by{' '}
+                          {MIME_LABELS[d.mime] ?? d.mime} · uploaded {shortDate(localDate(d.createdAt))} · deletes by{' '}
                           {shortDate(d.deleteAfter)}
                         </span>
                       </li>

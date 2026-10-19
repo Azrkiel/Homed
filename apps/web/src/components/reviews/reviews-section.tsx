@@ -5,7 +5,7 @@ import type { Review } from '@homed/core';
 import { getRepo } from '@/lib/repo';
 import { effectiveRole, getCurrentUser } from '@/lib/session';
 import { noiseTag, summarizeReviews } from '@/lib/reviews/summary';
-import { shortDate } from '@/lib/format';
+import { localDate, shortDate } from '@/lib/format';
 import { Alert, Badge, Card, CardBody, EmptyState } from '@/components/ui';
 import { ReviewForm } from './review-form';
 
@@ -83,7 +83,7 @@ export async function ReviewsSection({ propertyId, nextPath }: { propertyId: str
               <Card as="article">
                 <CardBody className="grid gap-3">
                   <div className="grid gap-1">
-                    <p className="text-xs text-ink-2">Posted {shortDate(r.createdAt.slice(0, 10))}</p>
+                    <p className="text-xs text-ink-2">Posted {shortDate(localDate(r.createdAt))}</p>
                     <p className="text-sm text-ink-2">{ratingLine(r)}</p>
                   </div>
                   <p className="whitespace-pre-line text-ink">{r.text}</p>
