@@ -143,7 +143,7 @@ export default async function AlertsPage() {
                         ))}
                       </div>
                       <p className="text-sm text-ink-2">Created {shortDate(a.createdAt.slice(0, 10))}</p>
-                      <DeleteAlertButton alertId={a.id} label={t.kind === 'property' ? name : 'search alert'} />
+                      <DeleteAlertButton alertId={a.id} label={t.kind === 'property' ? name : `search alert, ${entries.length > 0 ? entries.map((x) => x.label).join(', ') : 'all places'}`} />
                     </CardBody>
                   </Card>
                 </li>

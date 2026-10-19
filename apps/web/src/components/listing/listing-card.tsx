@@ -40,8 +40,8 @@ export function ListingCard({
     <article
       aria-label={`${property.name}, ${floorPlan.name}`}
       className={cx(
-        'group relative flex flex-col overflow-hidden rounded-card border border-line bg-surface shadow-card transition-shadow focus-within:ring-2 focus-within:ring-focus hover:shadow-lg sm:flex-row',
-        stale && 'opacity-[.88]',
+        'group relative flex flex-col overflow-hidden rounded-card border bg-surface shadow-card transition-shadow focus-within:ring-2 focus-within:ring-focus hover:shadow-lg sm:flex-row',
+        stale ? 'border-dashed border-warn' : 'border-line',
         className,
       )}
     >

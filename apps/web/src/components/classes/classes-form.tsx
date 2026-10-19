@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useActionState, useRef, useState } from 'react';
 import type { Building, Major, ScheduleEntry } from '@homed/core';
-import { Alert, Button, Card, CardBody, Field, Select, TextInput, cx } from '@/components/ui';
+import { Alert, Button, Card, CardBody, Field, ScrollIntoView, Select, TextInput, cx } from '@/components/ui';
 import { saveClasses, type ClassesState } from '@/app/classes/actions';
 import { MAX_ROWS, WEEKDAYS, looksLikeCourseNumber } from '@/lib/search/schedule-form';
 import { SCHOOLS } from '@/app/settings/options';
@@ -86,15 +86,21 @@ export function ClassesForm({
 
   return (
     <form action={formAction} className="grid gap-6">
-      {state?.ok && (
-        <Alert tone="good" title="Saved">
-          {state.message}{' '}
-          <Link href="/search" className="font-medium text-accent underline">
-            See your ranked places
-          </Link>
-        </Alert>
+      {!pending && state?.ok && (
+        <ScrollIntoView>
+          <Alert tone="good" title="Saved">
+            {state.message}{' '}
+            <Link href="/search" className="font-medium text-accent underline">
+              See your ranked places
+            </Link>
+          </Alert>
+        </ScrollIntoView>
       )}
-      {state && !state.ok && <Alert tone="bad">{state.message}</Alert>}
+      {!pending && state && !state.ok && (
+        <ScrollIntoView>
+          <Alert tone="bad">{state.message}</Alert>
+        </ScrollIntoView>
+      )}
 
       <input type="hidden" name="mode" value={mode} />
       <input type="hidden" name="entries" value={payload} />

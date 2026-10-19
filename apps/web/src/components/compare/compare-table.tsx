@@ -26,7 +26,7 @@ export function CompareTable({
       role="region"
       aria-label="Comparison table, scrolls sideways on small screens"
       tabIndex={0}
-      className="overflow-x-auto rounded-card border border-line bg-surface shadow-card focus-visible:outline-2 focus-visible:outline-focus"
+      className="relative min-w-0 max-w-full overflow-x-auto rounded-card border border-line bg-surface shadow-card"
     >
       <table className="w-full min-w-[34rem] border-collapse text-left text-sm">
         <caption className="px-4 py-3 text-left text-base font-semibold text-ink">

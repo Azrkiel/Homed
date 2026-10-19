@@ -32,12 +32,16 @@ export function AlertButton({
         loading={pending}
         onClick={() =>
           startTransition(async () => {
-            const result = await createSearchAlert(filters);
-            setState(
-              result.ok
-                ? { tone: 'good', text: 'Alert saved. You will see new matches in Alerts.' }
-                : { tone: 'bad', text: result.message },
-            );
+            try {
+              const result = await createSearchAlert(filters);
+              setState(
+                result.ok
+                  ? { tone: 'good', text: 'Alert saved. You will see new matches in Alerts.' }
+                  : { tone: 'bad', text: result.message },
+              );
+            } catch {
+              setState({ tone: 'bad', text: 'Could not save the alert. Try again.' });
+            }
           })
         }
       >

@@ -28,9 +28,13 @@ export function WatchButton({
   function onClick() {
     setMessage('');
     startTransition(async () => {
-      const result = await createPropertyAlert(propertyId, nextPath);
-      if (result.ok) setDone(true);
-      else setMessage(result.message);
+      try {
+        const result = await createPropertyAlert(propertyId, nextPath);
+        if (result.ok) setDone(true);
+        else setMessage(result.message);
+      } catch {
+        setMessage('Could not create the alert. Try again.');
+      }
     });
   }
 

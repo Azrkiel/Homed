@@ -50,7 +50,6 @@ function SheetPanel({
     const previous = document.activeElement as HTMLElement | null;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    panelRef.current?.focus();
 
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
@@ -84,6 +83,11 @@ function SheetPanel({
       previous?.focus?.();
     };
   }, []);
+
+  // The panel is portalled after mount, so move focus into it once it exists.
+  useEffect(() => {
+    if (mounted) panelRef.current?.focus();
+  }, [mounted]);
 
   if (!mounted || typeof document === 'undefined') return null;
 

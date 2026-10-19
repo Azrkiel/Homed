@@ -1,5 +1,5 @@
 'use client';
-import { useState, useTransition } from 'react';
+import { useRef, useState, useTransition } from 'react';
 import { Button } from '@/components/ui';
 import { deleteAlertAction, markAlertEventReadAction, markAllAlertEventsReadAction } from '@/lib/search/actions';
 import type { ActionResult } from '@/lib/search/actions';
@@ -10,9 +10,13 @@ function useRun() {
   function run(fn: () => Promise<ActionResult>, onOk?: () => void) {
     setError(null);
     start(async () => {
-      const r = await fn();
-      if (!r.ok) setError(r.message);
-      else onOk?.();
+      try {
+        const r = await fn();
+        if (!r.ok) setError(r.message);
+        else onOk?.();
+      } catch {
+        setError('Something went wrong. Please try again.');
+      }
     });
   }
   return { pending, error, run };
@@ -54,6 +58,12 @@ export function MarkAllReadButton() {
 export function DeleteAlertButton({ alertId, label }: { alertId: string; label: string }) {
   const { pending, error, run } = useRun();
   const [confirming, setConfirming] = useState(false);
+  const deleteRef = useRef<HTMLButtonElement>(null);
+  const cancel = () => {
+    setConfirming(false);
+    // The Delete button remounts; give it focus back on the next frame.
+    requestAnimationFrame(() => deleteRef.current?.focus());
+  };
   return (
     <div className="grid gap-1">
       {confirming ? (
@@ -67,12 +77,12 @@ export function DeleteAlertButton({ alertId, label }: { alertId: string; label: 
           >
             Yes, delete
           </Button>
-          <Button size="sm" variant="ghost" disabled={pending} onClick={() => setConfirming(false)} autoFocus>
+          <Button size="sm" variant="ghost" disabled={pending} onClick={cancel} autoFocus>
             Cancel
           </Button>
         </div>
       ) : (
-        <Button size="sm" variant="secondary" aria-label={`Delete alert: ${label}`} onClick={() => setConfirming(true)}>
+        <Button ref={deleteRef} size="sm" variant="secondary" aria-label={`Delete alert: ${label}`} onClick={() => setConfirming(true)}>
           Delete
         </Button>
       )}

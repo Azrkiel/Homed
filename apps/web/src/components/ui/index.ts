@@ -11,6 +11,7 @@ export { NavLink, type NavLinkProps } from './nav-link';
 export { PageHeader } from './page-header';
 export { ScoreRing, scoreTone, type ScoreTone } from './score-ring';
 export { SegmentedControl, type SegmentedItem } from './segmented-control';
+export { ScrollIntoView } from './scroll-into-view';
 export { Select } from './select';
 export { Sheet, type SheetProps } from './sheet';
 export { Skeleton } from './skeleton';

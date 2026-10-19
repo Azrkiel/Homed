@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode, Ref } from 'react';
 import { cx } from './cx';
 import { Spinner } from './spinner';
 
@@ -33,7 +33,7 @@ interface SharedProps {
 }
 
 export type ButtonProps = SharedProps &
-  Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'children'> & { href?: undefined };
+  Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'children'> & { href?: undefined; ref?: Ref<HTMLButtonElement> };
 
 export type ButtonLinkProps = SharedProps &
   Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'className' | 'children' | 'href' | 'onClick'> & { href: string };

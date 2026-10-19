@@ -5,6 +5,10 @@ import { effectiveRole, getCurrentUser } from '@/lib/session';
 import { linksFor } from '@/components/nav-links';
 import { Button, NavLink } from '@/components/ui';
 
+// Inline favicon: avoids a 404 (console error) on every page for /favicon.ico.
+const ICON =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b2441e'/%3E%3Cpath d='M16 7 6 15h3v9h14v-9h3z' fill='%23fff'/%3E%3C/svg%3E";
+
 export const metadata: Metadata = {
   title: 'Homed',
   description: 'Find second-year housing near your classes: every option on and off Grounds, ranked for you.',
@@ -22,6 +26,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const links = linksFor(user ? effectiveRole(user) : null);
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href={ICON} type="image/svg+xml" />
+      </head>
       <body className="flex min-h-dvh flex-col">
         <a
           href="#main"
@@ -38,7 +45,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
             <nav
               aria-label="Main"
-              className="-mx-4 order-last flex w-full min-w-0 flex-1 gap-1 overflow-x-auto px-4 text-sm md:order-none md:mx-0 md:w-auto md:px-0"
+              className="-mx-4 order-last flex w-[calc(100%+2rem)] min-w-0 basis-[calc(100%+2rem)] gap-1 overflow-x-auto px-4 text-sm md:order-none md:mx-0 md:w-auto md:flex-1 md:basis-auto md:px-0"
             >
               {links.map((l) => (
                 <NavLink

@@ -25,8 +25,8 @@ export function MatchCardView({
     <article
       aria-label={name}
       className={cx(
-        'flex flex-col overflow-hidden rounded-card border border-line bg-surface shadow-card',
-        card.stale && 'opacity-[.88]',
+        'flex flex-col overflow-hidden rounded-card border bg-surface shadow-card',
+        card.stale ? 'border-dashed border-warn' : 'border-line',
         className,
       )}
     >

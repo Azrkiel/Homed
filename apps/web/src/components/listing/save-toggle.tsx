@@ -64,8 +64,12 @@ export function SaveToggle({
     setMessage('');
     startTransition(async () => {
       setOptimistic(next);
-      const result = await toggleSave(floorPlanId, nextPath);
-      if (!result.ok) setMessage(result.message);
+      try {
+        const result = await toggleSave(floorPlanId, nextPath);
+        if (!result.ok) setMessage(result.message);
+      } catch {
+        setMessage('Could not save. Try again.');
+      }
     });
   }
 

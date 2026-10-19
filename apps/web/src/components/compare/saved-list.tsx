@@ -24,8 +24,12 @@ function RemoveButton({ floorPlanId, name }: { floorPlanId: string; name: string
         loading={pending}
         onClick={() =>
           startTransition(async () => {
-            const r = await removeSaveAction(floorPlanId);
-            setError(r.ok ? '' : r.message);
+            try {
+              const r = await removeSaveAction(floorPlanId);
+              setError(r.ok ? '' : r.message);
+            } catch {
+              setError('Could not remove it. Try again.');
+            }
           })
         }
       >

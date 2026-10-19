@@ -1,7 +1,7 @@
 'use client';
 import { useActionState, useState } from 'react';
 import { WEIGHT_PRESETS, type ClassYear, type Landmark, type Major, type ScoreWeights, type WeightPreset } from '@homed/core';
-import { Alert, Button, Card, CardBody, Checkbox, CheckboxGroup, Field, Select, TextInput, cx } from '@/components/ui';
+import { Alert, Button, Card, CardBody, Checkbox, CheckboxGroup, Field, ScrollIntoView, Select, TextInput, cx } from '@/components/ui';
 import { rebalance, toPercent, type PercentWeights, type WeightKey } from '@/lib/search/weights';
 import { saveSettings, type SettingsState } from './actions';
 import { CLASS_YEARS, LANDMARK_KIND_LABELS, SCHOOLS } from './options';
@@ -57,12 +57,18 @@ export function SettingsForm({
 
   return (
     <form action={formAction} className="grid gap-6">
-      {state.saved && (
-        <Alert tone="good" title="Saved">
-          Your settings are updated. Rankings now use them.
-        </Alert>
+      {!pending && state.saved && (
+        <ScrollIntoView>
+          <Alert tone="good" title="Saved">
+            Your settings are updated. Rankings now use them.
+          </Alert>
+        </ScrollIntoView>
       )}
-      {state.error && <Alert tone="bad">{state.error}</Alert>}
+      {!pending && state.error && (
+        <ScrollIntoView>
+          <Alert tone="bad">{state.error}</Alert>
+        </ScrollIntoView>
+      )}
 
       <Card as="section">
         <CardBody className="grid gap-5">
