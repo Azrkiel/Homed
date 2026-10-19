@@ -6,6 +6,7 @@ import { RepoError } from '@homed/db';
 import { getRepo } from '@/lib/repo';
 import { requireUser } from '@/lib/session';
 import { filtersFromParams, filtersToParams } from './params';
+import { parseRating } from './listing-detail';
 
 export type ActionResult<T extends object = object> = ({ ok: true } & T) | { ok: false; message: string };
 
@@ -81,5 +82,26 @@ export async function setWeightsPreset(preset: string): Promise<ActionResult> {
     return { ok: true };
   } catch (e) {
     return fail(e, 'Could not change your weights. Please try again.');
+  }
+}
+
+/** Student swipe rating (1-5) of a real photo. Signed-out -> /signin?next=<path>. Re-rating replaces. */
+export async function ratePhotoAction(
+  photoId: string,
+  rating: number,
+  floorPlanId: string,
+): Promise<ActionResult<{ looksRating?: number; ratingCount: number }>> {
+  const path = `/listings/${floorPlanId}`;
+  const user = await requireUser(undefined, path);
+  const value = parseRating(rating);
+  if (value === null) return { ok: false, message: 'Pick a rating from 1 to 5.' };
+  if (typeof photoId !== 'string' || photoId === '') return { ok: false, message: 'Unknown photo.' };
+  try {
+    const photo = await getRepo().ratePhoto(user.id, photoId, value);
+    revalidatePath(path);
+    revalidatePath('/search');
+    return { ok: true, looksRating: photo.looksRating, ratingCount: photo.ratingCount };
+  } catch (e) {
+    return fail(e, 'Could not save your rating. Please try again.');
   }
 }
