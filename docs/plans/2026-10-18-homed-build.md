@@ -509,3 +509,26 @@ of the fixture), web skeleton (`layout.tsx`, `globals.css`, landing `page.tsx`, 
 4. Root README: what it is, run it, env vars, data provenance, what needs keys (Supabase, email,
    Mapbox optional, push), open questions from Plan.md.
 5. Hand back: push branch + PR to main only with the owner's OK.
+
+---
+
+## Notes for wave 3 (lead, after Phase 5 merged)
+- Reuse Phase 5's kit: `components/ui/index.ts` (Button, Card, Badge, ScoreRing, Field, Select, Slider,
+  Sheet, EmptyState, Tabs...), `components/listing/listing-card.tsx`, `lib/format.ts`, and
+  `lib/ranking.ts` (`rankForUser(user, { filters?, groupContext? })` where groupContext =
+  `{ weights?, budgetMax?, meetings?, extras? }` overrides the user's values; `scoringContextFor`,
+  `buildWalkLookup`, `getRankedListing`). Server actions return `ActionResult` (see `lib/search/actions.ts`).
+  Import these; never edit them (Phase 5 owns them). Need a change? Report blocked.
+- Do NOT add `loading.tsx` to routes that call `requireUser` or `notFound()`: a loading boundary
+  streams HTTP 200 before the redirect / 404 happens.
+- Sign-out and other state-changing actions use POST forms, never prefetched `<Link>`s.
+- `apps/web/test/search/smoke.sh` is the pattern for smoke scripts (temp HOMED_DATA_DIR, `next start`
+  on a free port, cookie sign-in, curl markers, PASS, port cleanup). Use ports 3013 (groups),
+  3014 (apply), 3015 (landlord), 3016 (mobile API) so phases can run smoke tests side by side.
+  Build once per smoke run into a separate `distDir` is NOT needed: each worktree has its own .next.
+- Real seed data (56 properties) is merged. Nav links to /groups and /applications 404 until merged.
+- Mobile: `apps/mobile` exists as a minimal Expo SDK 58 + expo-router skeleton (React 19.3.0, single
+  copy via root `overrides`). `npx expo export --platform web` and `npx tsc --noEmit` pass there.
+  Installed: expo, expo-router, expo-constants, expo-linking, expo-secure-store, expo-status-bar,
+  react-native 0.88, react-native-web, react-native-safe-area-context, react-native-screens.
+  No gesture-handler/reanimated: build swipe with RN `Animated` + `PanResponder`.
