@@ -23,6 +23,9 @@ export type FloorPlanInput = Omit<FloorPlan, 'id'> & { id?: ID };
 export type PhotoInput = Omit<Photo, 'id' | 'looksRating' | 'ratingCount'> & { id?: ID };
 
 /** Every AccessibilityFeature, in checklist order. Test keeps this in sync with ACCESSIBILITY_FEATURE_LABELS. */
+/** Property.source for listings a landlord created in the portal. */
+export const LANDLORD_SOURCE = 'landlord portal';
+
 export const ACCESSIBILITY_FEATURES: readonly AccessibilityFeature[] = [
   'step_free_entrance',
   'elevator',
@@ -215,7 +218,7 @@ export function parsePropertyForm(
       noGuarantorOption: flag(fd, 'noGuarantorOption'),
       gradHeavy: flag(fd, 'gradHeavy'),
       litRouteToGrounds: flag(fd, 'litRouteToGrounds'),
-      source: 'landlord portal',
+      source: LANDLORD_SOURCE,
       dataStatus: existing?.dataStatus ?? 'unverified_seed',
       lastVerified: today,
     };

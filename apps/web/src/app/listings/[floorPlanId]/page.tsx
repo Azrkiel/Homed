@@ -20,6 +20,8 @@ import { ScoreBreakdown } from '@/components/listing/score-breakdown';
 import { StaleNotice } from '@/components/listing/stale-notice';
 import { WalkTimes } from '@/components/listing/walk-times';
 import { WatchButton } from '@/components/listing/watch-button';
+import { ListingStatusNote } from '@/components/landlord/listing-status-note';
+import { LANDLORD_SOURCE } from '@/lib/landlord/forms';
 import { getRankedListing } from '@/lib/ranking';
 import { getRepo, today } from '@/lib/repo';
 import { getCurrentUser } from '@/lib/session';
@@ -160,13 +162,17 @@ export default async function ListingPage({ params, searchParams }: Props) {
             <h2 id="source-heading" className="text-base font-semibold text-ink">
               Data source
             </h2>
-            <p>
-              Source: {property.source}.{' '}
-              {property.dataStatus === 'verified' ? <Badge tone="good">Verified data</Badge> : <Badge tone="warn">Unverified</Badge>}
-            </p>
+            {property.source === LANDLORD_SOURCE ? (
+              <ListingStatusNote dataStatus={property.dataStatus} />
+            ) : (
+              <p>
+                Source: {property.source}.{' '}
+                {property.dataStatus === 'verified' ? <Badge tone="good">Verified data</Badge> : <Badge tone="warn">Unverified</Badge>}
+              </p>
+            )}
             <StaleNotice lastVerified={floorPlan.lastVerified} today={todayIso} />
           </section>
-          <ReviewsSection propertyId={property.id} />
+          <ReviewsSection propertyId={property.id} nextPath={basePath} />
         </div>
 
         <aside aria-label="Cost and match summary" className="grid min-w-0 gap-6 lg:sticky lg:top-4">

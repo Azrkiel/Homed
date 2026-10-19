@@ -21,7 +21,7 @@ function ratingLine(r: Review): string {
   return parts.join(' · ');
 }
 
-export async function ReviewsSection({ propertyId }: { propertyId: string }) {
+export async function ReviewsSection({ propertyId, nextPath }: { propertyId: string; nextPath: string }) {
   const repo = getRepo();
   const published = await repo.listReviews(propertyId);
   const summary = summarizeReviews(published);
@@ -102,7 +102,7 @@ export async function ReviewsSection({ propertyId }: { propertyId: string }) {
 
       {!user && (
         <p className="text-sm text-ink-2">
-          <Link href="/signin" className="font-medium text-accent underline">
+          <Link href={`/signin?next=${encodeURIComponent(nextPath)}`} className="font-medium text-accent underline">
             Sign in with your @virginia.edu email to review
           </Link>
         </p>
