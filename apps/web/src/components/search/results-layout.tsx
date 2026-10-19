@@ -7,7 +7,7 @@ export function ResultsLayout({ list, map }: { list: ReactNode; map: ReactNode }
   const [view, setView] = useState<'list' | 'map'>('list');
   return (
     <div className="grid gap-4">
-      <div role="group" aria-label="Show list or map" className="inline-flex w-fit gap-1 rounded-full border border-line bg-surface p-1 text-sm md:hidden">
+      <div role="group" aria-label="Show list or map" className="inline-flex w-fit gap-1 rounded-lg border border-line bg-surface p-1 text-sm md:hidden">
         {(['list', 'map'] as const).map((v) => (
           <button
             key={v}
@@ -15,7 +15,7 @@ export function ResultsLayout({ list, map }: { list: ReactNode; map: ReactNode }
             aria-pressed={view === v}
             onClick={() => setView(v)}
             className={cx(
-              'rounded-full px-4 py-1.5 font-medium transition-colors',
+              'rounded-md px-4 py-1.5 font-medium transition-colors',
               view === v ? 'bg-accent text-accent-ink' : 'text-ink-2 hover:bg-surface-2 hover:text-ink',
             )}
           >

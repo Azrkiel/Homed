@@ -49,11 +49,7 @@ export default async function ClassesPage() {
       <div>
         <PageHeader
           title="My Classes"
-          subtitle="Tell Homed where you have class so it can rank places by your real walks."
         />
-        <Alert tone="info">
-          Course lookup (Lou&apos;s List / SIS) is not connected, so enter buildings and times manually, or pick your major for an estimate.
-        </Alert>
       </div>
       {loadError && (
         <Alert tone="warn">Some of your class data could not load. Reload to try again.</Alert>

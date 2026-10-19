@@ -29,7 +29,7 @@ export default async function GroupMatchPage({ params }: Props) {
     <div className="grid gap-5">
       <PageHeader
         title={`Match: ${data.group.name}`}
-        subtitle="Swipe together. A place is a match when everyone in the group says yes."
+        subtitle="A match is when everyone says yes."
         className="pb-0"
         actions={
           <Button href={`/groups/${groupId}`} variant="ghost">

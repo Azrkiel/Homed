@@ -36,7 +36,6 @@ export default async function LandlordApplicationsPage() {
       <PageHeader
         eyebrow="Landlords"
         title="Applications"
-        subtitle="Applications to your properties. Open one to review the applicant profiles, documents and status."
         actions={<Link href="/landlord" className="text-sm font-medium text-accent underline-offset-4 hover:underline">Back to dashboard</Link>}
       />
 

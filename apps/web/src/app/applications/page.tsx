@@ -37,7 +37,6 @@ export default async function ApplicationsPage() {
     <div className="mx-auto grid max-w-3xl gap-6">
       <PageHeader
         title="Applications"
-        subtitle="Every place you applied to, grouped by the batch you sent together. Track each one here."
         actions={
           <Button href="/profile/applicant" variant="secondary">
             Applicant profile

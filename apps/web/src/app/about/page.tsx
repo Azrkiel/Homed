@@ -34,7 +34,6 @@ export default function AboutPage() {
     <div className="grid max-w-3xl gap-8">
       <PageHeader
         title="About Homed"
-        subtitle="How the data is gathered, how listings are ranked, and what we will never do."
         className="pb-0"
       />
 

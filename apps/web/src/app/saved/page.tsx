@@ -62,7 +62,6 @@ export default async function SavedPage() {
     <div className="grid gap-5">
       <PageHeader
         title="Saved"
-        subtitle="Your shortlist. Add notes, select two to four to compare, or swipe through them again."
         className="pb-0"
         actions={
           swipeIds.length > 0 ? (

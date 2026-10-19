@@ -125,7 +125,7 @@ export function TrackerSteps({ app }: { app: Application }): ReactNode {
                   ? 'grid size-7 shrink-0 place-items-center rounded-full bg-good text-xs font-semibold text-accent-ink'
                   : step.state === 'current'
                     ? 'grid size-7 shrink-0 place-items-center rounded-full bg-accent text-xs font-semibold text-accent-ink'
-                    : 'grid size-7 shrink-0 place-items-center rounded-full border border-line bg-surface text-xs font-semibold text-ink-2'
+                    : 'grid size-7 shrink-0 place-items-center rounded-lg border border-line bg-surface text-xs font-semibold text-ink-2'
               }
             >
               {i + 1}

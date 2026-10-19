@@ -82,7 +82,6 @@ export default async function ComparePage({
     <div className="grid gap-5">
       <PageHeader
         title="Compare"
-        subtitle="Two to four places side by side. Best values are highlighted."
         className="pb-0"
         actions={
           <Button href="/saved" variant="secondary">

@@ -5,7 +5,7 @@ export type BadgeTone = 'neutral' | 'accent' | 'good' | 'warn' | 'bad';
 
 const TONE: Record<BadgeTone, string> = {
   neutral: 'bg-surface-2 text-ink-2',
-  accent: 'bg-accent-soft text-accent',
+  accent: 'bg-orange-soft text-orange-ink',
   good: 'bg-good-soft text-good',
   warn: 'bg-warn-soft text-warn',
   bad: 'bg-bad-soft text-bad',
@@ -13,7 +13,7 @@ const TONE: Record<BadgeTone, string> = {
 
 export function Badge({ tone = 'neutral', className, children }: { tone?: BadgeTone; className?: string; children: ReactNode }) {
   return (
-    <span className={cx('inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium', TONE[tone], className)}>
+    <span className={cx('inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-xs font-medium', TONE[tone], className)}>
       {children}
     </span>
   );

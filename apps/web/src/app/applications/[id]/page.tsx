@@ -147,7 +147,7 @@ export default async function ApplicationPage({ params }: Props) {
           </div>
           <a
             href={`/api/applications/${app.id}/pdf`}
-            className="inline-flex w-fit items-center rounded-full border border-line bg-surface px-4 py-2 text-sm font-medium text-ink hover:bg-surface-2"
+            className="inline-flex w-fit items-center rounded-lg border border-line bg-surface px-4 py-2 text-sm font-medium text-ink hover:bg-surface-2"
           >
             Download PDF for landlords not on Homed
           </a>

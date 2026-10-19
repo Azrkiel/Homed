@@ -20,7 +20,7 @@ const SIZE: Record<ButtonSize, string> = {
 };
 
 const BASE =
-  'inline-flex items-center justify-center gap-2 rounded-full font-medium whitespace-nowrap select-none transition-colors disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50';
+  'inline-flex items-center justify-center gap-2 rounded-lg font-medium whitespace-nowrap select-none transition-colors disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50';
 
 interface SharedProps {
   variant?: ButtonVariant;

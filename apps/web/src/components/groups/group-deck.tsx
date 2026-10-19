@@ -185,7 +185,7 @@ export function GroupDeck({
         onKeyDown={onKeyDown}
         className="grid gap-5 rounded-card outline-none focus-visible:ring-2 focus-visible:ring-focus"
       >
-        <p id="group-deck-hint" className="text-center text-sm text-ink-2">
+        <p id="group-deck-hint" className="sr-only">
           Keyboard: focus this area, Left arrow passes, Right arrow says yes.
         </p>
 

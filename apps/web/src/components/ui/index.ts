@@ -22,3 +22,4 @@ export { Tabs, type TabItem } from './tabs';
 export { TextInput } from './text-input';
 export { Textarea } from './textarea';
 export { VisuallyHidden } from './visually-hidden';
+export { Disclosure } from './disclosure';

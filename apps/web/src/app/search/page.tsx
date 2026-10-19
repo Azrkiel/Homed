@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { WEIGHT_PRESETS, normalizeWeights, type Listing, type RankedListing, type WeightPreset } from '@homed/core';
 import { RepoError } from '@homed/db';
-import { Alert, PageHeader, SegmentedControl } from '@/components/ui';
+import Link from 'next/link';
+import { Alert, SegmentedControl } from '@/components/ui';
 import { ListingCard } from '@/components/listing/listing-card';
 import { ActiveFilters } from '@/components/search/active-filters';
 import { AlertButton } from '@/components/search/alert-button';
@@ -23,7 +24,7 @@ export const metadata: Metadata = { title: 'Search | Homed' };
 export const dynamic = 'force-dynamic';
 
 const SORTS: { key: SortKey; label: string }[] = [
-  { key: 'match', label: 'Best Match' },
+  { key: 'match', label: 'Best match' },
   { key: 'price', label: 'Price' },
   { key: 'walk', label: 'Walk' },
 ];
@@ -69,11 +70,11 @@ export default async function SearchPage({
   const today_ = today();
 
   const list = (
-    <div className="grid gap-4">
+    <div className="grid min-w-0 gap-3">
       {ranked.length === 0 ? (
         <SearchEmpty allListings={allListings} filters={filters} sort={sort} preset={presetForUrl} />
       ) : (
-        <ul className="grid gap-4">
+        <ul className="grid grid-cols-[minmax(0,1fr)] gap-3">
           {ranked.map((r) => (
             <li key={r.listing.floorPlan.id}>
               <ListingCard
@@ -90,24 +91,36 @@ export default async function SearchPage({
     </div>
   );
 
+  const hasClasses = ranked.some((r) => r.score.commute.weeklyMinutes > 0);
+
   return (
     <div className="grid gap-5">
-      <PageHeader
-        title="Find your place"
-        subtitle="Every option on and off Grounds, ranked by all-in price, your walk to class, and how nice it is."
-        className="pb-0"
-      />
-
       {loadError ? (
         <Alert tone="bad" title="Could not load listings">
-          {loadError} Please refresh the page in a moment.
+          {loadError}
         </Alert>
       ) : (
         <>
-          <div className="grid gap-3 rounded-card border border-line bg-surface p-4">
-            <WeightPresets active={activePreset} signedIn={signedIn} hrefs={presetHrefs} />
-            <div className="flex flex-wrap items-center gap-3">
+          <div className="grid gap-3">
+            <div className="flex flex-wrap items-center gap-2">
               <FilterDrawer filters={filters} sort={sort} preset={presetForUrl} />
+              <WeightPresets active={activePreset} signedIn={signedIn} hrefs={presetHrefs} />
+            </div>
+            <ActiveFilters filters={filters} sort={sort} preset={presetForUrl} />
+          </div>
+
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-baseline gap-3">
+              <h1 className="text-xl font-semibold text-navy" aria-live="polite">
+                {plural(ranked.length, 'place')}
+              </h1>
+              {!hasClasses && ranked.length > 0 && (
+                <Link href={signedIn ? '/classes' : '/signin?next=%2Fclasses'} className="text-sm text-ink-3 hover:text-ink">
+                  Add your classes to rank by walk
+                </Link>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
               <SegmentedControl
                 label="Sort results"
                 items={SORTS.map((s) => ({
@@ -116,18 +129,8 @@ export default async function SearchPage({
                   active: s.key === sort,
                 }))}
               />
-              <div className="ml-auto">
-                <AlertButton filters={filters} signedIn={signedIn} nextPath={currentUrl} />
-              </div>
+              <AlertButton filters={filters} signedIn={signedIn} nextPath={currentUrl} />
             </div>
-            <ActiveFilters filters={filters} sort={sort} preset={presetForUrl} />
-          </div>
-
-          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-            <h2 className="text-lg font-semibold text-ink" aria-live="polite">
-              {plural(ranked.length, 'place')}
-            </h2>
-            {!signedIn && <p className="text-sm text-ink-2">Sign in and add your classes to rank by your walk.</p>}
           </div>
 
           <ResultsLayout list={list} map={<MapWrapper markers={propertyMarkers(ranked)} />} />

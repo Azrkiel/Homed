@@ -47,7 +47,7 @@ export default async function ApplicantProfilePage() {
     <div className="mx-auto grid max-w-3xl gap-8">
       <PageHeader
         title="Applicant profile"
-        subtitle="One profile for every place you apply to. Landlords see it only when you apply."
+        subtitle="Landlords see it only when you apply."
       />
       {loadError && (
         <Alert tone="warn">Your saved profile could not load. Reload to try again.</Alert>

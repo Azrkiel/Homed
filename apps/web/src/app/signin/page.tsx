@@ -45,7 +45,7 @@ export default async function SignInPage({
   const mode = getAuth().mode;
   return (
     <div className="mx-auto max-w-md">
-      <PageHeader title="Sign in" subtitle="Save places, set your classes and get rankings made for you." />
+      <PageHeader title="Sign in" />
       <Card>
         <CardBody>
           <SignInForm mode={mode} next={next} />

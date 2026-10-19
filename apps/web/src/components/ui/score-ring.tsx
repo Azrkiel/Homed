@@ -49,7 +49,7 @@ export function ScoreRing({
       style={{ width: dim, height: dim }}
     >
       <svg aria-hidden="true" width={dim} height={dim} viewBox={`0 0 ${dim} ${dim}`} className="absolute inset-0 -rotate-90">
-        <circle cx={dim / 2} cy={dim / 2} r={r} fill="none" stroke="currentColor" strokeWidth={stroke} className="text-line" />
+        <circle cx={dim / 2} cy={dim / 2} r={r} fill="none" stroke="currentColor" strokeWidth={stroke} className="text-surface-3" />
         {value !== null && (
           <circle
             cx={dim / 2}
@@ -61,11 +61,11 @@ export function ScoreRing({
             strokeLinecap="round"
             strokeDasharray={circumference}
             strokeDashoffset={circumference * (1 - value / 100)}
-            className={TONE_TEXT[tone]}
+            className="text-orange"
           />
         )}
       </svg>
-      <span aria-hidden="true" className={cx('font-semibold tabular-nums text-ink', NUMBER[size])}>
+      <span aria-hidden="true" className={cx('font-semibold tabular-nums text-navy', NUMBER[size])}>
         {value ?? '—'}
       </span>
     </span>

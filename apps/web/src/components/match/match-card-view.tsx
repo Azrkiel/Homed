@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import { Badge, ScoreRing, cx } from '@/components/ui';
+import { money } from '@/lib/format';
 import { PropertyIllustration } from '@/components/listing/property-illustration';
-import { CostLine } from '@/components/listing/cost-line';
-import { ListingBadges } from '@/components/listing/listing-badges';
 import { StaleNotice } from '@/components/listing/stale-notice';
 import { listingName, type MatchCard } from '@/lib/search/match';
 
@@ -68,19 +67,20 @@ export function MatchCardView({
           <ScoreRing score={card.scoreTotal} size="md" />
         </div>
 
-        <CostLine total={card.totalMonthly} />
-        <p className="text-base text-ink">{card.why}</p>
-        <p className="text-sm text-ink-2">{card.walk ?? 'Walk times unavailable'}</p>
-        <ListingBadges badges={card.badges} kind={card.kind} />
+        <p className="flex items-baseline gap-1">
+          <span className="text-2xl font-semibold tabular-nums text-navy">{money(card.totalMonthly)}</span>
+          <span className="text-sm text-ink-3">/mo</span>
+        </p>
+        <p className="text-ink-2">{card.walk ?? card.why.split(' · ').filter((p) => !p.includes('all-in')).join(' · ')}</p>
 
         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 pt-1">
-          <StaleNotice lastVerified={card.lastVerified} today={today} />
+          {card.stale ? <StaleNotice lastVerified={card.lastVerified} today={today} /> : <span />}
           {showLink && (
             <Link
               href={card.href}
-              className="rounded text-sm font-medium text-accent underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
+              className="rounded text-sm font-medium text-navy underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
             >
-              Open full listing
+              Details
             </Link>
           )}
         </div>

@@ -45,10 +45,7 @@ export function WeekSummary({ state }: { state: WeekSummaryState }) {
         Your week
       </h2>
       {state.kind === 'no-meetings' ? (
-        <EmptyState
-          title="No classes saved yet"
-          body="Pick your major or add your classes above and save. Then you will see how much walking each place costs you every week."
-        />
+        <p className="text-sm text-ink-3">Nothing saved yet.</p>
       ) : (
         <div className="grid gap-4 md:grid-cols-2">
           {state.best ? (

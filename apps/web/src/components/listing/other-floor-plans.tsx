@@ -1,21 +1,17 @@
 import Link from 'next/link';
 import type { Listing } from '@homed/core';
-import { Card, CardBody } from '@/components/ui';
 import { bedBath, money } from '@/lib/format';
 
 /** Other floor plans in the same building, as compact links. Renders nothing when there are none. */
 export function OtherFloorPlans({ plans, propertyName }: { plans: Listing[]; propertyName: string }) {
   if (plans.length === 0) return null;
   return (
-    <Card as="section">
-      <CardBody className="grid gap-3">
-        <h2 className="text-xl font-semibold text-ink">Other floor plans at {propertyName}</h2>
-        <ul className="grid gap-2 sm:grid-cols-2">
+    <ul className="grid gap-2 sm:grid-cols-2">
           {plans.map(({ floorPlan }) => (
             <li key={floorPlan.id}>
               <Link
                 href={`/listings/${floorPlan.id}`}
-                className="flex items-baseline justify-between gap-3 rounded-card border border-line px-3 py-2 text-sm hover:bg-surface-2"
+                className="flex items-baseline justify-between gap-3 rounded-lg border border-line px-3 py-2 text-sm hover:bg-surface-2"
               >
                 <span className="font-medium text-ink">
                   {floorPlan.name} <span className="font-normal text-ink-2">{bedBath(floorPlan.beds, floorPlan.baths)}</span>
@@ -27,8 +23,6 @@ export function OtherFloorPlans({ plans, propertyName }: { plans: Listing[]; pro
               </Link>
             </li>
           ))}
-        </ul>
-      </CardBody>
-    </Card>
+    </ul>
   );
 }

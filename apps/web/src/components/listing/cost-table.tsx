@@ -1,7 +1,6 @@
 import type { CostBreakdown, FloorPlan, Property } from '@homed/core';
-import { Alert, Button, Card, CardBody, cx } from '@/components/ui';
+import { Button, Card, CardBody, cx } from '@/components/ui';
 import { money, plural } from '@/lib/format';
-import { termExplanation } from '@/lib/search/listing-detail';
 
 function Row({ label, value, hint, strong }: { label: string; value: string; hint?: string; strong?: boolean }) {
   return (
@@ -33,13 +32,12 @@ export function CostTable({
   basePath: string;
 }) {
   const parkingAvailable = property.amenities.parkingAvailable;
-  const term = termExplanation(floorPlan.termKind, cost.leaseMonths);
   const perUnit = floorPlan.rentBasis === 'per_unit';
 
   return (
     <Card as="section" className="overflow-hidden">
       <CardBody className="grid gap-3">
-        <h2 className="text-xl font-semibold text-ink">True cost per person</h2>
+        <h2 className="text-lg font-semibold text-ink">Cost per person</h2>
         <table className="w-full text-sm">
           <caption className="sr-only">Monthly cost per person, with lease totals</caption>
           <tbody>
@@ -96,14 +94,7 @@ export function CostTable({
           </div>
         )}
 
-        {cost.note && (
-          <Alert tone="warn">{cost.note}</Alert>
-        )}
-
-        <div className="grid gap-1 rounded-card bg-surface-2 p-3 text-sm">
-          <h3 className="font-semibold text-ink">{term.title}</h3>
-          <p className="text-ink-2">{term.body}</p>
-        </div>
+        {cost.note && <p className="text-sm text-ink-2">{cost.note}</p>}
       </CardBody>
     </Card>
   );

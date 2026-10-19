@@ -139,15 +139,15 @@ if [ -z "$ID1" ] || [ -z "$ID2" ]; then
 fi
 echo "listings: $ID1 $ID2"
 
-check /                      200 "ranked by all-in price"
-check /search                200 "Find your place"
-check "/listings/$ID1"       200 "True cost per person"
+check /                      200 "Find next year"
+check /search                200 "places"
+check "/listings/$ID1"       200 "Cost per person"
 check /classes               200 "My Classes"
 check /match                 200 "Match deck"
 check "/compare?ids=$ID1,$ID2" 200 "Side-by-side comparison"
-check /saved                 200 "Your shortlist"
-check /alerts                200 "Updates on places and searches"
-check /settings              200 "Tell Homed what you care about"
+check /saved                 200 ">Saved<"
+check /alerts                200 ">Alerts<"
+check /settings              200 ">Settings<"
 check /about                 200 "About Homed"
 
 if [ "$FAILS" -eq 0 ]; then echo PASS; else echo "FAIL ($FAILS check(s) failed)"; exit 1; fi

@@ -23,7 +23,7 @@ export default async function LandlordPage() {
         <PageHeader
           eyebrow="Landlords"
           title="Set up your landlord profile"
-          subtitle="Create a profile to list properties, confirm availability and reply to student reviews."
+          subtitle="Set up your landlord profile."
         />
         <OnboardingForm />
       </div>
@@ -45,7 +45,7 @@ export default async function LandlordPage() {
       <PageHeader
         eyebrow="Landlords"
         title="Landlord dashboard"
-        subtitle={`Signed in as ${landlord.name}. Confirm availability weekly so students see current units.`}
+        subtitle="Confirm availability weekly."
         actions={
           <>
             <Button href="/landlord/applications" variant="secondary">

@@ -258,7 +258,7 @@ export function MatchDeck({
       onKeyDown={onKeyDown}
       className="grid gap-5 rounded-card outline-none focus-visible:ring-2 focus-visible:ring-focus"
     >
-      <p id={hintId} className="text-center text-sm text-ink-2">
+      <p id={hintId} className="sr-only">
         Keyboard: focus this area, Left arrow passes, Right arrow saves, Z undoes.
       </p>
 

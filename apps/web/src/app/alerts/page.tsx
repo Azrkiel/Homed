@@ -47,7 +47,6 @@ export default async function AlertsPage() {
     <div className="grid gap-8">
       <PageHeader
         title="Alerts"
-        subtitle="Updates on places and searches you are watching. They show up here in the app; we do not send email."
         className="pb-0"
       />
 

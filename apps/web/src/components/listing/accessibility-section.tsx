@@ -1,6 +1,5 @@
 import { ACCESSIBILITY_FEATURE_LABELS, accommodationBadge, type AccessibilityInfo } from '@homed/core';
-import { Badge, Card, CardBody } from '@/components/ui';
-import { shortDate } from '@/lib/format';
+import { Badge } from '@/components/ui';
 
 export const SDAC_HOUSING_URL = 'https://studenthealth.virginia.edu/sdac-housing-accommodations';
 
@@ -10,23 +9,14 @@ export function AccessibilitySection({ info, onGrounds }: { info: AccessibilityI
   const confirmed = new Set(info?.photoConfirmed ?? []);
 
   return (
-    <Card as="section">
-      <CardBody className="grid gap-4">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <h2 id="a11y-heading" className="text-xl font-semibold text-ink">
-            Accessibility and accommodations
-          </h2>
-          {badge.friendly ? <Badge tone="good">Accommodation-friendly</Badge> : <Badge tone="neutral">Not yet accommodation-friendly</Badge>}
-        </div>
+    <div className="grid gap-4">
+        {badge.friendly && <Badge tone="good" className="w-fit">Accommodation-friendly</Badge>}
 
         {!info ? (
-          <p className="text-sm text-ink-2">
-            No accessibility information on file for this building. Ask the landlord about step-free access, elevators and
-            your accommodation needs before you apply.
-          </p>
+          <p className="text-sm text-ink-2">No details yet. Ask the landlord before you apply.</p>
         ) : (
           <>
-            {info.features.length > 0 ? (
+            {info.features.length > 0 && (
               <ul className="grid gap-1.5 sm:grid-cols-2" aria-label="Accessibility features">
                 {info.features.map((f) => (
                   <li key={f} className="flex flex-wrap items-center gap-2 text-sm text-ink">
@@ -36,8 +26,6 @@ export function AccessibilitySection({ info, onGrounds }: { info: AccessibilityI
                   </li>
                 ))}
               </ul>
-            ) : (
-              <p className="text-sm text-ink-2">No accessibility features are listed.</p>
             )}
 
             <dl className="grid gap-3 text-sm sm:grid-cols-2">
@@ -64,32 +52,15 @@ export function AccessibilitySection({ info, onGrounds }: { info: AccessibilityI
           </>
         )}
 
-        {!badge.friendly && (
-          <div className="grid gap-1 text-sm">
-            <p className="font-medium text-ink">What is missing for the Accommodation-friendly badge</p>
-            <ul className="list-disc pl-5 text-ink-2">
-              {badge.missing.map((m) => (
-                <li key={m}>{m}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {info && <p className="text-xs text-ink-3">Accessibility details updated {shortDate(info.updatedAt)}.</p>}
-
         {onGrounds && (
-          <div className="grid gap-1 rounded-card bg-info-soft p-3 text-sm text-ink">
-            <p>
-              On-Grounds housing accommodations go through{' '}
-              <a href={SDAC_HOUSING_URL} className="font-medium text-info underline underline-offset-2" target="_blank" rel="noreferrer">
-                UVA Student Disability Access Center housing accommodations
-              </a>
-              .
-            </p>
-            <p>Requests are made every year, and approval does not guarantee a spot.</p>
-          </div>
+          <p className="text-sm text-ink-2">
+            On-Grounds requests go through the{' '}
+            <a href={SDAC_HOUSING_URL} className="font-medium text-navy underline underline-offset-2" target="_blank" rel="noreferrer">
+              Student Disability Access Center
+            </a>
+            , every year.
+          </p>
         )}
-      </CardBody>
-    </Card>
+    </div>
   );
 }

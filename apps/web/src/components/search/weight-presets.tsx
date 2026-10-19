@@ -5,9 +5,9 @@ import { WEIGHT_PRESETS, type WeightPreset } from '@homed/core';
 import { cx } from '@/components/ui';
 import { setWeightsPreset } from '@/lib/search/actions';
 
-const CHIP = 'rounded-full border px-3 py-1.5 text-sm font-medium transition-colors';
-const OFF = 'border-line bg-surface text-ink-2 hover:bg-surface-2 hover:text-ink';
-const ON = 'border-accent bg-accent-soft text-accent';
+const CHIP = 'rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors';
+const OFF = 'border-line bg-surface text-ink-2 hover:border-navy/30 hover:text-ink';
+const ON = 'border-navy bg-navy text-white';
 
 /**
  * Preset chips. Signed-in: each chip saves the weights (server action). Signed-out: each chip is a link
@@ -37,7 +37,6 @@ export function WeightPresets({
   return (
     <div className="grid gap-1.5">
       <div role="group" aria-label="Ranking weights" aria-busy={pending || undefined} className="flex flex-wrap items-center gap-2">
-        <span className="text-sm font-medium text-ink">Rank by</span>
         {keys.map((key) =>
           signedIn ? (
             <button
@@ -56,20 +55,10 @@ export function WeightPresets({
             </Link>
           ),
         )}
-        <span aria-current={active === 'custom' ? 'true' : undefined} className={cx(CHIP, 'cursor-default', active === 'custom' ? ON : 'border-dashed border-line text-ink-3')}>
-          Custom
-        </span>
-        {signedIn ? (
-          <Link href="/settings" className="text-sm text-accent underline underline-offset-2">
-            Fine-tune in Settings
+        {active === 'custom' && (
+          <Link href="/settings" aria-current="true" className={cx(CHIP, ON)}>
+            Custom
           </Link>
-        ) : (
-          <span className="text-sm text-ink-2">
-            <Link href="/signin?next=%2Fsearch" className="text-accent underline underline-offset-2">
-              Sign in
-            </Link>{' '}
-            to save your weights.
-          </span>
         )}
       </div>
       <p role="status" className={message ? 'text-sm text-bad' : 'sr-only'}>

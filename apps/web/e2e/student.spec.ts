@@ -3,7 +3,7 @@ import { signIn, studentEmail } from './helpers';
 
 /** Count shown above the results, e.g. "12 places" -> 12. */
 async function placeCount(page: Page): Promise<number> {
-  const text = await page.getByRole('heading', { level: 2, name: /places?$/ }).innerText();
+  const text = await page.getByRole('heading', { level: 1, name: /places?$/ }).innerText();
   return Number(text.match(/\d+/)?.[0] ?? NaN);
 }
 
@@ -62,7 +62,7 @@ test('student journey: settings, classes, search, listing, compare, saved note',
   await expect(page).toHaveURL(/parking=1/);
   const firstListing = page.locator('a[href^="/listings/"]').first();
   await firstListing.click();
-  await expect(page.getByRole('heading', { level: 2, name: 'True cost per person' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 2, name: 'Cost per person' })).toBeVisible();
 
   // Cost table: toggle parking in and check the parking row starts counting.
   const parkingRow = page.locator('tr', { hasText: 'Parking' });

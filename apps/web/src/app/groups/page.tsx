@@ -18,7 +18,6 @@ export default async function GroupsPage() {
     <div className="grid gap-5">
       <PageHeader
         title="Groups"
-        subtitle="Share a shortlist with your roommates, vote together, and find places everyone agrees on."
         className="pb-0"
       />
 

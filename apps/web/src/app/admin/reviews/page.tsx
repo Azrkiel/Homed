@@ -33,7 +33,6 @@ export default async function AdminReviewsPage() {
       <PageHeader
         eyebrow="Admin"
         title="Review moderation"
-        subtitle="Publish or reject student reviews. Only published reviews show on listings."
       />
       {rows.length === 0 ? (
         <EmptyState title="No reviews waiting" body="New student reviews appear here for a decision." />

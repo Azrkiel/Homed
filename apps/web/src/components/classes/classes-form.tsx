@@ -108,7 +108,7 @@ export function ClassesForm({
       <Card as="section">
         <CardBody className="grid gap-5">
           <fieldset className="grid gap-2">
-            <legend className="text-lg font-semibold text-ink">How should we find your classes?</legend>
+            <legend className="sr-only">How should we find your classes?</legend>
             <div role="group" aria-label="Class entry mode" className="flex flex-wrap gap-2">
               {(
                 [
@@ -122,7 +122,7 @@ export function ClassesForm({
                   aria-pressed={mode === value}
                   onClick={() => setMode(value)}
                   className={cx(
-                    'h-10 rounded-full border px-4 text-sm font-medium transition-colors',
+                    'h-10 rounded-lg border px-4 text-sm font-medium transition-colors',
                     mode === value ? 'border-accent bg-accent text-accent-ink' : 'border-line bg-surface text-ink hover:bg-surface-2',
                   )}
                 >
@@ -132,8 +132,8 @@ export function ClassesForm({
             </div>
             <p className="text-sm text-ink-2">
               {mode === 'major'
-                ? 'We estimate which buildings a typical second-year in your major visits each week.'
-                : 'Enter each class with its days, times and building for exact walks.'}
+                ? 'Estimated from your major.'
+                : 'Exact walks from your schedule.'}
             </p>
           </fieldset>
 
@@ -164,9 +164,6 @@ export function ClassesForm({
             <h2 id="classes-heading" className="text-lg font-semibold text-ink">
               Your classes
             </h2>
-            <p className="text-sm text-ink-2">
-              Course lookup (Lou&apos;s List / SIS) is not connected, so enter the building and times yourself.
-            </p>
           </div>
 
           <ol className="grid gap-4">
@@ -230,7 +227,7 @@ export function ClassesForm({
                               <label
                                 key={d.value}
                                 className={cx(
-                                  'inline-flex h-10 min-w-12 cursor-pointer items-center justify-center rounded-full border px-3 text-sm font-medium transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent',
+                                  'inline-flex h-10 min-w-12 cursor-pointer items-center justify-center rounded-lg border px-3 text-sm font-medium transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent',
                                   on ? 'border-accent bg-accent text-accent-ink' : 'border-line bg-surface text-ink hover:bg-surface-2',
                                 )}
                               >

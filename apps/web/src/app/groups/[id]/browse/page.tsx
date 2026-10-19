@@ -34,7 +34,6 @@ export default async function GroupBrowsePage({ params }: Props) {
     <div className="grid gap-5">
       <PageHeader
         title={data.group.name}
-        subtitle="Places ranked for the whole group."
         className="pb-0"
         actions={
           <Button href={`/groups/${groupId}`} variant="ghost">

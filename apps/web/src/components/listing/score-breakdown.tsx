@@ -3,9 +3,9 @@ import { Card, CardBody, ScoreRing, scoreTone } from '@/components/ui';
 import { weightPercents } from '@/lib/search/listing-detail';
 
 const BAR: Record<ReturnType<typeof scoreTone>, string> = {
-  good: 'bg-good',
-  warn: 'bg-warn',
-  bad: 'bg-bad',
+  good: 'bg-navy',
+  warn: 'bg-navy',
+  bad: 'bg-navy',
   unknown: 'bg-ink-3',
 };
 
@@ -31,7 +31,7 @@ export function ScoreBreakdown({
         <div className="flex items-center gap-4">
           <ScoreRing score={score.total} size="lg" />
           <div className="grid gap-1">
-            <h2 className="text-xl font-semibold text-ink">Best Match</h2>
+            <h2 className="text-lg font-semibold text-ink">Best match</h2>
             <p className="text-sm text-ink">{score.why}</p>
           </div>
         </div>
@@ -62,12 +62,7 @@ export function ScoreBreakdown({
           })}
         </ul>
 
-        <div className="grid gap-1.5 text-sm text-ink-2">
-          {score.looksBasis === 'age_only' && <p>Based on building age only: no real photos/ratings yet.</p>}
-          {renderingsOnly && <p>Only renderings are available, so the looks score cannot use real photos.</p>}
-          {!personal && <p>Using default weights. Sign in and add your classes to personalize this score.</p>}
-          <p>Paid placement never changes this score.</p>
-        </div>
+        {!personal && <p className="text-sm text-ink-3">Default weights. Sign in to personalize.</p>}
       </CardBody>
     </Card>
   );

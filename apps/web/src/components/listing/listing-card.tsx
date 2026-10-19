@@ -1,18 +1,28 @@
 import Link from 'next/link';
-import { isStale, type ISODate, type RankedListing } from '@homed/core';
-import { ScoreRing, cx } from '@/components/ui';
-import { AddToGroupButton } from '@/components/groups/add-to-group-button';
-import { bedBath, minutes } from '@/lib/format';
-import { hasWalkData } from '@/lib/search/results';
-import { CostLine } from './cost-line';
-import { ListingBadges } from './listing-badges';
+import { isStale, verifiedLabel, type ISODate, type ListingBadge, type RankedListing } from '@homed/core';
+import { Badge, ScoreRing, cx } from '@/components/ui';
+import { bedBath, money } from '@/lib/format';
 import { PhotoOrPlaceholder } from './photo-or-placeholder';
 import { SaveToggle } from './save-toggle';
-import { StaleNotice } from './stale-notice';
+
+/** The one badge worth showing on a card, most useful first. */
+const CARD_BADGE: [ListingBadge, string][] = [
+  ['few_left', 'Few left'],
+  ['renderings_only', 'Renderings only'],
+  ['on_grounds', 'On Grounds'],
+];
+
+/** The why line without its price part: the card already shows the price. */
+function reason(why: string): string {
+  return why
+    .split(' · ')
+    .filter((part) => !part.includes('all-in'))
+    .join(' · ');
+}
 
 /**
- * One ranked listing. The title link is the single primary link and covers the whole card (stretched
- * link); the save and group buttons sit above it with `relative z-10`.
+ * One ranked listing: photo, name, price, why, score and save. The title link covers the whole card
+ * (stretched link); the save button sits above it.
  */
 export function ListingCard({
   ranked,
@@ -33,66 +43,55 @@ export function ListingCard({
   const { listing, score } = ranked;
   const { property, floorPlan, photos } = listing;
   const stale = isStale(floorPlan.lastVerified, today);
-  const walk = hasWalkData(score);
-  const href = `/listings/${floorPlan.id}`;
+  const badge = CARD_BADGE.find(([b]) => score.badges.includes(b));
+  const why = reason(score.why);
 
   return (
     <article
       aria-label={`${property.name}, ${floorPlan.name}`}
       className={cx(
-        'group relative flex flex-col overflow-hidden rounded-card border bg-surface shadow-card transition-shadow focus-within:ring-2 focus-within:ring-focus hover:shadow-lg sm:flex-row',
-        stale ? 'border-dashed border-warn' : 'border-line',
+        'group relative flex min-w-0 gap-4 rounded-card border border-line bg-surface p-3 transition-colors focus-within:ring-2 focus-within:ring-focus hover:border-navy/30',
+        stale && 'opacity-75',
         className,
       )}
     >
-      <PhotoOrPlaceholder photos={photos} name={property.name} kind={property.kind} dimmed={stale} className="sm:w-44 sm:shrink-0 sm:aspect-auto" />
+      <PhotoOrPlaceholder
+        photos={photos}
+        name={property.name}
+        kind={property.kind}
+        dimmed={stale}
+        className="h-24 w-32 shrink-0 rounded-md sm:h-28 sm:w-36"
+      />
 
-      <div className="grid min-w-0 flex-1 content-start gap-2 p-4">
+      <div className="flex min-w-0 flex-1 flex-col gap-1">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <h3 className="text-base font-semibold text-ink">
-              <Link
-                href={href}
-                className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
-              >
+            <h3 className="truncate font-semibold text-ink">
+              <Link href={`/listings/${floorPlan.id}`} className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none">
                 {property.name}
               </Link>
             </h3>
-            <p className="text-sm text-ink-2">
-              {floorPlan.name} &middot; {bedBath(floorPlan.beds, floorPlan.baths)} &middot; {property.neighborhood}
+            <p className="truncate text-sm text-ink-3">
+              {floorPlan.name} &middot; {bedBath(floorPlan.beds, floorPlan.baths)}
             </p>
           </div>
           <ScoreRing score={score.total} size="sm" />
         </div>
 
-        <CostLine total={score.cost.totalMonthly} />
-        <p className="text-sm text-ink">{score.why}</p>
+        <p className="flex items-baseline gap-1">
+          <span className="text-lg font-semibold tabular-nums text-navy">{money(score.cost.totalMonthly)}</span>
+          <span className="text-sm text-ink-3" title="Rent plus utilities, internet and furniture, per person">
+            /mo
+          </span>
+        </p>
 
-        {walk ? (
-          score.commute.earliestClassMinutes !== null && (
-            <p className="text-sm text-ink-2">
-              About {minutes(Math.round(score.commute.averageMinutes))} to class{score.commute.usesBus ? ' (bus helps)' : ''}
-            </p>
-          )
-        ) : (
-          <p className="text-sm text-ink-2">
-            {signedIn ? 'Add your classes in My Classes to rank by your walk.' : 'Add your classes to see your walk.'}
+        <div className="mt-auto flex items-center justify-between gap-2">
+          <p className="min-w-0 truncate text-sm text-ink-2">
+            {stale ? <span className="text-warn">{verifiedLabel(floorPlan.lastVerified, today)}</span> : why}
           </p>
-        )}
-
-        <ListingBadges badges={score.badges} kind={property.kind} />
-
-        <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-1">
-          <StaleNotice lastVerified={floorPlan.lastVerified} today={today} />
-          <div className="relative z-10 flex items-center gap-2">
-            <AddToGroupButton floorPlanId={floorPlan.id} />
-            <SaveToggle
-              floorPlanId={floorPlan.id}
-              name={`${property.name} ${floorPlan.name}`}
-              saved={saved}
-              signedIn={signedIn}
-              nextPath={nextPath}
-            />
+          <div className="relative z-10 flex shrink-0 items-center gap-2">
+            {badge && <Badge tone={badge[0] === 'renderings_only' ? 'warn' : 'accent'}>{badge[1]}</Badge>}
+            <SaveToggle floorPlanId={floorPlan.id} name={`${property.name} ${floorPlan.name}`} saved={saved} signedIn={signedIn} nextPath={nextPath} />
           </div>
         </div>
       </div>

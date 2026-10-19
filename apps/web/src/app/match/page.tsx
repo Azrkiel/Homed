@@ -44,7 +44,6 @@ export default async function MatchPage({
     <div className="grid gap-5">
       <PageHeader
         title="Match"
-        subtitle="One place at a time, best match first. Save the ones you like, pass on the rest."
         className="pb-0"
       />
 

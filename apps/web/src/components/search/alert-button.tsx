@@ -4,7 +4,7 @@ import type { ListingFilters } from '@homed/core';
 import { Button } from '@/components/ui';
 import { createSearchAlert } from '@/lib/search/actions';
 
-/** "Alert me about new matches". Signed-out: link to sign in, returning to this search. */
+/** "Get alerts" for this search. Signed-out: link to sign in, returning to this search. */
 export function AlertButton({
   filters,
   signedIn,
@@ -19,24 +19,26 @@ export function AlertButton({
 
   if (!signedIn) {
     return (
-      <Button href={`/signin?next=${encodeURIComponent(nextPath)}`} variant="secondary">
-        Alert me about new matches
+      <Button href={`/signin?next=${encodeURIComponent(nextPath)}`} variant="secondary" size="sm">
+        Get alerts
       </Button>
     );
   }
 
   return (
-    <div className="flex flex-wrap items-center gap-3">
+    <div className="flex items-center gap-2">
       <Button
         variant="secondary"
+        size="sm"
         loading={pending}
+        disabled={state?.tone === 'good'}
         onClick={() =>
           startTransition(async () => {
             try {
               const result = await createSearchAlert(filters);
               setState(
                 result.ok
-                  ? { tone: 'good', text: 'Alert saved. You will see new matches in Alerts.' }
+                  ? { tone: 'good', text: 'Alerts on for this search.' }
                   : { tone: 'bad', text: result.message },
               );
             } catch {
@@ -45,9 +47,9 @@ export function AlertButton({
           })
         }
       >
-        Alert me about new matches
+        {state?.tone === 'good' ? 'Alerts on' : 'Get alerts'}
       </Button>
-      <p role="status" className={state ? (state.tone === 'good' ? 'text-sm text-good' : 'text-sm text-bad') : 'sr-only'}>
+      <p role="status" className={state?.tone === 'bad' ? 'text-sm text-bad' : 'sr-only'}>
         {state?.text}
       </p>
     </div>

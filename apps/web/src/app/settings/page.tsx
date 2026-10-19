@@ -24,7 +24,7 @@ export default async function SettingsPage() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <PageHeader title="Settings" subtitle="Tell Homed what you care about and it ranks every place for you." />
+      <PageHeader title="Settings" />
       {loadError && (
         <Alert tone="warn" className="mb-6">
           Some options could not load, so majors and places are missing. Reload to try again.

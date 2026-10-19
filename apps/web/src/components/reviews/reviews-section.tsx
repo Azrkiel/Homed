@@ -39,16 +39,13 @@ export async function ReviewsSection({ propertyId, nextPath }: { propertyId: str
 
   return (
     <section aria-labelledby="reviews-heading" className="grid gap-4">
-      <div className="flex flex-wrap items-end justify-between gap-3">
-        <h2 id="reviews-heading" className="text-lg font-semibold text-ink">
-          Student reviews
-          {summary.count > 0 && <span className="ml-2 text-sm font-normal text-ink-2">({summary.count})</span>}
-        </h2>
-        {noise !== null && <Badge tone="accent">Noise: {noiseTag(noise)}</Badge>}
-      </div>
+      <h2 id="reviews-heading" className="sr-only">
+        Student reviews{summary.count > 0 ? ` (${summary.count})` : ''}
+      </h2>
+      {noise !== null && <Badge tone="accent" className="w-fit">Noise: {noiseTag(noise)}</Badge>}
 
       {summary.count === 0 ? (
-        <EmptyState title="No reviews yet" body="Students who live here can share how it went. Reviews appear after a quick check." />
+        <p className="text-sm text-ink-2">No reviews yet.</p>
       ) : (
         <Card>
           <CardBody className="grid gap-4">

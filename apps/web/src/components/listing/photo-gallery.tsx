@@ -26,23 +26,16 @@ export function PhotoGallery({
 
   return (
     <section aria-labelledby="gallery-heading" className="grid gap-3">
-      <h2 id="gallery-heading" className="text-xl font-semibold text-ink">
+      <h2 id="gallery-heading" className={photos.length === 0 ? 'sr-only' : 'text-lg font-semibold text-ink'}>
         Photos
       </h2>
       {photos.length === 0 ? (
-        <Card>
-          <div className="grid gap-3 sm:grid-cols-[14rem_1fr] sm:items-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <div className="relative aspect-[4/3]">
-              <PropertyIllustration kind={kind} seed={name} name={name} className="absolute inset-0" />
-            </div>
-            <CardBody>
-              <p className="font-medium text-ink">No photos yet.</p>
-              {renderingsOnly && <p className="text-sm text-warn">The building is still being built; only architectural renderings exist.</p>}
-              <p className="text-sm text-ink-2">Ask the landlord for photos of the actual unit before you apply.</p>
-            </CardBody>
-          </div>
-        </Card>
+        <div className="relative aspect-[16/9] overflow-hidden rounded-card">
+          <PropertyIllustration kind={kind} seed={name} name={name} className="absolute inset-0" />
+          {renderingsOnly && (
+            <span className="absolute left-3 top-3 rounded-md bg-white/90 px-2 py-0.5 text-xs font-medium text-warn">Under construction</span>
+          )}
+        </div>
       ) : (
         <>
           {renderingsOnly && (

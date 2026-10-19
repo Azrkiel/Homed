@@ -111,7 +111,7 @@ export default async function ApplyNewPage({ searchParams }: { searchParams: Pro
     <div className="mx-auto grid max-w-3xl gap-6">
       <PageHeader
         title="Apply"
-        subtitle="Apply to up to three places at once. Everyone sees the same fees before anything is sent."
+        subtitle="Up to 3 places at once."
       />
 
       {loadError ? (

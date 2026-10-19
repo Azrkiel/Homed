@@ -117,7 +117,7 @@ export function classWalkRows(meetings: WeeklyMeeting[], buildings: Building[], 
 }
 
 const HIGHLIGHTS: ((l: Landmark) => boolean)[] = [
-  (l) => /\bcorner\b/i.test(l.name),
+  (l) => l.kind !== 'worship' && l.kind !== 'grocery' && /\bcorner\b/i.test(l.name),
   (l) => /\blawn\b|rotunda/i.test(l.name),
   (l) => /clemons/i.test(l.name),
   (l) => /newcomb/i.test(l.name),
@@ -146,6 +146,14 @@ export function landmarkWalkRows(landmarks: Landmark[], walks: WalkTime[], prope
     });
   }
   rows.sort((a, b) => a.rank - b.rank || a.walkMinutes - b.walkMinutes || a.name.localeCompare(b.name));
+  // Only the nearest grocery is a highlight; the others go with the rest.
+  const groceryRank = HIGHLIGHTS.length - 1;
+  let groceryShown = false;
+  for (const row of rows) {
+    if (row.rank !== groceryRank) continue;
+    if (groceryShown) row.highlight = false;
+    groceryShown = true;
+  }
   return rows.map(({ rank: _rank, ...row }) => row);
 }
 

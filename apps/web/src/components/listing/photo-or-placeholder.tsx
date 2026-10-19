@@ -46,7 +46,7 @@ export function PhotoOrPlaceholder({
           )}
         </>
       ) : (
-        <PropertyIllustration kind={kind} seed={name} name={name} className={cx('absolute inset-0', dimmed && 'opacity-60 grayscale')} />
+        <PropertyIllustration kind={kind} seed={name} name={name} showLabel={false} className={cx('absolute inset-0', dimmed && 'opacity-60 grayscale')} />
       )}
     </div>
   );

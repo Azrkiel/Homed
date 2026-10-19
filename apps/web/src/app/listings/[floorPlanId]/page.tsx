@@ -3,14 +3,12 @@ import { notFound } from 'next/navigation';
 import { DEFAULT_WEIGHTS, computeCost, isStale, normalizeWeights, weeklyMeetings, type Listing, type RankedListing } from '@homed/core';
 import type { Building, Landmark, WalkTime, WeeklyMeeting } from '@homed/core';
 import { RepoError } from '@homed/db';
-import { Alert, Badge, PageHeader, ScoreRing } from '@/components/ui';
+import { Alert, Badge, Disclosure } from '@/components/ui';
 import { AddToGroupButton } from '@/components/groups/add-to-group-button';
 import { ApplyButton } from '@/components/apply/apply-button';
 import { ReviewsSection } from '@/components/reviews/reviews-section';
 import { AccessibilitySection } from '@/components/listing/accessibility-section';
-import { CostLine } from '@/components/listing/cost-line';
 import { CostTable } from '@/components/listing/cost-table';
-import { ListingBadges } from '@/components/listing/listing-badges';
 import { ListingFacts } from '@/components/listing/listing-facts';
 import { OnGroundsBox } from '@/components/listing/on-grounds-box';
 import { OtherFloorPlans } from '@/components/listing/other-floor-plans';
@@ -107,43 +105,31 @@ export default async function ListingPage({ params, searchParams }: Props) {
 
   return (
     <div className="grid gap-6">
-      <PageHeader
-        eyebrow={property.neighborhood}
-        title={property.name}
-        subtitle={`${floorPlan.name} · ${property.address}`}
-        className="pb-0"
-        actions={
-          <>
-            <AddToGroupButton floorPlanId={floorPlan.id} />
-            <ApplyButton floorPlanId={floorPlan.id} />
-          </>
-        }
-      />
-
-      <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
-        <ScoreRing score={score.total} size="md" />
-        <div className="grid gap-1">
-          <CostLine total={cost.totalMonthly} />
-          <ListingBadges badges={score.badges} kind={property.kind} />
+      <header className="flex flex-wrap items-start justify-between gap-4">
+        <div className="grid min-w-0 gap-1">
+          <h1 className="text-2xl font-semibold tracking-tight text-navy sm:text-3xl">{property.name}</h1>
+          <p className="text-ink-2">
+            {floorPlan.name} &middot; {property.neighborhood}
+            {property.dataStatus === 'unverified_seed' && (
+              <Badge tone="warn" className="ml-2 align-middle">
+                Unverified
+              </Badge>
+            )}
+          </p>
         </div>
-        <div className="flex flex-wrap items-start gap-2 sm:ml-auto">
+        <div className="flex items-center gap-2">
           <SaveToggle floorPlanId={floorPlan.id} name={title} saved={saved} signedIn={signedIn} nextPath={basePath} />
-          <WatchButton propertyId={property.id} signedIn={signedIn} nextPath={basePath} />
+          <ApplyButton floorPlanId={floorPlan.id} />
         </div>
-      </div>
+      </header>
 
-      {property.dataStatus === 'unverified_seed' && (
-        <Alert tone="warn" title="Unverified listing">
-          This listing has not been confirmed with the landlord. Check the price, dates and availability before you apply.
-        </Alert>
-      )}
       {stale && (
-        <Alert tone="warn" title="This listing may be out of date">
+        <Alert tone="warn">
           <StaleNotice lastVerified={floorPlan.lastVerified} today={todayIso} />
         </Alert>
       )}
 
-      <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+      <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
         <div className="grid min-w-0 gap-6">
           <PhotoGallery photos={photos} kind={property.kind} floorPlanId={floorPlan.id} name={property.name} signedIn={signedIn} dimmed={stale} />
           <ListingFacts floorPlan={floorPlan} property={property} />
@@ -156,28 +142,35 @@ export default async function ListingPage({ params, searchParams }: Props) {
             nextPath={basePath}
           />
           {onGrounds && <OnGroundsBox info={property.onGroundsInfo} />}
-          <AccessibilitySection info={accessibility} onGrounds={onGrounds} />
-          <OtherFloorPlans plans={others} propertyName={property.name} />
-          <section aria-labelledby="source-heading" className="grid gap-1 text-sm text-ink-2">
-            <h2 id="source-heading" className="text-base font-semibold text-ink">
-              Data source
-            </h2>
-            {property.source === LANDLORD_SOURCE ? (
-              <ListingStatusNote dataStatus={property.dataStatus} />
-            ) : (
-              <p>
-                Source: {property.source}.{' '}
-                {property.dataStatus === 'verified' ? <Badge tone="good">Verified data</Badge> : <Badge tone="warn">Unverified</Badge>}
-              </p>
+
+          <div>
+            <Disclosure title="Accessibility">
+              <AccessibilitySection info={accessibility} onGrounds={onGrounds} />
+            </Disclosure>
+            {others.length > 0 && (
+              <Disclosure title="Other floor plans" meta={others.length}>
+                <OtherFloorPlans plans={others} propertyName={property.name} />
+              </Disclosure>
             )}
-            <StaleNotice lastVerified={floorPlan.lastVerified} today={todayIso} />
-          </section>
-          <ReviewsSection propertyId={property.id} nextPath={basePath} />
+            <Disclosure title="Reviews">
+              <ReviewsSection propertyId={property.id} nextPath={basePath} />
+            </Disclosure>
+            <Disclosure title="Source">
+              <div className="grid gap-1 text-sm text-ink-2">
+                {property.source === LANDLORD_SOURCE ? <ListingStatusNote dataStatus={property.dataStatus} /> : <p className="break-words">{property.source}</p>}
+                <StaleNotice lastVerified={floorPlan.lastVerified} today={todayIso} />
+              </div>
+            </Disclosure>
+          </div>
         </div>
 
-        <aside aria-label="Cost and match summary" className="grid min-w-0 gap-6 lg:sticky lg:top-4">
+        <aside aria-label="Cost and match" className="grid min-w-0 gap-4 lg:sticky lg:top-20">
           <CostTable cost={cost} floorPlan={floorPlan} property={property} includeParking={includeParking} basePath={basePath} />
           <ScoreBreakdown score={score} weights={weights} renderingsOnly={renderingsOnly} personal={signedIn} />
+          <div className="flex flex-wrap gap-2">
+            <AddToGroupButton floorPlanId={floorPlan.id} />
+            <WatchButton propertyId={property.id} signedIn={signedIn} nextPath={basePath} />
+          </div>
         </aside>
       </div>
     </div>

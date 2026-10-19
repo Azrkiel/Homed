@@ -15,7 +15,7 @@ export default async function NewPropertyPage() {
       <PageHeader
         eyebrow="Landlords"
         title="Add a property"
-        subtitle="Save the building first. You will then add its floor plans on the property page."
+        subtitle="Add floor plans after saving."
         actions={
           <Button href="/landlord" variant="ghost">
             Back to dashboard

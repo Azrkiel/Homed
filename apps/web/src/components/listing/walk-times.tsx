@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Badge, Card, CardBody } from '@/components/ui';
+import { Badge, Card, CardBody, Disclosure } from '@/components/ui';
 import { minutes } from '@/lib/format';
 import type { WalkRow } from '@/lib/search/listing-detail';
 
@@ -20,14 +20,14 @@ function WalkList({ rows, label }: { rows: WalkRow[]; label: string }) {
   );
 }
 
-/** Walk times to the student's class buildings and to landmarks, plus the bus note. */
+/** Walk times: the student's classes, the key spots around Grounds, and the rest folded away. */
 export function WalkTimes({
   classes,
   landmarks,
   hasClasses,
   signedIn,
   busNote,
-  nextPath,
+  nextPath: _nextPath,
 }: {
   classes: WalkRow[];
   landmarks: WalkRow[];
@@ -37,49 +37,31 @@ export function WalkTimes({
   busNote: string;
   nextPath: string;
 }) {
-  const unavailable = classes.length === 0 && landmarks.length === 0;
+  const key = landmarks.filter((r) => r.highlight);
+  const rest = landmarks.filter((r) => !r.highlight);
+  const classesHref = signedIn ? '/classes' : '/signin?next=%2Fclasses';
   return (
     <Card as="section">
       <CardBody className="grid gap-4">
-        <h2 className="text-xl font-semibold text-ink">Walk times</h2>
+        <h2 className="text-lg font-semibold text-ink">Walk times</h2>
 
-        <div className="grid gap-1">
-          <h3 className="font-semibold text-ink">To your classes</h3>
-          {classes.length > 0 ? (
-            <WalkList rows={classes} label="Walk times to your classes" />
-          ) : hasClasses ? (
-            <p className="text-sm text-ink-2">Walk times unavailable for your class buildings.</p>
-          ) : signedIn ? (
-            <p className="text-sm text-ink-2">
-              <Link href="/settings" className="font-medium text-accent underline underline-offset-2">
-                Add your classes
-              </Link>{' '}
-              to see the walk to each building.
-            </p>
-          ) : (
-            <p className="text-sm text-ink-2">
-              <Link
-                href={`/signin?next=${encodeURIComponent(nextPath)}`}
-                className="font-medium text-accent underline underline-offset-2"
-              >
-                Sign in and add your classes
-              </Link>{' '}
-              to see the walk to each building.
-            </p>
-          )}
-        </div>
+        {classes.length > 0 ? (
+          <WalkList rows={classes} label="Walk times to your classes" />
+        ) : hasClasses ? (
+          <p className="text-sm text-ink-2">No walk data for your class buildings yet.</p>
+        ) : (
+          <Link href={classesHref} className="w-fit text-sm font-medium text-navy underline underline-offset-2">
+            Add your classes
+          </Link>
+        )}
 
-        <div className="grid gap-1">
-          <h3 className="font-semibold text-ink">To landmarks</h3>
-          {landmarks.length > 0 ? (
-            <WalkList rows={landmarks} label="Walk times to landmarks" />
-          ) : (
-            <p className="text-sm text-ink-2">No landmark walk times for this building.</p>
-          )}
-        </div>
-
-        {unavailable && <p className="text-sm font-medium text-warn">Walk times unavailable for this building.</p>}
-        <p className="text-sm text-ink-2">{busNote}</p>
+        {key.length > 0 && <WalkList rows={key} label="Walk times to places around Grounds" />}
+        {rest.length > 0 && (
+          <Disclosure title="More places" meta={rest.length} className="-mb-4">
+            <WalkList rows={rest} label="Walk times to more places" />
+          </Disclosure>
+        )}
+        <p className="text-xs text-ink-3">{busNote}</p>
       </CardBody>
     </Card>
   );

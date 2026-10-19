@@ -167,7 +167,7 @@ export function SettingsForm({
                       aria-pressed={activePreset === id}
                       onClick={() => setPct(toPercent(p.weights))}
                       className={cx(
-                        'h-10 rounded-full border px-4 text-sm font-medium transition-colors',
+                        'h-10 rounded-lg border px-4 text-sm font-medium transition-colors',
                         activePreset === id
                           ? 'border-accent bg-accent text-accent-ink'
                           : 'border-line bg-surface text-ink hover:bg-surface-2',
