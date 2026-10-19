@@ -1,8 +1,6 @@
 // Supabase store. Phase 4 owns this folder.
 // Done: catalog, users, saves, groups, alerts, reviews, landlords, applications.
 import type { Repository, StoreClock } from '../repository';
-import type { AuthProvider } from '../auth';
-import { notImplemented } from '@homed/core';
 import { createCtx } from './client';
 import { catalogRepo } from './catalog';
 import { saveRepo } from './saves';
@@ -37,14 +35,5 @@ export function createSupabaseRepository(opts: SupabaseStoreOptions): Repository
   };
 }
 
-export interface SupabaseAuthOptions {
-  url: string;
-  anonKey: string;
-  /** Absolute URL of the web app's magic-link callback, e.g. https://homed.app/auth/callback. */
-  redirectTo: string;
-  repo: Repository;
-}
-
-export function createSupabaseAuth(opts: SupabaseAuthOptions): AuthProvider {
-  return notImplemented('createSupabaseAuth');
-}
+export type { SupabaseAuthOptions } from './auth';
+export { createSupabaseAuth } from './auth';
