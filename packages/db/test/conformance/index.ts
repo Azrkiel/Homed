@@ -1,6 +1,8 @@
 import { describe } from 'vitest';
 import type { Repository } from '../../src/repository';
+import { alertsConformance } from './alerts';
 import { catalogConformance } from './catalog';
+import { groupsConformance } from './groups';
 import { savesConformance } from './saves';
 import { usersConformance } from './users';
 
@@ -10,5 +12,7 @@ export function runRepositoryConformance(name: string, makeRepo: () => Promise<R
     catalogConformance(makeRepo);
     usersConformance(makeRepo);
     savesConformance(makeRepo);
+    groupsConformance(makeRepo);
+    alertsConformance(makeRepo);
   });
 }

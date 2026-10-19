@@ -1,4 +1,4 @@
-import type { AlertRepo, ApplicationRepo, GroupRepo, LandlordRepo, ReviewRepo } from '../repository';
+import type { ApplicationRepo, LandlordRepo, ReviewRepo } from '../repository';
 
 function stub(name: string): () => never {
   return () => {
@@ -7,28 +7,8 @@ function stub(name: string): () => never {
 }
 
 /** Methods owned by later tasks. Remove entries here as they are implemented. */
-export function stubs(): GroupRepo & AlertRepo & ReviewRepo & ApplicationRepo & LandlordRepo {
+export function stubs(): ReviewRepo & ApplicationRepo & LandlordRepo {
   return {
-    createGroup: stub('createGroup'),
-    getGroup: stub('getGroup'),
-    getGroupByInviteCode: stub('getGroupByInviteCode'),
-    listGroupsForUser: stub('listGroupsForUser'),
-    listMembers: stub('listMembers'),
-    joinGroup: stub('joinGroup'),
-    leaveGroup: stub('leaveGroup'),
-    updateMember: stub('updateMember'),
-    listShortlist: stub('listShortlist'),
-    addToShortlist: stub('addToShortlist'),
-    removeFromShortlist: stub('removeFromShortlist'),
-    castVote: stub('castVote'),
-    listVotes: stub('listVotes'),
-    listAlerts: stub('listAlerts'),
-    listAllAlerts: stub('listAllAlerts'),
-    createAlert: stub('createAlert'),
-    deleteAlert: stub('deleteAlert'),
-    addAlertEvents: stub('addAlertEvents'),
-    listAlertEvents: stub('listAlertEvents'),
-    markAlertEventsRead: stub('markAlertEventsRead'),
     listReviews: stub('listReviews'),
     createReview: stub('createReview'),
     listPendingReviews: stub('listPendingReviews'),
