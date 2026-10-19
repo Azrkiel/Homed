@@ -8,7 +8,7 @@ import { createSupabaseRepository } from './supabase/index';
 
 export * from './repository';
 export * from './auth';
-export { createLocalAuth } from './local-auth';
+export { createLocalAuth, demoSignInAllowed } from './local-auth';
 export * from './crypto';
 export { createJsonRepository, type JsonStoreOptions } from './json/index';
 export { createSupabaseRepository, createSupabaseAuth, type SupabaseStoreOptions, type SupabaseAuthOptions } from './supabase/index';

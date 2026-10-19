@@ -39,6 +39,7 @@ export default defineConfig({
       ...process.env,
       HOMED_DATA_DIR: dataDir,
       HOMED_SESSION_SECRET: 'e2e-secret',
+      HOMED_ALLOW_DEMO_SIGNIN: '1',
       HOMED_ADMIN_EMAILS: 'admin@virginia.edu',
       HOMED_TODAY: '2026-10-19',
     } as Record<string, string>,

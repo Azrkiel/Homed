@@ -65,7 +65,7 @@ else
 fi
 
 cd "$WEB_DIR"
-export HOMED_DATA_DIR="$DATA_DIR" HOMED_SESSION_SECRET=smoke-secret HOMED_ADMIN_EMAILS=admin-smoke@example.com
+export HOMED_DATA_DIR="$DATA_DIR" HOMED_SESSION_SECRET=smoke-secret HOMED_ALLOW_DEMO_SIGNIN=1 HOMED_ADMIN_EMAILS=admin-smoke@example.com
 unset HOMED_TODAY
 [ "$IS_WIN" = 1 ] || set -m
 npx next start --port "$PORT" >"$WORK/server.log" 2>&1 &

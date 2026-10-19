@@ -33,7 +33,9 @@ npm install
 npm run dev          # http://localhost:3010
 ```
 
-Sign in with any `@virginia.edu` address. In local mode no email is sent; it's demo sign-in.
+Sign in with any `@virginia.edu` address. In local mode no email is sent; it's demo sign-in, so
+it runs in `npm run dev` and is refused in production builds unless you set `HOMED_ALLOW_DEMO_SIGNIN=1`
+(for demos only).
 Landlords can use any email. Data lives in a JSON file under `apps/web/.data/`, seeded from
 `packages/data/seed` on first run. Delete that folder to start over.
 
@@ -59,6 +61,7 @@ Everything is optional; see [`.env.example`](.env.example).
 | `HOMED_ENCRYPTION_KEY` | 32-byte base64 key for applicant data and documents (required in production / Supabase mode) |
 | `HOMED_SESSION_SECRET` | Session signing secret (required in production) |
 | `HOMED_ADMIN_EMAILS` | Comma-separated admin emails |
+| `HOMED_ALLOW_DEMO_SIGNIN` | `1` allows demo sign-in in a production build (`next start`); never set it on a real deployment |
 | `HOMED_TODAY` | Pin "today" for demos and tests |
 | `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `HOMED_APP_URL` | Supabase mode |
 

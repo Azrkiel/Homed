@@ -1,5 +1,5 @@
 // Server-side access to storage and sign-in. CONTRACT (Phase 0, lead-owned).
-import { createLocalAuth, createSupabaseAuth, repositoryFromEnv, type AuthProvider, type Repository } from '@homed/db';
+import { createLocalAuth, createSupabaseAuth, demoSignInAllowed, repositoryFromEnv, type AuthProvider, type Repository } from '@homed/db';
 import type { ISODate } from '@homed/core';
 
 const g = globalThis as unknown as { __homedRepo?: Repository; __homedAuth?: AuthProvider };
@@ -22,7 +22,7 @@ export function getAuth(): AuthProvider {
       }
       g.__homedAuth = createSupabaseAuth({ url, anonKey, redirectTo: `${appUrl}/auth/callback`, repo: getRepo() });
     } else {
-      g.__homedAuth = createLocalAuth(getRepo());
+      g.__homedAuth = createLocalAuth(getRepo(), { enabled: demoSignInAllowed() });
     }
   }
   return g.__homedAuth;
