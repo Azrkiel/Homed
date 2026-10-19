@@ -185,3 +185,43 @@ export async function updateSaveNote(floorPlanId: string, note: string): Promise
     return fail(e, 'Could not save your note. Please try again.');
   }
 }
+
+/** Marks one alert event read. */
+export async function markAlertEventReadAction(eventId: string): Promise<ActionResult> {
+  const user = await requireUser(undefined, '/alerts');
+  if (typeof eventId !== 'string' || eventId === '') return { ok: false, message: 'Unknown update.' };
+  try {
+    await getRepo().markAlertEventsRead(user.id, [eventId]);
+    revalidatePath('/alerts');
+    return { ok: true };
+  } catch (e) {
+    return fail(e, 'Could not mark that update as read. Please try again.');
+  }
+}
+
+/** Marks every unread alert event read. */
+export async function markAllAlertEventsReadAction(): Promise<ActionResult> {
+  const user = await requireUser(undefined, '/alerts');
+  try {
+    const repo = getRepo();
+    const unread = await repo.listAlertEvents(user.id, { unreadOnly: true });
+    if (unread.length > 0) await repo.markAlertEventsRead(user.id, unread.map((e) => e.id));
+    revalidatePath('/alerts');
+    return { ok: true };
+  } catch (e) {
+    return fail(e, 'Could not mark updates as read. Please try again.');
+  }
+}
+
+/** Deletes one of the user's alerts. */
+export async function deleteAlertAction(alertId: string): Promise<ActionResult> {
+  const user = await requireUser(undefined, '/alerts');
+  if (typeof alertId !== 'string' || alertId === '') return { ok: false, message: 'Unknown alert.' };
+  try {
+    await getRepo().deleteAlert(user.id, alertId);
+    revalidatePath('/alerts');
+    return { ok: true };
+  } catch (e) {
+    return fail(e, 'Could not delete that alert. Please try again.');
+  }
+}
