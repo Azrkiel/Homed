@@ -13,7 +13,10 @@ export function getRepo(): Repository {
 export function getAuth(): AuthProvider {
   if (!g.__homedAuth) {
     const env = process.env;
-    if (env.HOMED_BACKEND === 'supabase') {
+    // HOMED_AUTH picks sign-in separately from storage (default: follows HOMED_BACKEND). 'local' with a
+    // Supabase backend keeps demo sign-in, e.g. when Homed shares another app's Supabase Auth.
+    const authMode = env.HOMED_AUTH ?? (env.HOMED_BACKEND === 'supabase' ? 'supabase' : 'local');
+    if (authMode === 'supabase') {
       const url = env.SUPABASE_URL;
       const anonKey = env.SUPABASE_ANON_KEY;
       const appUrl = env.HOMED_APP_URL;
