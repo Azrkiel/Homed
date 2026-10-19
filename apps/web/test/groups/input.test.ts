@@ -23,12 +23,13 @@ describe('checkGroupName', () => {
 });
 
 describe('checkInviteCode', () => {
-  it('normalizes case and whitespace', () => {
-    expect(checkInviteCode(' abc23defg ')).toEqual({ ok: true, value: 'ABC23DEFG' });
+  it('keeps case and trims whitespace', () => {
+    expect(checkInviteCode(' abc23defg ')).toEqual({ ok: true, value: 'abc23defg' });
   });
 
   it('rejects odd characters, short codes, and non-strings', () => {
     expect(checkInviteCode('ABC').ok).toBe(false);
+    expect(checkInviteCode('bXK1i2x0V8M_1DzH')).toEqual({ ok: true, value: 'bXK1i2x0V8M_1DzH' });
     expect(checkInviteCode('ABC/../x').ok).toBe(false);
     expect(checkInviteCode(null).ok).toBe(false);
   });

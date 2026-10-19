@@ -13,11 +13,11 @@ export function checkGroupName(raw: unknown): CheckResult<string> {
   return { ok: true, value: name };
 }
 
-/** Invite code as typed or pasted: trimmed, uppercased, 6 to 16 letters or digits. */
+/** Invite code as typed or pasted: trimmed, case kept (stored codes are base64url), 6 to 32 of A-Z a-z 0-9 _ -. */
 export function checkInviteCode(raw: unknown): CheckResult<string> {
   if (typeof raw !== 'string') return { ok: false, message: 'Invite code must be text.' };
-  const code = raw.trim().toUpperCase();
-  if (!/^[A-Z0-9]{6,16}$/.test(code)) return { ok: false, message: 'That invite link is not valid.' };
+  const code = raw.trim();
+  if (!/^[A-Za-z0-9_-]{6,32}$/.test(code)) return { ok: false, message: 'That invite link is not valid.' };
   return { ok: true, value: code };
 }
 
