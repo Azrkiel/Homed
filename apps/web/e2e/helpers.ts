@@ -71,7 +71,7 @@ export async function createLandlordListing(
 export async function fillApplicantProfile(page: Page, legalName: string) {
   await page.goto('/profile/applicant');
   await page.getByRole('textbox', { name: /^Legal name/ }).fill(legalName);
-  await page.getByRole('textbox', { name: /^Phone/ }).fill('(434) 555-0100');
+  await page.getByRole('textbox', { name: 'Phone', exact: true }).fill('(434) 555-0100');
   await page.getByRole('textbox', { name: /^Current address/ }).fill('1 Student Way, Charlottesville');
   await page.getByRole('combobox', { name: /^Student status/ }).selectOption('undergraduate');
   await page.getByRole('button', { name: 'Save profile' }).click();

@@ -21,6 +21,8 @@ export default defineConfig({
     baseURL: `http://localhost:${PORT}`,
     channel: 'chrome',
     headless: true,
+    actionTimeout: 15_000,
+    navigationTimeout: 30_000,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
