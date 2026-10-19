@@ -1,5 +1,13 @@
 [
   {
+    "id": "ph-1110-wertland-1",
+    "propertyId": "p-1110-wertland",
+    "url": "/placeholder/building.svg",
+    "alt": "1110 Wertland Street exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
     "id": "ph-119-washington-ave-1",
     "propertyId": "p-119-washington-ave",
     "url": "/placeholder/building.svg",
@@ -136,6 +144,22 @@
     "ratingCount": 0
   },
   {
+    "id": "ph-beta-bridge-1",
+    "propertyId": "p-beta-bridge",
+    "url": "/placeholder/building.svg",
+    "alt": "Beta Bridge Apartments exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-beta-ii-1",
+    "propertyId": "p-beta-ii",
+    "url": "/placeholder/building.svg",
+    "alt": "Beta II exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
     "id": "ph-bice-house-1",
     "propertyId": "p-bice-house",
     "url": "/placeholder/building.svg",
@@ -168,6 +192,14 @@
     "ratingCount": 0
   },
   {
+    "id": "ph-camden-plaza-1",
+    "propertyId": "p-camden-plaza",
+    "url": "/placeholder/building.svg",
+    "alt": "Camden Plaza exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
     "id": "ph-casa-bolivar-1",
     "propertyId": "p-casa-bolivar",
     "url": "/placeholder/building.svg",
@@ -188,6 +220,22 @@
     "propertyId": "p-copeley-apartments",
     "url": "/placeholder/building.svg",
     "alt": "Copeley Apartments exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-crestline-1",
+    "propertyId": "p-crestline",
+    "url": "/placeholder/building.svg",
+    "alt": "Yugo Crestline Charlottesville exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-dovecote-at-the-corner-1",
+    "propertyId": "p-dovecote-at-the-corner",
+    "url": "/placeholder/building.svg",
+    "alt": "Dovecote at The Corner exterior (placeholder)",
     "isRendering": false,
     "ratingCount": 0
   },
@@ -312,6 +360,14 @@
     "ratingCount": 0
   },
   {
+    "id": "ph-rugby-mcintyre-1",
+    "propertyId": "p-rugby-mcintyre",
+    "url": "/placeholder/building.svg",
+    "alt": "Rugby McIntyre exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
     "id": "ph-shea-house-1",
     "propertyId": "p-shea-house",
     "url": "/placeholder/building.svg",
@@ -324,6 +380,22 @@
     "propertyId": "p-tarleton-square",
     "url": "/placeholder/building.svg",
     "alt": "Tarleton Square exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-the-fred-1",
+    "propertyId": "p-the-fred",
+    "url": "/placeholder/building.svg",
+    "alt": "The Fred exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-the-grove-at-the-corner-1",
+    "propertyId": "p-the-grove-at-the-corner",
+    "url": "/placeholder/building.svg",
+    "alt": "The Grove at the Corner exterior (placeholder)",
     "isRendering": false,
     "ratingCount": 0
   },

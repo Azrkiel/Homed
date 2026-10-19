@@ -1,4 +1,4 @@
-// Merge research batches A-G into packages/data/seed/*.json, geocoding via OSM.
+// Merge research batches A-I into packages/data/seed/*.json, geocoding via OSM.
 // Rerunnable offline from scripts/.cache. Run: npx tsx packages/data/scripts/merge-research.ts
 import { readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
@@ -113,7 +113,7 @@ const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 async function main() {
   const batches: Raw[] = [];
-  for (const k of "ABCDEFG") batches.push(JSON.parse(await readFile(join(HERE, "research", `${k}.json`), "utf8")));
+  for (const k of "ABCDEFGHI") batches.push(JSON.parse(await readFile(join(HERE, "research", `${k}.json`), "utf8")));
 
   const props = new Map<string, Raw>();
   const plansByProp = new Map<string, Raw[]>();

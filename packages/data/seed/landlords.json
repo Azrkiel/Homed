@@ -81,7 +81,8 @@
     "name": "Management Services Corporation",
     "phone": "434-226-5967",
     "verified": false,
-    "createdAt": "2026-10-19T00:00:00.000Z"
+    "createdAt": "2026-10-19T00:00:00.000Z",
+    "website": "http://www.livewithmsc.com"
   },
   {
     "id": "ll-msc",
@@ -139,6 +140,13 @@
     "website": "https://woodardproperties.com",
     "email": "info@woodardproperties.com",
     "phone": "(434) 971-8860",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-yugo",
+    "name": "Yugo",
+    "website": "https://www.yugo.com",
     "verified": false,
     "createdAt": "2026-10-19T00:00:00.000Z"
   }
