@@ -1,5 +1,4 @@
-import type { FloorPlan, FeeQuote } from './types';
-import { notImplemented } from './not-implemented';
+import type { FloorPlan, FeeLine, FeeQuote } from './types';
 
 /**
  * Va. Code 55.1-1203 (as of 2026): a landlord may charge a nonrefundable application fee of at most
@@ -16,10 +15,26 @@ export const VA_MAX_NONREFUNDABLE_FEE = 50;
  * Zero lines are omitted. complianceIssues gets a message when applicationFee > VA_MAX_NONREFUNDABLE_FEE.
  */
 export function quoteFees(fp: FloorPlan, people: number): FeeQuote {
-  return notImplemented('quoteFees');
+  const perPerson: FeeLine[] = [];
+  const add = (label: string, amount: number | undefined, refundable: boolean) => {
+    const a = amount ?? 0;
+    if (a !== 0) perPerson.push({ label, amount: a, refundable });
+  };
+  add('Application fee', fp.applicationFee, false);
+  add('Screening cost', fp.screeningCost, false);
+  add('Refundable application deposit', fp.applicationDeposit, true);
+  const perPersonTotal = perPerson.reduce((s, l) => s + l.amount, 0);
+  const complianceIssues: string[] = [];
+  const fee = fp.applicationFee ?? 0;
+  if (fee > VA_MAX_NONREFUNDABLE_FEE) {
+    complianceIssues.push(
+      `Application fee of $${fee} is over the $${VA_MAX_NONREFUNDABLE_FEE} Virginia limit on nonrefundable application fees (Va. Code 55.1-1203).`,
+    );
+  }
+  return { perPerson, perPersonTotal, people, applicationTotal: perPersonTotal * people, complianceIssues };
 }
 
 /** Sum of applicationTotal across a batch (shown before anyone submits). */
 export function batchTotal(quotes: FeeQuote[]): number {
-  return notImplemented('batchTotal');
+  return quotes.reduce((s, q) => s + q.applicationTotal, 0);
 }

@@ -1,5 +1,4 @@
 import type { AccessibilityFeature, AccessibilityInfo } from './types';
-import { notImplemented } from './not-implemented';
 
 export const ACCESSIBILITY_FEATURE_LABELS: Record<AccessibilityFeature, string> = {
   step_free_entrance: 'Step-free entrance',
@@ -31,5 +30,20 @@ export interface AccommodationBadge {
  *            AND service animals allowed with no fees.
  */
 export function accommodationBadge(info: AccessibilityInfo | undefined): AccommodationBadge {
-  return notImplemented('accommodationBadge');
+  const criteria = [
+    { ok: !!info?.features.includes('step_free_entrance'), text: 'Step-free entrance' },
+    {
+      ok: !!info && (info.features.includes('elevator') || info.features.includes('ground_floor_units')),
+      text: 'Elevator or ground-floor units',
+    },
+    { ok: !!info?.accommodationContact, text: 'Named accommodation contact' },
+    { ok: !!info?.accommodationProcess, text: 'Written accommodation process' },
+    {
+      ok: !!info && info.assistanceAnimals.serviceAnimalsAllowed && info.assistanceAnimals.noFees,
+      text: 'Service animals allowed with no fees',
+    },
+  ];
+  const reasons = criteria.filter((c) => c.ok).map((c) => c.text);
+  const missing = criteria.filter((c) => !c.ok).map((c) => c.text);
+  return { friendly: missing.length === 0, reasons, missing };
 }

@@ -1,5 +1,4 @@
 import type { ScoreWeights, WeightPreset } from './types';
-import { notImplemented } from './not-implemented';
 
 /** Default 40 / 40 / 20. */
 export const DEFAULT_WEIGHTS: ScoreWeights = { price: 0.4, location: 0.4, looks: 0.2 };
@@ -14,5 +13,8 @@ export const WEIGHT_PRESETS: Record<WeightPreset, { label: string; weights: Scor
 
 /** Scale non-negative weights so they sum to 1. All zero -> DEFAULT_WEIGHTS. */
 export function normalizeWeights(w: ScoreWeights): ScoreWeights {
-  return notImplemented('normalizeWeights');
+  const c = { price: Math.max(0, w.price), location: Math.max(0, w.location), looks: Math.max(0, w.looks) };
+  const total = c.price + c.location + c.looks;
+  if (!(total > 0)) return { ...DEFAULT_WEIGHTS };
+  return { price: c.price / total, location: c.location / total, looks: c.looks / total };
 }
