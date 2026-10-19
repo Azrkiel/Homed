@@ -8,6 +8,7 @@ import { RoommateAttachForm } from '@/components/apply/roommate-attach-form';
 import { flattenMembers, guaranteeTargetName, otherMemberViews, sameEmail } from '@/components/apply/invite-logic';
 import { FeeSummary, placeName } from '@/components/apply/application-views';
 import { profileCompleteness } from '@/lib/apply/profile-form';
+import { batchLocked } from '@/lib/apply/tracker';
 import { getRepo } from '@/lib/repo';
 import { effectiveRole, requireUser } from '@/lib/session';
 
@@ -41,7 +42,7 @@ export default async function InvitePage({ params }: Props) {
   const places: Place[] = apps.map((a) => ({ app: a, label: placeName(listings.get(a.id) ?? null) }));
   const allRows = flattenMembers(membersByApp);
   const leaderName = (membersByApp[app.id] ?? []).find((m) => m.kind === 'leader')?.name?.trim() || undefined;
-  const draft = apps.every((a) => a.status === 'draft');
+  const draft = !batchLocked(apps);
 
   if (member.kind === 'guarantor') {
     const target = guaranteeTargetName(member, allRows, leaderName);

@@ -10,7 +10,7 @@ import { effectiveRole, requireUser } from '@/lib/session';
 import { readField } from './form-input';
 import { checkedChecklistItems, leaderMember, missingChecklistItems } from '../../components/apply/application-logic';
 import { profileCompleteness } from './profile-form';
-import { canSubmitBatch, nextActions } from './tracker';
+import { batchLocked, canSubmitBatch, draftApps, nextActions } from './tracker';
 
 export interface ApplicationActionState {
   ok?: boolean;
@@ -86,9 +86,9 @@ export async function attachLeaderProfile(_prev: ApplicationActionState, formDat
 
     const loaded = await loadLedBatch(batchId, who.userId);
     if ('error' in loaded) return loaded;
-    if (loaded.apps.some((a) => a.status !== 'draft')) return { error: 'This batch was already sent, so your part is locked.' };
+    if (batchLocked(loaded.apps)) return { error: 'This batch was already sent, so your part is locked.' };
 
-    for (const app of loaded.apps) {
+    for (const app of draftApps(loaded.apps)) {
       const mine = leaderMember(loaded.membersByApp[app.id] ?? [], who.userId);
       if (!mine) return { error: 'You are not the leader on this application.' };
       if (!mine.done) await repo.updateApplicationMember(mine.id, { done: true });
@@ -100,7 +100,7 @@ export async function attachLeaderProfile(_prev: ApplicationActionState, formDat
   }
 }
 
-/** Submits every application in the batch once canSubmitBatch passes. */
+/** Submits every remaining draft in the batch once canSubmitBatch passes. Safe to retry after a partial failure. */
 export async function submitBatch(_prev: ApplicationActionState, formData: FormData): Promise<ApplicationActionState> {
   const who = await studentOrError(TRACKER_PATH);
   if ('error' in who) return who;
@@ -113,7 +113,7 @@ export async function submitBatch(_prev: ApplicationActionState, formData: FormD
     if (!check.ok) return { error: check.reason ?? 'This batch is not ready to submit.' };
 
     const repo = getRepo();
-    for (const app of loaded.apps) {
+    for (const app of draftApps(loaded.apps)) {
       await repo.updateApplicationStatus(app.id, 'submitted', who.userId);
     }
     revalidateTracker(batchId, loaded.apps.map((a) => a.id));

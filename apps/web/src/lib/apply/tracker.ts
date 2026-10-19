@@ -58,18 +58,30 @@ export function trackerView(app: Application): { steps: TrackerStep[]; terminal:
   return { steps, terminal: TERMINAL[app.status] ?? null };
 }
 
+/** The batch's applications still being put together. Withdrawn and already-sent ones are left out. */
+export function draftApps(apps: Application[]): Application[] {
+  return apps.filter((a) => a.status === 'draft');
+}
+
+/** Members can no longer change their part once no draft is left in the batch. */
+export function batchLocked(apps: Application[]): boolean {
+  return draftApps(apps).length === 0;
+}
+
 /**
- * A batch can be submitted when it has applications, all are draft, and every member of every
- * application is done. Empty member list counts as not done.
+ * A batch can be submitted when it still has drafts and every member of every draft is done.
+ * Withdrawn choices are ignored, and drafts left by a half-finished submit can be sent on retry.
+ * Empty member list counts as not done.
  */
 export function canSubmitBatch(
   apps: Application[],
   membersByApp: Record<string, ApplicationMember[]>,
 ): { ok: boolean; reason?: string } {
   if (apps.length === 0) return { ok: false, reason: 'There is nothing to submit.' };
-  if (apps.some((a) => a.status !== 'draft')) return { ok: false, reason: 'Only draft applications can be submitted.' };
+  const drafts = draftApps(apps);
+  if (drafts.length === 0) return { ok: false, reason: 'There is nothing left to submit.' };
 
-  for (const app of apps) {
+  for (const app of drafts) {
     const members = membersByApp[app.id] ?? [];
     if (members.length === 0) return { ok: false, reason: 'An application has no members.' };
     const pending = memberStatusViews(members).filter((m) => !m.done);

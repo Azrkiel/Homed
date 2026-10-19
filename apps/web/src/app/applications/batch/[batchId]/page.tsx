@@ -23,7 +23,7 @@ import {
 import { FeeSummary, MemberList, placeName, StatusChip } from '@/components/apply/application-views';
 import { attachLeaderProfile, submitBatch, withdrawApplications } from '@/lib/apply/application-actions';
 import { profileCompleteness } from '@/lib/apply/profile-form';
-import { canSubmitBatch } from '@/lib/apply/tracker';
+import { batchLocked, canSubmitBatch } from '@/lib/apply/tracker';
 import { moneyPrecise, plural } from '@/lib/format';
 import { getRepo } from '@/lib/repo';
 import { effectiveRole, requireUser } from '@/lib/session';
@@ -51,7 +51,7 @@ export default async function BatchPage({ params }: Props) {
   for (const app of apps) listings.set(app.id, await repo.getListing(app.floorPlanId));
 
   const isLeader = apps.every((a) => isLeaderOf(a, user.id));
-  const draft = apps.every((a) => a.status === 'draft');
+  const draft = !batchLocked(apps);
   const total = batchTotal(apps.map((a) => a.fees));
 
   const leaderNames = (() => {

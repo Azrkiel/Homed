@@ -9,7 +9,7 @@ import { getRepo } from '@/lib/repo';
 import { effectiveRole, requireUser } from '@/lib/session';
 import { readField } from './form-input';
 import { profileCompleteness } from './profile-form';
-import { parseGuarantorForm } from './tracker';
+import { batchLocked, parseGuarantorForm } from './tracker';
 import { flattenMembers, sameEmail, siblingRows } from '../../components/apply/invite-logic';
 
 export interface InviteActionState {
@@ -90,7 +90,7 @@ export async function attachRoommateProfile(_prev: InviteActionState, formData: 
 
     const loaded = await loadBatchFor(member.applicationId);
     if (!loaded) return { error: INVALID_LINK };
-    if (loaded.apps.some((a) => a.status !== 'draft')) return { error: LOCKED };
+    if (batchLocked(loaded.apps)) return { error: LOCKED };
     if (loaded.apps.some((a) => a.userId === user.id)) return { error: 'You lead this application, so you do not need an invite.' };
 
     const rows = siblingRows(flattenMembers(loaded.membersByApp), member).filter((r) => r.kind === 'roommate');
@@ -135,7 +135,7 @@ export async function signGuarantorConsent(_prev: InviteActionState, formData: F
 
     const loaded = await loadBatchFor(member.applicationId);
     if (!loaded) return { error: INVALID_LINK };
-    if (loaded.apps.some((a) => a.status !== 'draft')) return { error: LOCKED };
+    if (batchLocked(loaded.apps)) return { error: LOCKED };
 
     const rows = siblingRows(flattenMembers(loaded.membersByApp), member).filter((r) => r.kind === 'guarantor');
     for (const row of rows) {

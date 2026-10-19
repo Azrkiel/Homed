@@ -1,7 +1,9 @@
 import type { Application, ApplicationMember, ApplicationStatus } from '@homed/core';
 import { describe, expect, it } from 'vitest';
 import {
+  batchLocked,
   canSubmitBatch,
+  draftApps,
   inviteUrl,
   nextActions,
   parseGuarantorForm,
@@ -98,10 +100,30 @@ describe('canSubmitBatch', () => {
     expect(canSubmitBatch([], {})).toEqual({ ok: false, reason: 'There is nothing to submit.' });
   });
 
-  it('rejects when any application is not a draft', () => {
+  it('ignores a withdrawn draft: the other choices can still be sent', () => {
+    const gone = { ...app('withdrawn'), id: 'app-b' };
+    const r = canSubmitBatch([a, gone], { [a.id]: [member('m1', true)], [gone.id]: [member('m2', false)] });
+    expect(r).toEqual({ ok: true });
+  });
+
+  it('is retry-safe: drafts left after a half-finished submit can still be sent', () => {
     const sent = { ...app('submitted'), id: 'app-b' };
     const r = canSubmitBatch([a, sent], { [a.id]: [member('m1', true)], [sent.id]: [member('m2', true)] });
-    expect(r).toEqual({ ok: false, reason: 'Only draft applications can be submitted.' });
+    expect(r).toEqual({ ok: true });
+  });
+
+  it('rejects when no draft is left', () => {
+    const sent = { ...app('submitted'), id: 'app-b' };
+    const gone = { ...app('withdrawn'), id: 'app-c' };
+    const r = canSubmitBatch([sent, gone], { [sent.id]: [member('m1', true)], [gone.id]: [member('m2', true)] });
+    expect(r).toEqual({ ok: false, reason: 'There is nothing left to submit.' });
+  });
+
+  it('draftApps and batchLocked', () => {
+    const gone = { ...app('withdrawn'), id: 'app-b' };
+    expect(draftApps([a, gone]).map((x) => x.id)).toEqual([a.id]);
+    expect(batchLocked([a, gone])).toBe(false);
+    expect(batchLocked([gone])).toBe(true);
   });
 
   it('names the first pending member and counts the rest', () => {
