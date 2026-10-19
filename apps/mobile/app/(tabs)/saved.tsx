@@ -1,7 +1,7 @@
 // Saved: the student's shortlist. Remove with a button; missing listings show as "No longer listed".
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 import { getSaves, removeSave } from '../../src/api';
 import type { SaveDTO } from '../../src/api-types';
 import { Button } from '../../src/components/Button';
@@ -15,6 +15,18 @@ export default function SavedScreen() {
   const { colors } = useTheme();
   const { data, error, loading, reload, setData } = useLoad(() => getSaves());
   const [actionError, setActionError] = useState<string | null>(null);
+
+  // Reload on every focus, skipping the first one (useLoad already fetched on mount).
+  const firstFocus = useRef(true);
+  useFocusEffect(
+    useCallback(() => {
+      if (firstFocus.current) {
+        firstFocus.current = false;
+        return;
+      }
+      reload();
+    }, [reload]),
+  );
 
   async function remove(save: SaveDTO) {
     const previous = data;
@@ -53,7 +65,7 @@ export default function SavedScreen() {
       ListEmptyComponent={
         <EmptyState
           title="Nothing saved yet"
-          body="Save a listing from its detail page, or swipe right in Matches, and it will be kept here."
+          body="Save a listing from its detail page, or swipe right in Match, and it will be kept here."
         />
       }
       renderItem={({ item }) => {

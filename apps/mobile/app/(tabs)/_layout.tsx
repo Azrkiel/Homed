@@ -1,5 +1,4 @@
-// Tabs: Matches (ranked list), Saved, Alerts. Sign-out lives in the Alerts header.
-// The swipe Match tab is added later as app/(tabs)/match.tsx; list it here when it lands so its order is set.
+// Tabs in order: Ranked (sorted list), Match (swipe deck), Saved, Alerts. Sign-out lives in the Alerts header.
 import { Pressable, Text } from 'react-native';
 import { Tabs } from 'expo-router';
 import { useAuth } from '../../src/auth';
@@ -34,7 +33,8 @@ export default function TabsLayout() {
         sceneStyle: { backgroundColor: colors.background },
       }}
     >
-      <Tabs.Screen name="index" options={{ title: 'Matches', tabBarLabel: 'Matches' }} />
+      <Tabs.Screen name="index" options={{ title: 'Ranked', tabBarLabel: 'Ranked' }} />
+      <Tabs.Screen name="match" options={{ title: 'Match', tabBarLabel: 'Match' }} />
       <Tabs.Screen name="saved" options={{ title: 'Saved', tabBarLabel: 'Saved' }} />
       <Tabs.Screen
         name="alerts"

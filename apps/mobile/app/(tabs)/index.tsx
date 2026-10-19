@@ -1,16 +1,29 @@
-// Matches: ranked listings for the signed-in student. Pull to refresh.
+// Ranked: listings sorted by Best Match score for the signed-in student. Pull to refresh; reloads on focus.
+import { useCallback, useRef } from 'react';
 import { FlatList, RefreshControl, StyleSheet } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 import { getListings } from '../../src/api';
 import { ListingCard } from '../../src/components/ListingCard';
 import { EmptyState, ErrorState, LoadingState } from '../../src/components/States';
 import { useLoad } from '../../src/hooks/useLoad';
 import { spacing, useTheme } from '../../src/theme';
 
-export default function MatchesScreen() {
+export default function RankedScreen() {
   const router = useRouter();
   const { colors } = useTheme();
   const { data, error, loading, reload } = useLoad(() => getListings());
+
+  // Reload on every focus, skipping the first one (useLoad already fetched on mount).
+  const firstFocus = useRef(true);
+  useFocusEffect(
+    useCallback(() => {
+      if (firstFocus.current) {
+        firstFocus.current = false;
+        return;
+      }
+      reload();
+    }, [reload]),
+  );
 
   if (data === null) {
     if (error) return <ErrorState message={error} onRetry={reload} />;
