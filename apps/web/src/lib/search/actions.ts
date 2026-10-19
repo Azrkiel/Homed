@@ -85,6 +85,49 @@ export async function setWeightsPreset(preset: string): Promise<ActionResult> {
   }
 }
 
+/**
+ * Match swipe (solo). Right also adds a save inside the repo; `addedSave` reports whether that save was new,
+ * so undo only removes saves the swipe created. Signed-out -> /signin?next=/match.
+ */
+export async function recordSwipeAction(
+  floorPlanId: string,
+  direction: 'left' | 'right',
+): Promise<ActionResult<{ addedSave: boolean }>> {
+  const user = await requireUser(undefined, '/match');
+  if (direction !== 'left' && direction !== 'right') return { ok: false, message: 'Unknown swipe.' };
+  if (typeof floorPlanId !== 'string' || floorPlanId === '') return { ok: false, message: 'Unknown listing.' };
+  const repo = getRepo();
+  try {
+    const wasSaved = direction === 'right' && (await repo.listSaves(user.id)).some((s) => s.floorPlanId === floorPlanId);
+    await repo.recordSwipe({ userId: user.id, floorPlanId, direction });
+    for (const p of ['/match', '/saved', '/search']) revalidatePath(p);
+    return { ok: true, addedSave: direction === 'right' && !wasSaved };
+  } catch (e) {
+    return fail(e, 'Could not record your swipe. Please try again.');
+  }
+}
+
+/**
+ * Undo of the last Match swipe. There is no delete-swipe in the Repository, so the stored swipe stays:
+ * after a reload the card stays out of the Match queue. Only the save is reverted, and only when the
+ * swipe created it (`addedSave`, default: any right swipe).
+ */
+export async function undoSwipeAction(
+  floorPlanId: string,
+  previousDirection: 'left' | 'right',
+  addedSave: boolean = previousDirection === 'right',
+): Promise<ActionResult> {
+  const user = await requireUser(undefined, '/match');
+  if (typeof floorPlanId !== 'string' || floorPlanId === '') return { ok: false, message: 'Unknown listing.' };
+  try {
+    if (previousDirection === 'right' && addedSave) await getRepo().removeSave(user.id, floorPlanId);
+    for (const p of ['/match', '/saved', '/search']) revalidatePath(p);
+    return { ok: true };
+  } catch (e) {
+    return fail(e, 'Could not undo that swipe. Please try again.');
+  }
+}
+
 /** Student swipe rating (1-5) of a real photo. Signed-out -> /signin?next=<path>. Re-rating replaces. */
 export async function ratePhotoAction(
   photoId: string,
