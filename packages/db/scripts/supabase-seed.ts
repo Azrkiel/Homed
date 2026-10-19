@@ -1,6 +1,6 @@
 // Loads the full catalog into a Supabase project (upsert; never resets data).
 // Usage (Git Bash): SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... npx tsx packages/db/scripts/supabase-seed.ts
-import { createClient } from '@supabase/supabase-js';
+import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { loadSeed } from '@homed/data';
 import { loadCatalog } from '../src/supabase/seed';
 
@@ -11,7 +11,9 @@ if (!url || !serviceRoleKey) {
   process.exit(1);
 }
 
-const sb = createClient(url, serviceRoleKey, { auth: { persistSession: false, autoRefreshToken: false } });
+// HOMED_SUPABASE_SCHEMA: the schema Homed lives in when it shares a project (default public).
+const schema = process.env.HOMED_SUPABASE_SCHEMA || 'public';
+const sb = createClient(url, serviceRoleKey, { db: { schema }, auth: { persistSession: false, autoRefreshToken: false } }) as unknown as SupabaseClient;
 const counts = await loadCatalog(sb, loadSeed());
 let total = 0;
 for (const [table, n] of Object.entries(counts)) {

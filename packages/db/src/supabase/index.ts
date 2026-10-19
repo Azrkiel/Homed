@@ -15,6 +15,8 @@ export interface SupabaseStoreOptions {
   url: string;
   /** Server-side only. Never ship to a browser or the mobile app. */
   serviceRoleKey: string;
+  /** Postgres schema holding Homed's tables (default 'public'). See packages/db/scripts/render-migrations.ts. */
+  schema?: string;
   /** 32-byte key, base64, for application-level encryption of sensitive fields and documents. */
   encryptionKey: string;
   clock?: StoreClock;

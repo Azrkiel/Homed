@@ -61,3 +61,20 @@ and on any instance.
 - Hosted project: in the dashboard (Authentication > Email Templates), set the **Magic Link** and
   **Confirm signup** bodies to the contents of those two files, and add
   `<HOMED_APP_URL>/auth/callback` to the redirect allow list.
+
+## Sharing a project with another app (dedicated schema)
+
+On the free plan you may not have a spare project. Homed can live inside another app's project in
+its own schema, without touching that app's `public` tables, grants or functions:
+
+```bash
+npx tsx packages/db/scripts/render-migrations.ts homed > homed.sql   # tables -> homed, helpers -> homed_private
+# apply homed.sql (SQL editor, psql, or the Supabase MCP apply_migration)
+# Dashboard > Settings > API > Exposed schemas: add "homed"
+HOMED_SUPABASE_SCHEMA=homed SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... npx tsx packages/db/scripts/supabase-seed.ts
+```
+
+Run the app with `HOMED_BACKEND=supabase HOMED_SUPABASE_SCHEMA=homed`. Caveat: Auth (users, email
+templates, redirect URLs) is per project, so magic-link sign-in shares the other app's email templates.
+Homed's token-hash templates would change the other app's emails too; keep demo sign-in off and plan to
+move Homed to its own project before enabling Supabase sign-in.

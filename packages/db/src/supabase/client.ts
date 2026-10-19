@@ -16,13 +16,16 @@ export interface CtxOptions {
   serviceRoleKey: string;
   encryptionKey: string;
   clock?: StoreClock;
+  /** Postgres schema holding Homed's tables. Default 'public'; 'homed' when sharing a project with another app. */
+  schema?: string;
 }
 
 export function createCtx(opts: CtxOptions): SupabaseCtx {
   const clock = opts.clock ?? systemClock;
   const sb = createClient(opts.url, opts.serviceRoleKey, {
+    db: { schema: opts.schema ?? 'public' },
     auth: { persistSession: false, autoRefreshToken: false },
-  });
+  }) as unknown as SupabaseClient;
   return { sb, now: () => clock.now().toISOString(), encryptionKey: opts.encryptionKey };
 }
 

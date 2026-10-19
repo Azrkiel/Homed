@@ -46,7 +46,7 @@ export function repositoryFromEnv(env: Env = process.env): Repository {
     if (!url || !serviceRoleKey) {
       throw new Error('HOMED_BACKEND=supabase needs SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY');
     }
-    return createSupabaseRepository({ url, serviceRoleKey, encryptionKey });
+    return createSupabaseRepository({ url, serviceRoleKey, encryptionKey, schema: env.HOMED_SUPABASE_SCHEMA || undefined });
   }
   return createJsonRepository({ filePath: join(dataDir(env), 'homed-db.json'), encryptionKey });
 }

@@ -16,10 +16,11 @@ const clock = { now: () => new Date('2026-10-19T12:00:00.000Z') };
 /** Fresh database with the fixture catalog and no user data, for every test. */
 async function makeRepo() {
   if (!url || !serviceRoleKey) throw new Error('SUPABASE_TEST_URL and SUPABASE_TEST_SERVICE_ROLE_KEY are required');
-  const { sb } = createCtx({ url, serviceRoleKey, encryptionKey: KEY, clock });
+  const schema = process.env.SUPABASE_TEST_SCHEMA || undefined;
+  const { sb } = createCtx({ url, serviceRoleKey, encryptionKey: KEY, clock, schema });
   await resetDatabase(sb);
   await loadCatalog(sb, loadFixture());
-  return createSupabaseRepository({ url, serviceRoleKey, encryptionKey: KEY, clock });
+  return createSupabaseRepository({ url, serviceRoleKey, encryptionKey: KEY, clock, schema });
 }
 
 // Skipped (not failed, no network) unless both env vars are set. Tests in one file run serially.
