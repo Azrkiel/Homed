@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { WEIGHT_PRESETS } from '@homed/core';
 import { fromPercent, rebalance, toPercent, type PercentWeights, type WeightKey } from '../../src/lib/search/weights';
-import { safeNext } from '../../src/app/signin/next-path';
+import { safeNext, safeNextOrNull } from '../../src/app/signin/next-path';
 
 const KEYS: WeightKey[] = ['price', 'location', 'looks'];
 const sum = (p: PercentWeights) => p.price + p.location + p.looks;
@@ -74,5 +74,17 @@ describe('safeNext', () => {
     for (const bad of ['//evil.com', '/' + String.fromCharCode(92) + 'evil.com', 'https://evil.com', 'evil', '', undefined, null, 5, '/a\nb']) {
       expect(safeNext(bad)).toBe('/search');
     }
+  });
+});
+
+describe('safeNextOrNull (magic-link callback)', () => {
+  it('rejects a tab-split protocol-relative redirect', () => {
+    // URL parsing strips the tab, so "/\t/evil.example" would become "//evil.example".
+    expect(safeNextOrNull('/\t/evil.example')).toBeNull();
+  });
+  it('keeps a same-site path and rejects missing or unsafe ones', () => {
+    expect(safeNextOrNull('/groups/join/ABC')).toBe('/groups/join/ABC');
+    expect(safeNextOrNull(null)).toBeNull();
+    expect(safeNextOrNull('//evil.example')).toBeNull();
   });
 });

@@ -2,17 +2,12 @@
 import { NextResponse } from 'next/server';
 import { getAuth } from '@/lib/repo';
 import { startSession } from '@/lib/session';
-
-/** Only same-origin relative paths: one leading '/', not '//' or a backslash. */
-function safeNext(raw: string | null): string | null {
-  if (!raw || !raw.startsWith('/') || raw.startsWith('//') || raw.includes('\\')) return null;
-  return raw;
-}
+import { safeNextOrNull } from '@/app/signin/next-path';
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const tokenHash = url.searchParams.get('token_hash');
-  const next = safeNext(url.searchParams.get('next'));
+  const next = safeNextOrNull(url.searchParams.get('next'));
   const fail = (reason: string) =>
     NextResponse.redirect(new URL(`/signin?error=${encodeURIComponent(reason)}`, url));
 

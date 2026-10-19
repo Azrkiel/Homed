@@ -10,3 +10,8 @@ export function safeNext(raw: unknown): string {
   }
   return raw;
 }
+
+/** Like safeNext, but null when `raw` is missing or unsafe, so the caller picks its own default. */
+export function safeNextOrNull(raw: unknown): string | null {
+  return typeof raw === 'string' && safeNext(raw) === raw ? raw : null;
+}
