@@ -300,6 +300,11 @@ describe('scoreListing: why line', () => {
   it('right at budget', () => {
     expect(scoreListing(listing(), ctx({ budgetMax: 1000 })).why).toBe('right at budget · 10 min to your classes');
   });
+  it('group budget never reveals the dollar gap (it would expose the tightest member budget)', () => {
+    expect(scoreListing(listing(), ctx({ budgetLabel: 'group' })).why).toBe('within group budget · 10 min to your classes');
+    expect(scoreListing(listing(), ctx({ budgetMax: 900, budgetLabel: 'group' })).why).toBe('over group budget · 10 min to your classes');
+    expect(scoreListing(listing(), ctx({ budgetMax: 1000, budgetLabel: 'group' })).why).toBe('right at group budget · 10 min to your classes');
+  });
   it('no budget: all-in monthly cost with thousands separator', () => {
     const s = scoreListing(listing({ floorPlan: { rentAmount: 1245 } }), ctx({ budgetMax: undefined }));
     expect(s.why).toBe('$1,245/mo all-in · 10 min to your classes');

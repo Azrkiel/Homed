@@ -125,7 +125,11 @@ export function scoreListing(listing: Listing, ctx: ScoringContext): MatchScore 
   const total = Math.round(w.price * price + w.location * location + w.looks * looks.score);
 
   let priceWhy: string;
-  if (ctx.budgetMax !== undefined) {
+  if (ctx.budgetMax !== undefined && ctx.budgetLabel === 'group') {
+    // cost + gap would reveal the tightest member's exact budget to the whole group.
+    const diff = Math.round(ctx.budgetMax - cost.totalMonthly);
+    priceWhy = diff > 0 ? 'within group budget' : diff < 0 ? 'over group budget' : 'right at group budget';
+  } else if (ctx.budgetMax !== undefined) {
     const diff = Math.round(ctx.budgetMax - cost.totalMonthly);
     priceWhy = diff > 0 ? `${money(diff)} under budget` : diff < 0 ? `${money(-diff)} over budget` : 'right at budget';
   } else {

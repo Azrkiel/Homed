@@ -12,6 +12,7 @@ export function groupContextFor(
   meetingsByMember: WeeklyMeeting[][],
 ): GroupContext {
   const ctx: GroupContext = {
+    group: true,
     weights: leader.weights,
     meetings: meetingsByMember.flat(),
     extras: leader.extras,

@@ -20,8 +20,13 @@ import {
 } from '@homed/core';
 import { getRepo, today } from './repo';
 
-/** Overrides for a group (Phase 6). Any field that is set replaces the user-derived value. */
+/**
+ * Overrides for ranking. Any field that is set replaces the user-derived value. With `group: true`
+ * (group pages) budget and extras come only from the group, never from the viewer's personal settings,
+ * and the why line hides the dollar gap to the group budget.
+ */
 export interface GroupContext {
+  group?: boolean;
   weights?: ScoreWeights;
   budgetMax?: number;
   meetings?: WeeklyMeeting[];
@@ -56,12 +61,14 @@ export async function scoringContextFor(
     opts.listings ?? repo.listListings(),
   ]);
   const group = opts.groupContext ?? {};
+  const isGroup = group.group === true;
 
   return {
     weights: group.weights ? normalizeWeights(group.weights) : user ? normalizeWeights(user.weights) : { ...DEFAULT_WEIGHTS },
-    budgetMax: group.budgetMax !== undefined ? group.budgetMax : user?.budgetMax,
+    budgetMax: isGroup ? group.budgetMax : group.budgetMax !== undefined ? group.budgetMax : user?.budgetMax,
+    budgetLabel: isGroup ? 'group' : 'personal',
     meetings: group.meetings ?? weeklyMeetings(schedule, majors),
-    extras: group.extras ?? (user ? user.extras : []),
+    extras: isGroup ? (group.extras ?? []) : (group.extras ?? (user ? user.extras : [])),
     walk: buildWalkLookup(walkRows),
     neighborhoodMedians: neighborhoodMedians(listings),
     today: today(),

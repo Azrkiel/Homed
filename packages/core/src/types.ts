@@ -404,6 +404,8 @@ export interface ListingFilters {
 export interface ScoringContext {
   weights: ScoreWeights;
   budgetMax?: number;
+  /** 'group': budgetMax is the tightest member budget, so the why line must not print a dollar gap. Default 'personal'. */
+  budgetLabel?: 'personal' | 'group';
   meetings: WeeklyMeeting[];
   extras: ID[];
   walk: WalkLookup;

@@ -37,6 +37,12 @@ describe('groupContextFor', () => {
     expect(ctx.extras).toEqual(['gym', 'corner']);
   });
 
+  it('marks the context as a group so ranking never falls back to personal budget and hides the dollar gap', () => {
+    const ctx = groupContextFor(leader(), [member('u-leader'), member('u-b')], [[], []]);
+    expect(ctx.group).toBe(true);
+    expect(ctx.budgetMax).toBeUndefined();
+  });
+
   it('uses the tightest member budget', () => {
     const ctx = groupContextFor(
       leader(),
