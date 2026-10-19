@@ -1,29 +1,371 @@
 [
   {
-    "id": "lawn",
-    "name": "The Lawn (Rotunda)",
+    "id": "afc",
+    "name": "Aquatic & Fitness Center",
     "location": {
-      "lat": 38.03566,
-      "lng": -78.50345
+      "lat": 38.03292,
+      "lng": -78.51351
     },
-    "kind": "other"
+    "kind": "gym"
+  },
+  {
+    "id": "clemons",
+    "name": "Clemons Library",
+    "location": {
+      "lat": 38.03647,
+      "lng": -78.50612
+    },
+    "kind": "library"
   },
   {
     "id": "corner",
     "name": "The Corner",
     "location": {
-      "lat": 38.03466,
-      "lng": -78.50025
+      "lat": 38.03516,
+      "lng": -78.49974
     },
     "kind": "social"
   },
   {
-    "id": "afc",
-    "name": "Aquatic & Fitness Center",
+    "id": "dining-observatory-hill",
+    "name": "Observatory Hill Dining Hall",
     "location": {
-      "lat": 38.03315,
-      "lng": -78.51393
+      "lat": 38.0348,
+      "lng": -78.51511
+    },
+    "kind": "dining"
+  },
+  {
+    "id": "dining-runk",
+    "name": "Runk Dining Hall",
+    "location": {
+      "lat": 38.0289,
+      "lng": -78.51886
+    },
+    "kind": "dining"
+  },
+  {
+    "id": "grocery-barracks-harris-teeter",
+    "name": "Harris Teeter (Barracks Road Shopping Center)",
+    "location": {
+      "lat": 38.04998,
+      "lng": -78.50421
+    },
+    "kind": "grocery"
+  },
+  {
+    "id": "grocery-barracks-kroger",
+    "name": "Kroger (Barracks Road Shopping Center)",
+    "location": {
+      "lat": 38.05353,
+      "lng": -78.50062
+    },
+    "kind": "grocery"
+  },
+  {
+    "id": "grocery-corner-grocery",
+    "name": "The Corner Grocery",
+    "location": {
+      "lat": 38.03379,
+      "lng": -78.49893
+    },
+    "kind": "grocery"
+  },
+  {
+    "id": "grocery-foods-of-all-nations",
+    "name": "Foods of All Nations",
+    "location": {
+      "lat": 38.04313,
+      "lng": -78.51195
+    },
+    "kind": "grocery"
+  },
+  {
+    "id": "grocery-trader-joes",
+    "name": "Trader Joe's",
+    "location": {
+      "lat": 38.06302,
+      "lng": -78.49145
+    },
+    "kind": "grocery"
+  },
+  {
+    "id": "grocery-wegmans",
+    "name": "Wegmans",
+    "location": {
+      "lat": 38.00877,
+      "lng": -78.50042
+    },
+    "kind": "grocery"
+  },
+  {
+    "id": "grocery-whole-foods",
+    "name": "Whole Foods Market",
+    "location": {
+      "lat": 38.05962,
+      "lng": -78.48923
+    },
+    "kind": "grocery"
+  },
+  {
+    "id": "lawn",
+    "name": "The Lawn",
+    "location": {
+      "lat": 38.03425,
+      "lng": -78.50414
+    },
+    "kind": "other"
+  },
+  {
+    "id": "library-claude-moore",
+    "name": "Claude Moore Health Sciences Library",
+    "location": {
+      "lat": 38.03215,
+      "lng": -78.50114
+    },
+    "kind": "library"
+  },
+  {
+    "id": "library-fiske-kimball",
+    "name": "Fiske Kimball Fine Arts Library",
+    "location": {
+      "lat": 38.03888,
+      "lng": -78.50345
+    },
+    "kind": "library"
+  },
+  {
+    "id": "library-shannon",
+    "name": "Shannon Library",
+    "location": {
+      "lat": 38.03662,
+      "lng": -78.50527
+    },
+    "kind": "library"
+  },
+  {
+    "id": "library-small-special-collections",
+    "name": "Albert and Shirley Small Special Collections Library",
+    "location": {
+      "lat": 38.03614,
+      "lng": -78.50574
+    },
+    "kind": "library"
+  },
+  {
+    "id": "newcomb",
+    "name": "Newcomb Hall",
+    "location": {
+      "lat": 38.0358,
+      "lng": -78.50663
+    },
+    "kind": "social"
+  },
+  {
+    "id": "ngrc",
+    "name": "North Grounds Recreation Center",
+    "location": {
+      "lat": 38.05102,
+      "lng": -78.51334
     },
     "kind": "gym"
+  },
+  {
+    "id": "slaughter-rec",
+    "name": "Slaughter Recreation Center",
+    "location": {
+      "lat": 38.03485,
+      "lng": -78.51784
+    },
+    "kind": "gym"
+  },
+  {
+    "id": "uva-hospital",
+    "name": "UVA Hospital",
+    "location": {
+      "lat": 38.03239,
+      "lng": -78.49935
+    },
+    "kind": "health"
+  },
+  {
+    "id": "worship-an-noor-islamic-center",
+    "name": "An-noor Educational Foundation and Islamic Study Center",
+    "location": {
+      "lat": 38.03293,
+      "lng": -78.49441
+    },
+    "kind": "worship",
+    "tradition": "Muslim"
+  },
+  {
+    "id": "worship-brody-jewish-center",
+    "name": "Brody Jewish Center",
+    "location": {
+      "lat": 38.0428,
+      "lng": -78.50211
+    },
+    "kind": "worship",
+    "tradition": "Jewish"
+  },
+  {
+    "id": "worship-chabad-on-the-corner",
+    "name": "Chabad on the Corner",
+    "location": {
+      "lat": 38.03631,
+      "lng": -78.50016
+    },
+    "kind": "worship",
+    "tradition": "Jewish"
+  },
+  {
+    "id": "worship-christ-episcopal",
+    "name": "Christ Episcopal Church",
+    "location": {
+      "lat": 38.0328,
+      "lng": -78.48118
+    },
+    "kind": "worship",
+    "tradition": "Christian (Episcopal)"
+  },
+  {
+    "id": "worship-friends-meeting",
+    "name": "Charlottesville Friends Meeting",
+    "location": {
+      "lat": 38.04014,
+      "lng": -78.48335
+    },
+    "kind": "worship",
+    "tradition": "Christian (Quaker)"
+  },
+  {
+    "id": "worship-holy-comforter",
+    "name": "Church of the Holy Comforter",
+    "location": {
+      "lat": 38.03164,
+      "lng": -78.47957
+    },
+    "kind": "worship",
+    "tradition": "Christian (Catholic)"
+  },
+  {
+    "id": "worship-islamic-society-cva",
+    "name": "Islamic Society of Central Virginia",
+    "location": {
+      "lat": 38.02715,
+      "lng": -78.49451
+    },
+    "kind": "worship",
+    "tradition": "Muslim"
+  },
+  {
+    "id": "worship-st-mark-lutheran",
+    "name": "St. Mark Lutheran Church",
+    "location": {
+      "lat": 38.04191,
+      "lng": -78.5118
+    },
+    "kind": "worship",
+    "tradition": "Christian (Lutheran)"
+  },
+  {
+    "id": "worship-st-pauls-memorial-church",
+    "name": "St. Paul's Memorial Church",
+    "location": {
+      "lat": 38.03662,
+      "lng": -78.50149
+    },
+    "kind": "worship",
+    "tradition": "Christian (Episcopal)"
+  },
+  {
+    "id": "worship-st-thomas-aquinas",
+    "name": "St. Thomas Aquinas Catholic Church",
+    "location": {
+      "lat": 38.03798,
+      "lng": -78.51563
+    },
+    "kind": "worship",
+    "tradition": "Christian (Catholic)"
+  },
+  {
+    "id": "worship-temple-beth-israel",
+    "name": "Temple Beth Israel",
+    "location": {
+      "lat": 38.03195,
+      "lng": -78.47894
+    },
+    "kind": "worship",
+    "tradition": "Jewish"
+  },
+  {
+    "id": "worship-trinity-episcopal",
+    "name": "Trinity Episcopal Church",
+    "location": {
+      "lat": 38.03846,
+      "lng": -78.49198
+    },
+    "kind": "worship",
+    "tradition": "Christian (Episcopal)"
+  },
+  {
+    "id": "worship-unitarian-universalist",
+    "name": "Unitarian Universalist Congregation of Charlottesville",
+    "location": {
+      "lat": 38.04351,
+      "lng": -78.49887
+    },
+    "kind": "worship",
+    "tradition": "Unitarian Universalist"
+  },
+  {
+    "id": "worship-university-baptist",
+    "name": "University Baptist Church",
+    "location": {
+      "lat": 38.03357,
+      "lng": -78.49767
+    },
+    "kind": "worship",
+    "tradition": "Christian (Baptist)"
+  },
+  {
+    "id": "worship-university-chapel",
+    "name": "University Chapel",
+    "location": {
+      "lat": 38.03637,
+      "lng": -78.50435
+    },
+    "kind": "worship",
+    "tradition": "Christian"
+  },
+  {
+    "id": "worship-wesley-memorial",
+    "name": "Wesley Memorial United Methodist Church",
+    "location": {
+      "lat": 38.03697,
+      "lng": -78.50854
+    },
+    "kind": "worship",
+    "tradition": "Christian (Methodist)"
+  },
+  {
+    "id": "worship-westminster-presbyterian",
+    "name": "Westminster Presbyterian Church",
+    "location": {
+      "lat": 38.03992,
+      "lng": -78.50098
+    },
+    "kind": "worship",
+    "tradition": "Christian (Presbyterian)"
+  },
+  {
+    "id": "worship-zion-union-baptist",
+    "name": "Zion Union Baptist Church",
+    "location": {
+      "lat": 38.04075,
+      "lng": -78.49263
+    },
+    "kind": "worship",
+    "tradition": "Christian (Baptist)"
   }
 ]

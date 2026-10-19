@@ -1,5 +1,5 @@
 {
-  "version": "fixture-1",
-  "generatedAt": "2026-10-18",
-  "notes": "Tiny fictional fixture dataset for tests. Not real listings."
+  "version": "seed-1",
+  "generatedAt": "2026-10-19",
+  "notes": "Assembled from public websites on 2026-10-19; not yet verified by hand. Map data © OpenStreetMap contributors (ODbL). Major-to-building shares and meetings per week are informed estimates, not registrar data."
 }

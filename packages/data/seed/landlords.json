@@ -1,9 +1,153 @@
 [
   {
-    "id": "ll-fixture",
-    "name": "Fixture Property Management",
-    "email": "leasing@fixture.example",
+    "id": "ll-1930-ivy-road-owner",
+    "name": "1930 Ivy Road owner (name not published in listing)",
     "verified": false,
-    "createdAt": "2026-10-18T00:00:00.000Z"
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-braden-property",
+    "name": "Braden Property",
+    "website": "https://bradenproperty.appfolio.com",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-cbs-rentals",
+    "name": "CBS Rentals, LLC",
+    "website": "https://www.cbsrentals.com",
+    "email": "cbs@cbsrentals.com",
+    "phone": "(434) 971-9922",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-denstock-management",
+    "name": "Denstock Management",
+    "phone": "(434) 602-6843",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-flats-at-west-village-office",
+    "name": "Flats at West Village Leasing Office",
+    "website": "https://www.flatsatwestvillage.com/",
+    "phone": "(434) 608-5930",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-frye-properties",
+    "name": "Frye Properties",
+    "website": "http://www.uheights.net",
+    "phone": "434-260-8454",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-great-eastern-management",
+    "name": "Great Eastern Management Co.",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z",
+    "website": "https://gemc.com",
+    "phone": "(434) 296-4100"
+  },
+  {
+    "id": "ll-greystar",
+    "name": "Greystar",
+    "website": "https://www.greystar.com",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-inv-group",
+    "name": "INV Group, LLC",
+    "website": "https://cvillehousing.com",
+    "email": "cvillehousing1@gmail.com",
+    "phone": "434-305-2774",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-ivy-garden",
+    "name": "Ivy Garden Apartments",
+    "website": "https://www.ivygarden.com",
+    "phone": "(434) 595-4517",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-management-services-corporation",
+    "name": "Management Services Corporation",
+    "phone": "434-226-5967",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z",
+    "website": "http://www.livewithmsc.com"
+  },
+  {
+    "id": "ll-msc",
+    "name": "Management Service Corporation (MSC)",
+    "website": "https://www.livewithmsc.com",
+    "email": "mscuva063@newapthome.com",
+    "phone": "434-423-5400",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-scion-group",
+    "name": "The Scion Group",
+    "website": "https://www.larkonmain.com/",
+    "phone": "(276) 624-6663",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-subtext",
+    "name": "Subtext",
+    "website": "https://subtextliving.com",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-university-apartments",
+    "name": "University Apartments, LLC",
+    "phone": "(434) 977-9000",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z",
+    "website": "https://u-apts.com",
+    "email": "leasing@u-apts.com"
+  },
+  {
+    "id": "ll-uva-hrl",
+    "name": "UVA Housing & Residence Life",
+    "website": "https://housing.virginia.edu",
+    "phone": "434.924.3736",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-veliky-rentals",
+    "name": "Veliky Rentals (Veliky L.C.)",
+    "website": "https://www.velikyrentals.com",
+    "email": "office@velikyrentals.com",
+    "phone": "434-293-5358",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-woodard-properties",
+    "name": "Woodard Properties",
+    "website": "https://woodardproperties.com",
+    "email": "info@woodardproperties.com",
+    "phone": "(434) 971-8860",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
+  },
+  {
+    "id": "ll-yugo",
+    "name": "Yugo",
+    "website": "https://www.yugo.com",
+    "verified": false,
+    "createdAt": "2026-10-19T00:00:00.000Z"
   }
 ]
