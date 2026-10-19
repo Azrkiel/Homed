@@ -10,7 +10,7 @@ const INCOME_SOURCE = {
   other: 'Other',
 } as const;
 
-/** Applicant profile as a landlord sees it, sensitive fields included. Server component. */
+/** Applicant profile as a landlord sees it (landlordSafeProfile: sensitive fields minus date of birth). Server component. */
 export function ApplicantProfileView({ profile }: { profile: ApplicantProfile }) {
   const s = profile.sensitive;
   return (
@@ -21,7 +21,6 @@ export function ApplicantProfileView({ profile }: { profile: ApplicantProfile })
       <Row label="Phone" value={profile.phone} />
       <Row label="Current address" value={profile.currentAddress} />
       <Row label="ID checked" value={profile.idVerified ? 'Yes' : 'Not yet'} />
-      <Row label="Date of birth" value={s.dateOfBirth ? shortDate(s.dateOfBirth) : undefined} />
       <Row label="Monthly income" value={s.monthlyIncome === undefined ? undefined : money(s.monthlyIncome)} />
       <Row label="Income source" value={s.incomeSource ? INCOME_SOURCE[s.incomeSource] : undefined} />
       {s.guarantor && (

@@ -4,6 +4,7 @@ import {
   buildApplicationPacket,
   NEVER_CREDIT_REPORTS,
   packetMembers,
+  landlordSafeProfile,
   shapeProfile,
   toWinAnsi,
   type ApplicationPacketInput,
@@ -100,10 +101,17 @@ describe('shapeProfile', () => {
     expect(shaped.sensitive?.monthlyIncome).toBe(4321);
   });
 
-  it('gives landlords and admins everything', () => {
+  it('gives landlords and admins everything except date of birth (data minimisation)', () => {
     const shaped = shapeProfile(roommateProfile, { userId: 'U-LANDLORD', landlordView: true });
     expect(shaped.currentAddress).toBe('9 Secret Street');
     expect(shaped.sensitive?.guarantor?.name).toBe('Gina Guarantor');
+    expect(shaped.sensitive?.dateOfBirth).toBeUndefined();
+    expect(landlordSafeProfile(roommateProfile).sensitive.dateOfBirth).toBeUndefined();
+    expect(roommateProfile.sensitive.dateOfBirth).toBe('2001-02-03');
+  });
+
+  it('the applicant still sees their own date of birth', () => {
+    const shaped = shapeProfile(roommateProfile, { userId: ROOMMATE, landlordView: false });
     expect(shaped.sensitive?.dateOfBirth).toBe('2001-02-03');
   });
 

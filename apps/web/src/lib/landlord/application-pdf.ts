@@ -51,8 +51,18 @@ export interface ApplicationPacketInput {
 }
 
 /**
- * Profile fields for one member. Full (contact details and sensitive data) for landlords, admins and the member
- * themself. Everyone else gets name, student status and expected graduation only.
+ * The profile as landlords may see it: everything they need to decide, minus date of birth (age is not
+ * theirs to weigh, and the screening partner collects it when screening ships). Returns a copy.
+ */
+export function landlordSafeProfile(profile: ApplicantProfile): ApplicantProfile {
+  const copy = structuredClone(profile);
+  delete copy.sensitive.dateOfBirth;
+  return copy;
+}
+
+/**
+ * Profile fields for one member. Full (contact details and sensitive data) for the member themself; the same
+ * minus date of birth for landlords and admins. Everyone else gets name, student status and expected graduation only.
  */
 export function shapeProfile(profile: ApplicantProfile, viewer: PacketViewer): PacketProfile {
   const basic: PacketProfile = {
@@ -61,11 +71,12 @@ export function shapeProfile(profile: ApplicantProfile, viewer: PacketViewer): P
     expectedGraduation: profile.expectedGraduation,
   };
   if (!viewer.landlordView && profile.userId !== viewer.userId) return basic;
+  const visible = profile.userId === viewer.userId ? structuredClone(profile) : landlordSafeProfile(profile);
   return {
     ...basic,
-    phone: profile.phone,
-    currentAddress: profile.currentAddress,
-    sensitive: structuredClone(profile.sensitive),
+    phone: visible.phone,
+    currentAddress: visible.currentAddress,
+    sensitive: visible.sensitive,
   };
 }
 
@@ -175,7 +186,6 @@ function profileLines(w: Writer, p: PacketProfile, indent: number): void {
   if (!s) return;
   field(w, 'Monthly income', s.monthlyIncome === undefined ? undefined : usd(s.monthlyIncome), indent);
   field(w, 'Income source', s.incomeSource, indent);
-  field(w, 'Date of birth', s.dateOfBirth, indent);
   if (s.guarantor) {
     const g = s.guarantor;
     field(w, 'Guarantor', `${g.name}, ${g.relationship}, ${g.email}${g.phone ? `, ${g.phone}` : ''}`, indent);

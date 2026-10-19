@@ -12,6 +12,7 @@ import { Badge, Button, Card, CardBody, CardHeader, PageHeader } from '@/compone
 import { ApplicantProfileView } from '@/components/landlord/applicant-profile-view';
 import { ApplicationStatusForm } from '@/components/landlord/application-status-form';
 import { landlordApplicationFor } from '@/lib/landlord/application-access';
+import { landlordSafeProfile } from '@/lib/landlord/application-pdf';
 import { landlordActions, memberDisplayName, memberKindLabel } from '@/lib/landlord/application-view';
 import { requireLandlord } from '@/lib/landlord/server';
 import { money, shortDate } from '@/lib/format';
@@ -38,7 +39,8 @@ export default async function LandlordApplicationPage({ params }: Props) {
   const documents = new Map<string, ApplicationDocument[]>();
   for (const m of members) {
     if (m.userId && !profiles.has(m.userId)) {
-      const profile = await repo.getApplicantProfile(m.userId);
+      const raw = await repo.getApplicantProfile(m.userId);
+      const profile = raw ? landlordSafeProfile(raw) : null;
       if (profile) profiles.set(m.userId, profile);
     }
     documents.set(m.id, await repo.listDocuments(m.id));
