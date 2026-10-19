@@ -133,7 +133,7 @@ export function SettingsForm({
                     name="budgetMax"
                     type="number"
                     inputMode="numeric"
-                    min={1}
+                    min={0}
                     step={10}
                     placeholder="No budget"
                     defaultValue={user.budgetMax ?? ''}
