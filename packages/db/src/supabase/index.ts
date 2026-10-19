@@ -1,6 +1,6 @@
 // Supabase store. Phase 4 owns this folder.
-// Done: catalog, users, saves, groups, alerts, reviews.
-// PLACEHOLDER: landlords, applications. Each stub throws 'not implemented: <method>'
+// Done: catalog, users, saves, groups, alerts, reviews, landlords.
+// PLACEHOLDER: applications. Each stub throws 'not implemented: <method>'
 // until its owning engineer replaces the stub with a real implementation.
 import type { Repository, StoreClock } from '../repository';
 import type { AuthProvider } from '../auth';
@@ -11,6 +11,7 @@ import { saveRepo } from './saves';
 import { groupRepo } from './groups';
 import { alertRepo } from './alerts';
 import { reviewRepo } from './reviews';
+import { landlordRepo } from './landlords';
 import { userRepo } from './users';
 
 export interface SupabaseStoreOptions {
@@ -28,21 +29,6 @@ function stub(name: string): () => Promise<never> {
     throw new Error(`not implemented: ${name}`);
   };
 }
-
-// PLACEHOLDER: landlords area (replace with landlordRepo(ctx) from ./landlords).
-const landlordStubs = {
-  getLandlord: stub('getLandlord'),
-  getLandlordByUser: stub('getLandlordByUser'),
-  listLandlords: stub('listLandlords'),
-  createLandlord: stub('createLandlord'),
-  upsertProperty: stub('upsertProperty'),
-  upsertFloorPlan: stub('upsertFloorPlan'),
-  deleteFloorPlan: stub('deleteFloorPlan'),
-  upsertPhoto: stub('upsertPhoto'),
-  deletePhoto: stub('deletePhoto'),
-  upsertAccessibility: stub('upsertAccessibility'),
-  confirmAvailability: stub('confirmAvailability'),
-};
 
 // PLACEHOLDER: applications area (replace with applicationRepo(ctx) from ./applications).
 const applicationStubs = {
@@ -73,7 +59,7 @@ export function createSupabaseRepository(opts: SupabaseStoreOptions): Repository
     ...groupRepo(ctx),
     ...alertRepo(ctx),
     ...reviewRepo(ctx),
-    ...landlordStubs,
+    ...landlordRepo(ctx),
     ...applicationStubs,
   };
 }
