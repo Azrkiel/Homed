@@ -108,6 +108,7 @@ export interface GroupRepo {
   joinGroup(inviteCode: string, userId: ID): Promise<GroupMember>;
   /** The last leader leaving promotes the earliest-joined member; the last member leaving deletes the group. */
   leaveGroup(groupId: ID, userId: ID): Promise<void>;
+  /** budgetMax must be a finite number >= 0 (or null to clear): RepoError('invalid'). */
   updateMember(groupId: ID, userId: ID, patch: { budgetMax?: number | null }): Promise<GroupMember>;
   listShortlist(groupId: ID): Promise<ShortlistItem[]>;
   /** Idempotent. Caller must be a member: RepoError('forbidden'). */
@@ -122,6 +123,7 @@ export interface AlertRepo {
   listAlerts(userId: ID): Promise<Alert[]>;
   /** Every user's alerts, for the catalog-change diff. */
   listAllAlerts(): Promise<Alert[]>;
+  /** Unknown user: RepoError('not_found'). */
   createAlert(input: Omit<Alert, 'id' | 'createdAt'>): Promise<Alert>;
   deleteAlert(userId: ID, alertId: ID): Promise<void>;
   addAlertEvents(drafts: AlertEventDraft[]): Promise<AlertEvent[]>;
@@ -181,6 +183,8 @@ export interface ApplicationRepo {
   getDocumentBytes(documentId: ID): Promise<Uint8Array | null>;
   /** Deletes documents whose deleteAfter <= today. Returns how many were deleted. */
   purgeExpiredDocuments(today: ISODate): Promise<number>;
+  /** Deletes every document of every member of this application (after a decision). Returns how many were deleted. */
+  deleteDocumentsForApplication(applicationId: ID): Promise<number>;
 }
 
 export interface LandlordRepo {
@@ -191,6 +195,7 @@ export interface LandlordRepo {
   /** Insert (no id) or update. Self-listed properties get dataStatus 'unverified_seed' until an admin verifies. */
   upsertProperty(input: Omit<Property, 'id'> & { id?: ID }): Promise<Property>;
   upsertFloorPlan(input: Omit<FloorPlan, 'id'> & { id?: ID }): Promise<FloorPlan>;
+  /** RepoError('conflict') while the floor plan has an application that is not denied, withdrawn or signed. */
   deleteFloorPlan(floorPlanId: ID): Promise<void>;
   upsertPhoto(input: Omit<Photo, 'id' | 'looksRating' | 'ratingCount'> & { id?: ID }): Promise<Photo>;
   deletePhoto(photoId: ID): Promise<void>;

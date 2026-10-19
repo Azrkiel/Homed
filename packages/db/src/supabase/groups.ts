@@ -184,6 +184,11 @@ export function groupRepo(ctx: SupabaseCtx): GroupRepo {
       const m = await findMember(ctx, groupId, userId);
       if (!m) throw new RepoError('not_found', 'member not found');
       if (patch.budgetMax === undefined) return groupMemberFromRow(m);
+      // Checked here, not only by the column CHECK: Postgres numeric accepts NaN (it sorts above every
+      // number, so it passes >= 0), and JSON turns Infinity into null, which would clear the budget.
+      if (patch.budgetMax !== null && !(Number.isFinite(patch.budgetMax) && patch.budgetMax >= 0)) {
+        throw new RepoError('invalid', 'budget must be a number of dollars, 0 or more');
+      }
       const row = unwrapOne(
         await sb
           .from('group_members')

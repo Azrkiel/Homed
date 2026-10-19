@@ -226,6 +226,13 @@ export function groupsConformance(makeRepo: MakeRepo): void {
         expect((await repo.listMembers(group.id))[0]?.budgetMax).toBeUndefined();
       });
 
+      it('rejects a negative or non-finite budget', async () => {
+        await expectRepoError(repo.updateMember(group.id, ann.id, { budgetMax: -1 }), 'invalid');
+        await expectRepoError(repo.updateMember(group.id, ann.id, { budgetMax: Number.NaN }), 'invalid');
+        await expectRepoError(repo.updateMember(group.id, ann.id, { budgetMax: Number.POSITIVE_INFINITY }), 'invalid');
+        expect((await repo.listMembers(group.id))[0]?.budgetMax).toBeUndefined();
+      });
+
       it('an empty patch changes nothing', async () => {
         await repo.updateMember(group.id, ann.id, { budgetMax: 900 });
         const m = await repo.updateMember(group.id, ann.id, {});

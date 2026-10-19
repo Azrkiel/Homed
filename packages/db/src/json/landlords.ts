@@ -2,6 +2,9 @@ import type { Landlord, Photo } from '@homed/core';
 import { RepoError, type LandlordRepo } from '../repository';
 import type { Ctx } from './store';
 
+/** Applications in these states no longer need their floor plan. */
+const CLOSED_STATUSES = new Set(['denied', 'withdrawn', 'signed']);
+
 export function landlordRepo(ctx: Ctx): LandlordRepo {
   return {
     getLandlord: (id) => ctx.read((s) => structuredClone(s.catalog.landlords.find((l) => l.id === id) ?? null)),
@@ -61,6 +64,9 @@ export function landlordRepo(ctx: Ctx): LandlordRepo {
       }),
     deleteFloorPlan: (id) =>
       ctx.write((s) => {
+        if (s.applications.some((a) => a.floorPlanId === id && !CLOSED_STATUSES.has(a.status))) {
+          throw new RepoError('conflict', 'this floor plan has open applications; decide or wait for them to be withdrawn first');
+        }
         s.catalog.floorPlans = s.catalog.floorPlans.filter((f) => f.id !== id);
         const photoIds = new Set(s.catalog.photos.filter((p) => p.floorPlanId === id).map((p) => p.id));
         s.catalog.photos = s.catalog.photos.filter((p) => !photoIds.has(p.id));

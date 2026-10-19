@@ -312,6 +312,15 @@ export function applicationRepo(ctx: Ctx): ApplicationRepo {
         return decryptBytes(blob, ctx.encryptionKey);
       }),
 
+    deleteDocumentsForApplication: (applicationId) =>
+      ctx.write((s) => {
+        const memberIds = new Set(s.applicationMembers.filter((m) => m.applicationId === applicationId).map((m) => m.id));
+        const doomed = new Set(s.documents.filter((d) => memberIds.has(d.memberId)).map((d) => d.id));
+        s.documents = s.documents.filter((d) => !doomed.has(d.id));
+        for (const id of doomed) delete s.documentBlobs[id];
+        return doomed.size;
+      }),
+
     purgeExpiredDocuments: (today) =>
       ctx.write((s) => {
         const expired = new Set(s.documents.filter((d) => d.deleteAfter <= today).map((d) => d.id));

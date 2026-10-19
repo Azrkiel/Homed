@@ -100,6 +100,9 @@ export function groupRepo(ctx: Ctx): GroupRepo {
       ctx.write((s) => {
         const m = s.groupMembers.find((x) => x.groupId === groupId && x.userId === userId);
         if (!m) throw new RepoError('not_found', 'member not found');
+        if (patch.budgetMax !== undefined && patch.budgetMax !== null && !(Number.isFinite(patch.budgetMax) && patch.budgetMax >= 0)) {
+          throw new RepoError('invalid', 'budget must be a number of dollars, 0 or more');
+        }
         if (patch.budgetMax !== undefined) {
           if (patch.budgetMax === null) delete m.budgetMax;
           else m.budgetMax = patch.budgetMax;

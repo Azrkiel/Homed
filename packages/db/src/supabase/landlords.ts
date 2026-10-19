@@ -101,6 +101,12 @@ export function landlordRepo(ctx: SupabaseCtx): LandlordRepo {
     },
 
     deleteFloorPlan: async (id) => {
+      const open = unwrap(
+        await sb.from('applications').select('id').eq('floor_plan_id', id).not('status', 'in', '(denied,withdrawn,signed)').limit(1),
+      ) as { id: string }[] | null;
+      if ((open ?? []).length > 0) {
+        throw new RepoError('conflict', 'this floor plan has open applications; decide or wait for them to be withdrawn first');
+      }
       unwrap(await sb.from('floor_plans').delete().eq('id', id));
     },
 

@@ -661,12 +661,42 @@ export function applicationsConformance(makeRepo: MakeRepo): void {
         expect(await repo.purgeExpiredDocuments('2026-10-19')).toBe(0);
       });
 
+      it('deleteDocumentsForApplication deletes every member document of that application only', async () => {
+        const [appA] = await repo.createApplicationBatch(batchInput(amy.id));
+        const [appB] = await repo.createApplicationBatch(batchInput(amy.id));
+        const memberA = (await repo.listApplicationMembers(appA!.id))[0]!.id;
+        const memberB = (await repo.listApplicationMembers(appB!.id))[0]!.id;
+        const gone = await repo.putDocument({ memberId: memberA, filename: 'a.pdf', mime: 'application/pdf', bytes: BYTES, deleteAfter: DELETE_LATER });
+        await repo.putDocument({ memberId: memberA, filename: 'a2.pdf', mime: 'application/pdf', bytes: BYTES, deleteAfter: DELETE_LATER });
+        const kept = await repo.putDocument({ memberId: memberB, filename: 'b.pdf', mime: 'application/pdf', bytes: BYTES, deleteAfter: DELETE_LATER });
+        expect(await repo.deleteDocumentsForApplication(appA!.id)).toBe(2);
+        expect(await repo.listDocuments(memberA)).toEqual([]);
+        expect(await repo.getDocumentBytes(gone.id)).toBeNull();
+        expect(await repo.listDocuments(memberB)).toEqual([kept]);
+        expect(await repo.deleteDocumentsForApplication(appA!.id)).toBe(0);
+        expect(await repo.deleteDocumentsForApplication('nope')).toBe(0);
+      });
+
       it('purgeExpiredDocuments is idempotent', async () => {
         const id = await memberId();
         await repo.putDocument({ memberId: id, filename: 'old.pdf', mime: 'application/pdf', bytes: BYTES, deleteAfter: '2026-01-01' });
         expect(await repo.purgeExpiredDocuments('2026-10-19')).toBe(1);
         expect(await repo.purgeExpiredDocuments('2026-10-19')).toBe(0);
       });
+    });
+
+    it('deleteFloorPlan is a conflict while an application is open, and allowed once it is withdrawn', async () => {
+      const id = await submittedApp();
+      await expectRepoError(repo.deleteFloorPlan(FX.fp4x4), 'conflict');
+      expect(await repo.getListing(FX.fp4x4)).not.toBeNull();
+      await repo.updateApplicationStatus(id, 'withdrawn', amy.id);
+      await repo.deleteFloorPlan(FX.fp4x4);
+      expect(await repo.getListing(FX.fp4x4)).toBeNull();
+    });
+
+    it('deleteFloorPlan is a conflict for a draft application too', async () => {
+      await repo.createApplicationBatch(batchInput(amy.id));
+      await expectRepoError(repo.deleteFloorPlan(FX.fp4x4), 'conflict');
     });
 
     it('a status change can be read back by the landlord listing with the new status', async () => {

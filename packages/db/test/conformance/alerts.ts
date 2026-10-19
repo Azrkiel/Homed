@@ -38,6 +38,10 @@ export function alertsConformance(makeRepo: MakeRepo): void {
         expect(Number.isNaN(Date.parse(a.createdAt))).toBe(false);
       });
 
+      it('createAlert for an unknown user is not_found', async () => {
+        await expectRepoError(repo.createAlert({ userId: 'nobody', triggers: ['new_listing'], target: propertyTarget }), 'not_found');
+      });
+
       it('createAlert supports search targets', async () => {
         const target = { kind: 'search', filters: {} } as const;
         const a = await repo.createAlert({ userId: ann.id, triggers: ['new_listing'], target });

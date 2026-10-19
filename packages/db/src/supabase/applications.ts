@@ -424,6 +424,24 @@ export function applicationRepo(ctx: SupabaseCtx): ApplicationRepo {
       return row ? decryptBytes(row.ciphertext, ctx.encryptionKey) : null;
     },
 
+    deleteDocumentsForApplication: async (applicationId) => {
+      const members = (unwrap(await sb.from('application_members').select('id').eq('application_id', applicationId)) ?? []) as {
+        id: string;
+      }[];
+      if (members.length === 0) return 0;
+      const gone = unwrap(
+        await sb
+          .from('application_documents')
+          .delete()
+          .in(
+            'member_id',
+            members.map((m) => m.id),
+          )
+          .select('id'),
+      ) as { id: string }[] | null;
+      return (gone ?? []).length;
+    },
+
     purgeExpiredDocuments: async (today) => {
       const gone = unwrap(await sb.from('application_documents').delete().lte('delete_after', today).select('id')) as
         | { id: string }[]

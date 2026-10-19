@@ -9,6 +9,7 @@ export function alertRepo(ctx: Ctx): AlertRepo {
     createAlert: (input) =>
       ctx.write((s) => {
         if (input.triggers.length === 0) throw new RepoError('invalid', 'alert needs at least one trigger');
+        if (!s.users.some((u) => u.id === input.userId)) throw new RepoError('not_found', 'user not found');
         const alert: Alert = {
           id: crypto.randomUUID(),
           userId: input.userId,
