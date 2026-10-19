@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { loadFixture } from '@homed/data';
 import { createJsonRepository } from '../src/json/index';
+import { createCtx, tempFileName } from '../src/json/store';
 import { runRepositoryConformance } from './conformance/index';
 
 const KEY = Buffer.alloc(32, 7).toString('base64');
@@ -123,6 +124,50 @@ describe('json store encryption at rest', () => {
       const wrongKey = Buffer.alloc(32, 9).toString('base64');
       const b = createJsonRepository({ filePath, seed: loadFixture(), encryptionKey: wrongKey, clock });
       await expect(b.getApplicantProfile(amy.id)).rejects.toThrow();
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('json store: failed writes never leak into later writes', () => {
+  const failingWrite = (ctx: ReturnType<typeof createCtx>) =>
+    ctx.write((s) => {
+      s.users.push({ id: 'ghost', email: 'ghost@virginia.edu', name: 'Ghost', role: 'student', weights: { price: 0.4, location: 0.4, looks: 0.2 }, extras: [], createdAt: '2026-10-19T00:00:00.000Z' });
+      throw new Error('boom after mutating');
+    });
+
+  it('in memory: a write that throws after mutating is rolled back', async () => {
+    const ctx = createCtx({ seed: loadFixture(), encryptionKey: KEY, clock });
+    await expect(failingWrite(ctx)).rejects.toThrow('boom');
+    expect(await ctx.read((s) => s.users.some((u) => u.id === 'ghost'))).toBe(false);
+  });
+
+  it('on disk: the next write does not persist the failed mutation', async () => {
+    const dir = mkdtempSync(join(tmpdir(), 'homed-json-'));
+    try {
+      const filePath = join(dir, 'db.json');
+      const ctx = createCtx({ filePath, seed: loadFixture(), encryptionKey: KEY, clock });
+      await expect(failingWrite(ctx)).rejects.toThrow('boom');
+      await ctx.write((s) => {
+        s.saves.push({ userId: 'someone', floorPlanId: 'fp-lofts-4x4', createdAt: '2026-10-19T00:00:00.000Z' });
+      });
+      const onDisk = JSON.parse(readFileSync(filePath, 'utf8'));
+      expect(onDisk.users.some((u: { id: string }) => u.id === 'ghost')).toBe(false);
+      expect(onDisk.saves).toHaveLength(1);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('writes go through a per-write temp file, so two processes never share one', async () => {
+    const dir = mkdtempSync(join(tmpdir(), 'homed-json-'));
+    try {
+      const filePath = join(dir, 'db.json');
+      const ctx = createCtx({ filePath, seed: loadFixture(), encryptionKey: KEY, clock });
+      await ctx.write(() => undefined);
+      expect(tempFileName(filePath)).not.toBe(tempFileName(filePath));
+      expect(tempFileName(filePath).startsWith(`${filePath}.`)).toBe(true);
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }

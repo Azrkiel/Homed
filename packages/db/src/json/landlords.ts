@@ -65,7 +65,7 @@ export function landlordRepo(ctx: Ctx): LandlordRepo {
     deleteFloorPlan: (id) =>
       ctx.write((s) => {
         if (s.applications.some((a) => a.floorPlanId === id && !CLOSED_STATUSES.has(a.status))) {
-          throw new RepoError('conflict', 'this floor plan has open applications; decide or wait for them to be withdrawn first');
+          throw new RepoError('conflict', 'This floor plan has open applications. Decide them, or wait until they are withdrawn, before deleting it.');
         }
         s.catalog.floorPlans = s.catalog.floorPlans.filter((f) => f.id !== id);
         const photoIds = new Set(s.catalog.photos.filter((p) => p.floorPlanId === id).map((p) => p.id));

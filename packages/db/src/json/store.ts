@@ -1,4 +1,5 @@
-import { mkdirSync, readFileSync, renameSync, statSync, writeFileSync } from 'node:fs';
+import { randomBytes } from 'node:crypto';
+import { mkdirSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { loadSeed } from '@homed/data';
 import { systemClock } from '../repository';
@@ -13,6 +14,11 @@ export interface Ctx {
   write<T>(fn: (s: State) => T): Promise<T>;
   now(): string;
   encryptionKey: string;
+}
+
+/** A temp path unique to this write, so concurrent writers (Next.js workers) never clobber each other's temp file. */
+export function tempFileName(file: string): string {
+  return `${file}.${process.pid}.${randomBytes(6).toString('hex')}.tmp`;
 }
 
 export function createCtx(opts: JsonStoreOptions): Ctx {
@@ -33,9 +39,14 @@ export function createCtx(opts: JsonStoreOptions): Ctx {
   function persist(s: State): void {
     if (!file) return;
     mkdirSync(dirname(file), { recursive: true });
-    const tmp = `${file}.tmp`;
-    writeFileSync(tmp, JSON.stringify(s));
-    renameSync(tmp, file);
+    const tmp = tempFileName(file);
+    try {
+      writeFileSync(tmp, JSON.stringify(s));
+      renameSync(tmp, file);
+    } catch (e) {
+      rmSync(tmp, { force: true });
+      throw e;
+    }
     loadedMtime = mtime();
   }
 
@@ -45,7 +56,7 @@ export function createCtx(opts: JsonStoreOptions): Ctx {
       return state;
     }
     const m = mtime();
-    if (state === null || m > loadedMtime) {
+    if (state === null || m !== loadedMtime) {
       if (m === 0) {
         state = stateFromSeed(opts.seed ?? loadSeed());
         persist(state);
@@ -60,9 +71,25 @@ export function createCtx(opts: JsonStoreOptions): Ctx {
   function run<T>(fn: (s: State) => T, persistAfter: boolean): Promise<T> {
     const next = queue.then(() => {
       const s = ensureLoaded();
-      const out = fn(s);
-      if (persistAfter) persist(s);
-      return out;
+      // In memory there is no disk copy to reload, so keep one to roll back to.
+      const before = persistAfter && !file ? structuredClone(s) : null;
+      try {
+        const out = fn(s);
+        if (persistAfter) persist(s);
+        return out;
+      } catch (e) {
+        // A write that threw (after mutating, or while persisting) must not leak into later writes:
+        // reload from disk, or restore the in-memory copy.
+        if (persistAfter) {
+          if (file) {
+            state = null;
+            loadedMtime = 0;
+          } else {
+            state = before;
+          }
+        }
+        throw e;
+      }
     });
     queue = next.catch(() => undefined);
     return next;
