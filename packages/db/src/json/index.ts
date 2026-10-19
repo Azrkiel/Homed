@@ -1,7 +1,15 @@
 // JSON-file store. Phase 3 owns this folder.
 import type { SeedData } from '@homed/data';
 import type { Repository, StoreClock } from '../repository';
-import { notImplemented } from '@homed/core';
+import { alertRepo } from './alerts';
+import { applicationRepo } from './applications';
+import { catalogRepo } from './catalog';
+import { groupRepo } from './groups';
+import { landlordRepo } from './landlords';
+import { reviewRepo } from './reviews';
+import { saveRepo } from './saves';
+import { createCtx } from './store';
+import { userRepo } from './users';
 
 export interface JsonStoreOptions {
   /** Database file. Omit for an in-memory store (tests). */
@@ -14,5 +22,16 @@ export interface JsonStoreOptions {
 }
 
 export function createJsonRepository(opts: JsonStoreOptions): Repository {
-  return notImplemented('createJsonRepository');
+  const ctx = createCtx(opts);
+  return {
+    backend: 'json',
+    ...catalogRepo(ctx),
+    ...userRepo(ctx),
+    ...saveRepo(ctx),
+    ...groupRepo(ctx),
+    ...alertRepo(ctx),
+    ...reviewRepo(ctx),
+    ...landlordRepo(ctx),
+    ...applicationRepo(ctx),
+  };
 }
