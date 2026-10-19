@@ -5,9 +5,13 @@ import { join } from 'node:path';
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 
 // The bearer token is read through next/headers. The test sets the headers of each request here.
-const hdrState = vi.hoisted(() => ({ current: new Headers() as Headers }));
+const hdrState = vi.hoisted(() => ({ current: new Headers() as Headers, cookie: undefined as string | undefined }));
 vi.mock('next/headers', () => ({
-  cookies: async () => ({ get: () => undefined, set: () => undefined, delete: () => undefined }),
+  cookies: async () => ({
+    get: (name: string) => (name === 'homed_session' && hdrState.cookie ? { name, value: hdrState.cookie } : undefined),
+    set: () => undefined,
+    delete: () => undefined,
+  }),
   headers: async () => hdrState.current,
 }));
 
@@ -272,6 +276,18 @@ describe('401 on protected routes', () => {
       const res = await send(route.make('not.a.token'), route.run);
       expect(res.status).toBe(401);
       expect(res.body).toEqual({ error: 'Sign in required' });
+    });
+
+    it(`${label}: 401 with only a valid browser session cookie (bearer tokens only)`, async () => {
+      const route = routeFor(label);
+      const user = await freshStudent();
+      hdrState.cookie = sessionLib.createSessionToken(user.user.id);
+      try {
+        const res = await send(route.make(undefined), route.run);
+        expect(res.status).toBe(401);
+      } finally {
+        hdrState.cookie = undefined;
+      }
     });
 
     it(`${label}: 401 with an expired token`, async () => {

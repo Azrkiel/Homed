@@ -21,7 +21,7 @@ import type {
 } from '@homed/core';
 import { scoringContextFor } from '../../../lib/ranking';
 import { bedBath } from '../../../lib/format';
-import { getCurrentUser } from '../../../lib/session';
+import { getBearerUser } from '../../../lib/session';
 import { RepoError, type Repository, type RepoErrorCode } from '@homed/db';
 
 // ---------------------------------------------------------------------------
@@ -127,9 +127,9 @@ export function json(req: Request, body: unknown, status = 200): Response {
 // Auth, errors, bodies
 // ---------------------------------------------------------------------------
 
-/** The signed-in user (Bearer token), or a 401 response to return as-is. */
+/** The signed-in user (Bearer token only, never the browser cookie), or a 401 response to return as-is. */
 export async function requireApiUser(req: Request): Promise<User | Response> {
-  const user = await getCurrentUser();
+  const user = await getBearerUser(req);
   return user ?? json(req, { error: 'Sign in required' }, 401);
 }
 

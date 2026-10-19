@@ -67,6 +67,13 @@ export async function getCurrentUser(): Promise<User | null> {
   return userId ? getRepo().getUser(userId) : null;
 }
 
+/** Bearer-token user for the mobile API. Ignores the browser cookie, so cookie-authenticated cross-site requests can't use the API. */
+export async function getBearerUser(request: Request): Promise<User | null> {
+  const auth = request.headers.get('authorization');
+  const userId = auth?.startsWith('Bearer ') ? verifySessionToken(auth.slice(7)) : null;
+  return userId ? getRepo().getUser(userId) : null;
+}
+
 /** Admins are users with role 'admin' or an email listed in HOMED_ADMIN_EMAILS (comma-separated). */
 export function effectiveRole(user: User): UserRole {
   const admins = (process.env.HOMED_ADMIN_EMAILS ?? '').split(',').map((e) => e.trim().toLowerCase()).filter(Boolean);
