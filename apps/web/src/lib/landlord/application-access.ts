@@ -2,7 +2,7 @@
 import type { Application, ApplicationMember, FloorPlan, ID, Property, User, UserRole } from '@homed/core';
 import { getRepo } from '../repo';
 import { effectiveRole } from '../session';
-import { ownsProperty } from './access';
+import { mayChangeApplicationStatus, ownsProperty } from './access';
 
 export interface LandlordApplicationRecord {
   application: Application;
@@ -10,6 +10,8 @@ export interface LandlordApplicationRecord {
   floorPlan: FloorPlan;
   members: ApplicationMember[];
   role: UserRole;
+  /** The viewer may change the status (property's landlord, or stored-role admin). */
+  canAct: boolean;
 }
 
 /**
@@ -27,7 +29,8 @@ export async function landlordApplicationFor(user: User, applicationId: ID): Pro
   if (!ownsProperty(landlord, listing.property, role)) return null;
   if (application.status === 'draft' && role !== 'admin') return null;
   const members = await repo.listApplicationMembers(application.id);
-  return { application, property: listing.property, floorPlan: listing.floorPlan, members, role };
+  const canAct = mayChangeApplicationStatus(landlord, listing.property, user.role);
+  return { application, property: listing.property, floorPlan: listing.floorPlan, members, role, canAct };
 }
 
 /** The stored document with this id, when it belongs to a member of this application. */

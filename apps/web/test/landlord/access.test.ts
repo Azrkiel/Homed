@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { Landlord, Property } from '@homed/core';
-import { canAccessApplicationPacket, ownsProperty } from '../../src/lib/landlord/access';
+import { canAccessApplicationPacket, mayChangeApplicationStatus, ownsProperty } from '../../src/lib/landlord/access';
 
 const landlord: Landlord = {
   id: 'L1',
@@ -90,5 +90,19 @@ describe('canAccessApplicationPacket', () => {
 
   it('a property with no landlord user cannot grant access to undefined users', () => {
     expect(canAccessApplicationPacket({ ...base, userId: 'U-ROOMMATE', propertyLandlordUserId: undefined })).toBe(false);
+  });
+});
+
+describe('mayChangeApplicationStatus (mirrors the store rule)', () => {
+  const property = { landlordId: 'L1' } as Property;
+  const mine = { id: 'L1' } as Landlord;
+  const theirs = { id: 'L2' } as Landlord;
+  it("the property's own landlord may act", () => {
+    expect(mayChangeApplicationStatus(mine, property, 'landlord')).toBe(true);
+    expect(mayChangeApplicationStatus(theirs, property, 'landlord')).toBe(false);
+  });
+  it('an admin by stored role may act; an admin only by HOMED_ADMIN_EMAILS (stored student) may not', () => {
+    expect(mayChangeApplicationStatus(null, property, 'admin')).toBe(true);
+    expect(mayChangeApplicationStatus(null, property, 'student')).toBe(false);
   });
 });

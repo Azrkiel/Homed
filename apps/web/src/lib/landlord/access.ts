@@ -26,3 +26,13 @@ export function canAccessApplicationPacket(input: {
   if (input.userId === input.leaderId) return true;
   return input.propertyLandlordUserId !== undefined && input.userId === input.propertyLandlordUserId;
 }
+
+/**
+ * Who may move an application's status, exactly as the store enforces it: the property's own landlord,
+ * or a user whose *stored* role is admin. Admins granted only through HOMED_ADMIN_EMAILS can view but
+ * not act, so they never see buttons the store would reject.
+ */
+export function mayChangeApplicationStatus(landlord: Landlord | null, property: Property, storedRole: UserRole): boolean {
+  if (storedRole === 'admin') return true;
+  return landlord !== null && property.landlordId !== undefined && landlord.id === property.landlordId;
+}

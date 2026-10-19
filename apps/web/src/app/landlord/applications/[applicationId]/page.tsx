@@ -80,7 +80,7 @@ export default async function LandlordApplicationPage({ params }: Props) {
         </CardHeader>
         <CardBody className="grid gap-5">
           <p className="text-sm text-ink-2">{status.detail}</p>
-          <ApplicationStatusForm applicationId={application.id} actions={landlordActions(application.status)} />
+          <ApplicationStatusForm applicationId={application.id} actions={record.canAct ? landlordActions(application.status) : []} />
           <p className="text-xs text-ink-2">{APPLY_IS_NOT_SIGNING}</p>
         </CardBody>
       </Card>

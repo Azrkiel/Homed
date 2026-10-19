@@ -25,6 +25,7 @@ export async function updateApplicationStatusAction(
 
   const record = await landlordApplicationFor(user, applicationId);
   if (!record) return fail('Application not found.');
+  if (!record.canAct) return fail("Only this property's landlord can change the status.");
 
   const to = parseStatus(fd.get('to'));
   if (!to) return fail('Choose a status to move to.');
