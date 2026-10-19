@@ -1,3 +1,4 @@
+import { join } from 'node:path';
 import type { NextConfig } from 'next';
 
 // Invite links carry secrets in their path, so other origins get only our origin as the Referer (never
@@ -16,6 +17,9 @@ const config: NextConfig = {
   poweredByHeader: false,
   // Application documents are up to 5 MB (encrypted at rest); Next's default server-action cap is 1 MB.
   experimental: { serverActions: { bodySizeLimit: '6mb' } },
+  // Docker/Fly build (HOMED_STANDALONE=1): self-contained server; trace files from the monorepo root.
+  // The build runs in apps/web, so the root is two levels up.
+  ...(process.env.HOMED_STANDALONE === '1' ? { output: 'standalone' as const, outputFileTracingRoot: join(process.cwd(), '..', '..') } : {}),
   async headers() {
     return [{ source: '/:path*', headers: SECURITY_HEADERS }];
   },

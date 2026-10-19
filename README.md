@@ -65,6 +65,20 @@ Everything is optional; see [`.env.example`](.env.example).
 | `HOMED_TODAY` | Pin "today" for demos and tests |
 | `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `HOMED_APP_URL` | Supabase mode |
 
+## Deploy (Fly.io)
+
+Live demo: https://homed.fly.dev (app `homed`, region `iad`). `Dockerfile` builds a Next.js standalone
+server; `fly.toml` mounts a 1 GB volume at `/data` for the JSON store; `HOMED_SESSION_SECRET` and
+`HOMED_ENCRYPTION_KEY` are Fly secrets (keep a copy of the encryption key: without it, stored applicant
+data can't be decrypted).
+
+```bash
+flyctl deploy --remote-only --depot=false   # from the repo root
+```
+
+The demo deployment runs with `HOMED_ALLOW_DEMO_SIGNIN=1`, so anyone can sign in as any email. Use seed
+data only until Supabase sign-in is set up and that line is removed from `fly.toml`.
+
 ## Supabase (when you're ready)
 
 The schema (Postgres + PostGIS, row-level security on every table), a seed script and a full

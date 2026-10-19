@@ -76,7 +76,7 @@ export function ListingCard({
           )
         ) : (
           <p className="text-sm text-ink-2">
-            {signedIn ? 'Walk times unavailable. Add your classes to rank by your walk.' : 'Add your classes to see your walk.'}
+            {signedIn ? 'Add your classes in My Classes to rank by your walk.' : 'Add your classes to see your walk.'}
           </p>
         )}
 
