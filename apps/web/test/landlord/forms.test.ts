@@ -115,6 +115,37 @@ describe('parsePropertyForm', () => {
     expect(v.slug).toBe('my-custom-slug');
   });
 
+  it('editing an on-Grounds or seeded property keeps what the form does not show', () => {
+    const existing = {
+      id: 'P-OG',
+      dataStatus: 'unverified_seed',
+      kind: 'on_grounds',
+      onGrounds: true,
+      onGroundsInfo: { program: 'upperclass_apartment', eligibility: 'Rising 2nd-4th years', hrlUrl: 'https://housing.virginia.edu/' },
+      source: 'https://housing.virginia.edu/bice',
+    } as Property;
+    const v = ok(parsePropertyForm(propertyFields({ kind: undefined }), 'L1', TODAY, existing));
+    expect(v.kind).toBe('on_grounds');
+    expect(v.onGrounds).toBe(true);
+    expect(v.onGroundsInfo).toEqual(existing.onGroundsInfo);
+    expect(v.source).toBe('https://housing.virginia.edu/bice');
+  });
+
+  it('blank optional inputs clear stored values on edit', () => {
+    const existing = { id: 'P1', dataStatus: 'verified', kind: 'house', onGrounds: false, source: 'landlord portal', website: 'https://old.example', noiseLevel: 'social', yearBuilt: 1990 } as Property;
+    const v = ok(parsePropertyForm(propertyFields({ website: '', noiseLevel: '', yearBuilt: '', yearRenovated: '' }), 'L1', TODAY, existing));
+    expect(v.website).toBeUndefined();
+    expect(v.noiseLevel).toBeUndefined();
+    expect(v.yearBuilt).toBeUndefined();
+  });
+
+  it('a brand-new property is marked as landlord-listed and off Grounds', () => {
+    const v = ok(parsePropertyForm(propertyFields(), 'L1', TODAY));
+    expect(v.onGrounds).toBe(false);
+    expect(v.onGroundsInfo).toBeUndefined();
+    expect(v.source).toBe('landlord portal');
+  });
+
   it('omits optional fields left blank', () => {
     const v = ok(parsePropertyForm(propertyFields({ website: '', noiseLevel: '', parkingMonthly: '', yearBuilt: '', yearRenovated: '', busRoutes: '' }), 'L1', TODAY));
     expect(v).not.toHaveProperty('website');

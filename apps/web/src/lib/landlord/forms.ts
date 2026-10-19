@@ -198,8 +198,10 @@ export function parsePropertyForm(
     const parkingMonthly = optionalNum(fd, 'parkingMonthly', 'Parking cost', { min: 0, max: 5000, integer: true });
     if (parkingMonthly !== undefined) amenities.parkingMonthly = parkingMonthly;
 
+    // Start from the stored record so fields this form doesn't show (on-Grounds details, the original
+    // source of a seeded property, and anything added later) survive an edit.
     const value: PropertyInput = {
-      ...(existing ? { id: existing.id } : {}),
+      ...(existing ? structuredClone(existing) : {}),
       slug,
       name,
       address: required(fd, 'address', 'Address'),
@@ -207,8 +209,8 @@ export function parsePropertyForm(
         lat: num(fd, 'lat', 'Latitude', { min: -90, max: 90 }),
         lng: num(fd, 'lng', 'Longitude', { min: -180, max: 180 }),
       },
-      kind: requiredChoice(fd, 'kind', 'Property type', PROPERTY_KINDS),
-      onGrounds: false,
+      kind: existing?.kind === 'on_grounds' ? 'on_grounds' : requiredChoice(fd, 'kind', 'Property type', PROPERTY_KINDS),
+      onGrounds: existing?.onGrounds ?? false,
       neighborhood: required(fd, 'neighborhood', 'Neighborhood'),
       landlordId,
       amenities,
@@ -218,10 +220,15 @@ export function parsePropertyForm(
       noGuarantorOption: flag(fd, 'noGuarantorOption'),
       gradHeavy: flag(fd, 'gradHeavy'),
       litRouteToGrounds: flag(fd, 'litRouteToGrounds'),
-      source: LANDLORD_SOURCE,
+      source: existing?.source ?? LANDLORD_SOURCE,
       dataStatus: existing?.dataStatus ?? 'unverified_seed',
       lastVerified: today,
     };
+    // Optional fields the form shows: a blank input clears the stored value.
+    delete value.yearBuilt;
+    delete value.yearRenovated;
+    delete value.website;
+    delete value.noiseLevel;
     if (yearBuilt !== undefined) value.yearBuilt = yearBuilt;
     if (yearRenovated !== undefined) value.yearRenovated = yearRenovated;
     const website = optionalUrl(fd, 'website', 'Website');
