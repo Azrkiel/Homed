@@ -34,7 +34,11 @@ export function LeaseSignForm({
             value="on"
             label={item.text}
             checked={Boolean(ticked[item.id])}
-            onChange={(e) => setTicked((prev) => ({ ...prev, [item.id]: e.currentTarget.checked }))}
+            onChange={(e) => {
+              // Read now: React clears currentTarget before a deferred state updater runs.
+              const checked = e.currentTarget.checked;
+              setTicked((prev) => ({ ...prev, [item.id]: checked }));
+            }}
           />
         ))}
       </fieldset>
