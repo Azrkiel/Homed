@@ -1,22 +1,35 @@
 @import 'tailwindcss';
 
-/* Homed design tokens. Phase 5 owns this file after Phase 0 and may extend it; keep these names. */
+/*
+ * Homed design tokens. Phase 5 owns this file. Keep every existing name; add new ones only.
+ * Contrast (WCAG AA, 4.5:1 for normal text, checked on bg / surface / surface-2 and on the soft tints):
+ * ink and ink-2 pass everywhere. ink-3 also passes AA on all three, but it is for secondary text
+ * (captions, hints, placeholders); keep primary content on ink or ink-2.
+ */
 :root {
   --bg: #f7f5f0;
   --surface: #ffffff;
   --surface-2: #efece4;
+  --surface-3: #e5e0d4;
   --ink: #1b2333;
   --ink-2: #4a5468;
-  --ink-3: #7a8396;
+  --ink-3: #646b7b;
   --line: #ddd8cc;
-  --accent: #b9471f;
+  --accent: #b2441e;
+  --accent-hover: #98391a;
   --accent-ink: #ffffff;
   --accent-soft: #f6e3d9;
-  --good: #2f7a4b;
+  --good: #2d7548;
   --good-soft: #def0e3;
-  --warn: #9a6a00;
+  --warn: #8b5f00;
   --warn-soft: #f7ecd0;
   --bad: #a3302a;
+  --bad-soft: #f6dcda;
+  --info: #2c5f8a;
+  --info-soft: #e1ecf6;
+  --focus: #b2441e;
+  --scrim: rgb(27 35 51 / 0.45);
+  --shadow: 0 1px 2px rgb(27 35 51 / 0.05), 0 6px 20px rgb(27 35 51 / 0.07);
   --radius: 14px;
 }
 
@@ -25,11 +38,13 @@
     --bg: #12161f;
     --surface: #1a2030;
     --surface-2: #232a3c;
+    --surface-3: #2b3349;
     --ink: #eef0f4;
     --ink-2: #b6bdcb;
-    --ink-3: #8790a3;
+    --ink-3: #9199aa;
     --line: #2f374b;
-    --accent: #e8794e;
+    --accent: #e87a50;
+    --accent-hover: #f08a5f;
     --accent-ink: #12161f;
     --accent-soft: #3a2620;
     --good: #6cc48d;
@@ -37,6 +52,12 @@
     --warn: #e0b45a;
     --warn-soft: #3a3020;
     --bad: #ef7d76;
+    --bad-soft: #3d2220;
+    --info: #8fb8e0;
+    --info-soft: #1c2d3d;
+    --focus: #e87a50;
+    --scrim: rgb(0 0 0 / 0.6);
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px rgb(0 0 0 / 0.35);
   }
 }
 
@@ -44,11 +65,13 @@
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-ink-3: var(--ink-3);
   --color-line: var(--line);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --color-accent-ink: var(--accent-ink);
   --color-accent-soft: var(--accent-soft);
   --color-good: var(--good);
@@ -56,7 +79,14 @@
   --color-warn: var(--warn);
   --color-warn-soft: var(--warn-soft);
   --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-focus: var(--focus);
+  --color-scrim: var(--scrim);
   --radius-card: var(--radius);
+  --radius-sm: 10px;
+  --shadow-card: var(--shadow);
   --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -68,5 +98,50 @@ body {
 
 body {
   font-family: var(--font-sans);
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--accent-soft);
+    color: var(--ink);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
+/* Leaflet: its panes (z-index up to 1000) stay inside the map's own stacking context,
+   so the sticky header (z-40), the Sheet (z-50) and the skip link always sit above the map.
+   The html prefix beats leaflet.css's font-family declaration. */
+html .leaflet-container {
+  font-family: inherit;
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
 }
