@@ -7,6 +7,7 @@ import { getRepo } from '@/lib/repo';
 import { requireUser } from '@/lib/session';
 import { filtersFromParams, filtersToParams } from './params';
 import { parseRating } from './listing-detail';
+import { normalizeNote } from './compare';
 
 export type ActionResult<T extends object = object> = ({ ok: true } & T) | { ok: false; message: string };
 
@@ -146,5 +147,41 @@ export async function ratePhotoAction(
     return { ok: true, looksRating: photo.looksRating, ratingCount: photo.ratingCount };
   } catch (e) {
     return fail(e, 'Could not save your rating. Please try again.');
+  }
+}
+
+/** Removes a save (idempotent). Used by /saved. */
+export async function removeSaveAction(floorPlanId: string): Promise<ActionResult> {
+  const user = await requireUser(undefined, '/saved');
+  if (typeof floorPlanId !== 'string' || floorPlanId === '') return { ok: false, message: 'Unknown listing.' };
+  try {
+    await getRepo().removeSave(user.id, floorPlanId);
+    for (const p of ['/saved', '/compare', '/search']) revalidatePath(p);
+    return { ok: true };
+  } catch (e) {
+    return fail(e, 'Could not remove that place. Please try again.');
+  }
+}
+
+/**
+ * Edits the note on an existing save (max 500 chars, trimmed; empty clears it). The JSON store's addSave
+ * updates the note of an existing save, so addSave(userId, id, note) is used; the save must already exist
+ * so this never creates one.
+ */
+export async function updateSaveNote(floorPlanId: string, note: string): Promise<ActionResult<{ note: string }>> {
+  const user = await requireUser(undefined, '/saved');
+  const clean = normalizeNote(note);
+  if (!clean.ok) return clean;
+  if (typeof floorPlanId !== 'string' || floorPlanId === '') return { ok: false, message: 'Unknown listing.' };
+  try {
+    const repo = getRepo();
+    if (!(await repo.listSaves(user.id)).some((s) => s.floorPlanId === floorPlanId)) {
+      return { ok: false, message: 'That place is no longer in your saved list.' };
+    }
+    await repo.addSave(user.id, floorPlanId, clean.note);
+    revalidatePath('/saved');
+    return { ok: true, note: clean.note };
+  } catch (e) {
+    return fail(e, 'Could not save your note. Please try again.');
   }
 }
