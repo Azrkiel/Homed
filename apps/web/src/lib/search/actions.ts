@@ -16,6 +16,8 @@ function fail(e: unknown, fallback: string): { ok: false; message: string } {
   throw e;
 }
 
+const NOT_LISTED = 'That place is no longer listed.';
+
 /** Only same-site absolute paths are revalidated. */
 function safePath(path: string | undefined): string | null {
   return path && path.startsWith('/') && !path.startsWith('//') ? (path.split('?')[0] ?? null) : null;
@@ -27,6 +29,7 @@ export async function toggleSave(floorPlanId: string, path?: string): Promise<Ac
   const repo = getRepo();
   try {
     const existing = (await repo.listSaves(user.id)).some((s) => s.floorPlanId === floorPlanId);
+    if (!existing && !(await repo.getListing(floorPlanId))) return { ok: false, message: NOT_LISTED };
     if (existing) await repo.removeSave(user.id, floorPlanId);
     else await repo.addSave(user.id, floorPlanId);
     for (const p of ['/search', '/saved', `/listings/${floorPlanId}`, safePath(path)]) {
@@ -110,6 +113,7 @@ export async function recordSwipeAction(
   if (typeof floorPlanId !== 'string' || floorPlanId === '') return { ok: false, message: 'Unknown listing.' };
   const repo = getRepo();
   try {
+    if (!(await repo.getListing(floorPlanId))) return { ok: false, message: NOT_LISTED };
     const wasSaved = direction === 'right' && (await repo.listSaves(user.id)).some((s) => s.floorPlanId === floorPlanId);
     await repo.recordSwipe({ userId: user.id, floorPlanId, direction });
     for (const p of ['/match', '/saved', '/search']) revalidatePath(p);
