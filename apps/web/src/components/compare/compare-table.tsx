@@ -49,7 +49,7 @@ export function CompareTable({
                   className="min-w-40 border-l border-t border-line bg-surface p-3 align-top font-normal"
                 >
                   <div className="grid gap-2">
-                    <PhotoOrPlaceholder photos={photos} name={property.name} dimmed={stale} className="rounded-sm" />
+                    <PhotoOrPlaceholder photos={photos} name={property.name} kind={property.kind} dimmed={stale} className="rounded-sm" />
                     <Link
                       href={`/listings/${floorPlan.id}`}
                       className="font-semibold text-ink underline-offset-2 hover:underline"

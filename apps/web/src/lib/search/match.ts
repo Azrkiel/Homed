@@ -44,8 +44,9 @@ export function walkSummary(score: MatchScore): string | null {
 
 /** Real photo first, else rendering, else null. */
 function photoFor(photos: RankedListing['listing']['photos']): MatchCard['photo'] {
-  const real = photos.find((p) => !p.isRendering);
-  const photo = real ?? photos.find((p) => p.isRendering);
+  const usable = photos.filter((p) => !p.url.startsWith('/placeholder/'));
+  const real = usable.find((p) => !p.isRendering);
+  const photo = real ?? usable.find((p) => p.isRendering);
   return photo ? { url: photo.url, alt: photo.alt, isRendering: photo.isRendering } : null;
 }
 

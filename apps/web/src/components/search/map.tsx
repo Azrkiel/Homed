@@ -64,7 +64,7 @@ export default function SearchMap({ markers }: { markers: PropertyMarker[] }) {
       aria-label="Map of matching places. The list is the full, accessible view."
     >
       <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         maxZoom={19}
       />

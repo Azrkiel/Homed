@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Badge, ScoreRing, cx } from '@/components/ui';
+import { PropertyIllustration } from '@/components/listing/property-illustration';
 import { CostLine } from '@/components/listing/cost-line';
 import { ListingBadges } from '@/components/listing/listing-badges';
 import { StaleNotice } from '@/components/listing/stale-notice';
@@ -32,14 +33,23 @@ export function MatchCardView({
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-surface-2 sm:aspect-[16/9]">
         {/* Remote photo hosts are not known at build time, so a plain img is used. draggable=false keeps the browser from starting a native image drag. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={card.photo?.url ?? '/placeholder/building.svg'}
-          alt={card.photo ? card.photo.alt || name : `No photo yet for ${name}`}
-          loading="lazy"
-          draggable={false}
-          className={cx('size-full select-none object-cover', card.stale && 'opacity-60 grayscale')}
-        />
+        {card.photo ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={card.photo.url}
+            alt={card.photo.alt || name}
+            loading="lazy"
+            draggable={false}
+            className={cx('size-full select-none object-cover', card.stale && 'opacity-60 grayscale')}
+          />
+        ) : (
+          <PropertyIllustration
+            kind={card.kind}
+            seed={card.propertyName}
+            name={name}
+            className={cx('pointer-events-none absolute inset-0 select-none', card.stale && 'opacity-60 grayscale')}
+          />
+        )}
         {card.photo?.isRendering && (
           <Badge tone="neutral" className="absolute left-3 top-3 bg-surface/90 shadow-card">
             Rendering

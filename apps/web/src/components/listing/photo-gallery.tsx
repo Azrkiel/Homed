@@ -1,23 +1,28 @@
 import type { Listing } from '@homed/core';
 import { Badge, Card, CardBody, cx } from '@/components/ui';
+import type { PropertyKind } from '@homed/core';
 import { PhotoRating } from './photo-rating';
+import { isPlaceholderPhoto, PropertyIllustration } from './property-illustration';
 
 /** All photos. Renderings are badged and cannot be rated; real photos get a 1-5 rating group. */
 export function PhotoGallery({
-  photos,
+  photos: allPhotos,
+  kind,
   floorPlanId,
   name,
   signedIn,
   dimmed,
 }: {
   photos: Listing['photos'];
+  kind: PropertyKind;
   floorPlanId: string;
   name: string;
   signedIn: boolean;
   dimmed?: boolean;
 }) {
+  const photos = allPhotos.filter((p) => !isPlaceholderPhoto(p.url));
   const realCount = photos.filter((p) => !p.isRendering).length;
-  const renderingsOnly = photos.length > 0 && realCount === 0;
+  const renderingsOnly = allPhotos.length > 0 && allPhotos.every((p) => p.isRendering);
 
   return (
     <section aria-labelledby="gallery-heading" className="grid gap-3">
@@ -28,9 +33,12 @@ export function PhotoGallery({
         <Card>
           <div className="grid gap-3 sm:grid-cols-[14rem_1fr] sm:items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/placeholder/building.svg" alt={`No photo yet for ${name}`} className="aspect-[4/3] size-full object-cover" />
+            <div className="relative aspect-[4/3]">
+              <PropertyIllustration kind={kind} seed={name} name={name} className="absolute inset-0" />
+            </div>
             <CardBody>
               <p className="font-medium text-ink">No photos yet.</p>
+              {renderingsOnly && <p className="text-sm text-warn">The building is still being built; only architectural renderings exist.</p>}
               <p className="text-sm text-ink-2">Ask the landlord for photos of the actual unit before you apply.</p>
             </CardBody>
           </div>

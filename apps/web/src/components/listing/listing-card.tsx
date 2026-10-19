@@ -45,7 +45,7 @@ export function ListingCard({
         className,
       )}
     >
-      <PhotoOrPlaceholder photos={photos} name={property.name} dimmed={stale} className="sm:w-44 sm:shrink-0 sm:aspect-auto" />
+      <PhotoOrPlaceholder photos={photos} name={property.name} kind={property.kind} dimmed={stale} className="sm:w-44 sm:shrink-0 sm:aspect-auto" />
 
       <div className="grid min-w-0 flex-1 content-start gap-2 p-4">
         <div className="flex items-start justify-between gap-3">

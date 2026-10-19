@@ -30,7 +30,7 @@ export default function LocationMap({ lat, lng, onPick }: Props) {
       aria-label="Map. Click to place the property. Typed coordinates below work too."
     >
       <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         maxZoom={19}
       />

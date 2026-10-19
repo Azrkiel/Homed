@@ -145,7 +145,7 @@ export default async function ListingPage({ params, searchParams }: Props) {
 
       <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
         <div className="grid min-w-0 gap-6">
-          <PhotoGallery photos={photos} floorPlanId={floorPlan.id} name={property.name} signedIn={signedIn} dimmed={stale} />
+          <PhotoGallery photos={photos} kind={property.kind} floorPlanId={floorPlan.id} name={property.name} signedIn={signedIn} dimmed={stale} />
           <ListingFacts floorPlan={floorPlan} property={property} />
           <WalkTimes
             classes={classes}

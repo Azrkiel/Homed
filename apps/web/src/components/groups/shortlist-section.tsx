@@ -55,7 +55,7 @@ export function ShortlistSection({
               <li key={row.floorPlanId}>
                 <Card as="article" className="flex flex-col overflow-hidden sm:flex-row">
                   {listing && (
-                    <PhotoOrPlaceholder photos={listing.photos} name={name} className="sm:w-44 sm:shrink-0 sm:aspect-auto" />
+                    <PhotoOrPlaceholder photos={listing.photos} name={listing.property.name} kind={listing.property.kind} className="sm:w-44 sm:shrink-0 sm:aspect-auto" />
                   )}
                   <div className="grid min-w-0 flex-1 content-start gap-2.5 p-4">
                     <h3 className="text-base font-semibold text-ink">
