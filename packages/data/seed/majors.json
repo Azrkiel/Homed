@@ -1,0 +1,1170 @@
+[
+  {
+    "id": "m-clas-undeclared",
+    "name": "Undeclared / College of Arts & Sciences",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-gilmer-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-chemistry-building",
+        "share": 0.15
+      },
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 12
+  },
+  {
+    "id": "m-biology",
+    "name": "Biology",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-gilmer-hall",
+        "share": 0.35
+      },
+      {
+        "buildingId": "b-physical-and-life-sciences-building",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-chemistry-building",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 13
+  },
+  {
+    "id": "m-chemistry",
+    "name": "Chemistry",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-chemistry-building",
+        "share": 0.5
+      },
+      {
+        "buildingId": "b-physical-and-life-sciences-building",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-physics-building-jesse-beams-laboratory",
+        "share": 0.15
+      },
+      {
+        "buildingId": "b-gilmer-hall",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 13
+  },
+  {
+    "id": "m-clas-computer-science",
+    "name": "Computer Science (CLAS)",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-rice-hall",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-thornton",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-olsson-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.15
+      },
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.1
+      }
+    ],
+    "meetingsPerWeek": 12
+  },
+  {
+    "id": "m-economics",
+    "name": "Economics",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.35
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-kerchof-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 11
+  },
+  {
+    "id": "m-english",
+    "name": "English",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-bryan-hall",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-randall-hall",
+        "share": 0.15
+      },
+      {
+        "buildingId": "b-halsey-hall",
+        "share": 0.1
+      }
+    ],
+    "meetingsPerWeek": 10
+  },
+  {
+    "id": "m-history",
+    "name": "History",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-nau-hall",
+        "share": 0.35
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-bryan-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 10
+  },
+  {
+    "id": "m-psychology",
+    "name": "Psychology",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-gilmer-hall",
+        "share": 0.45
+      },
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-peabody-hall",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 12
+  },
+  {
+    "id": "m-politics",
+    "name": "Politics",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-montesano-center-for-politics",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-nau-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 10
+  },
+  {
+    "id": "m-mathematics",
+    "name": "Mathematics",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-kerchof-hall",
+        "share": 0.4
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-olsson-hall",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 12
+  },
+  {
+    "id": "m-physics",
+    "name": "Physics",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-physics-building-jesse-beams-laboratory",
+        "share": 0.4
+      },
+      {
+        "buildingId": "b-kerchof-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-astronomy-building",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 13
+  },
+  {
+    "id": "m-statistics",
+    "name": "Statistics",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-halsey-hall",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-kerchof-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 11
+  },
+  {
+    "id": "m-sociology",
+    "name": "Sociology",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.35
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-nau-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 10
+  },
+  {
+    "id": "m-philosophy",
+    "name": "Philosophy",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-bryan-hall",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-nau-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 10
+  },
+  {
+    "id": "m-foreign-affairs",
+    "name": "Foreign Affairs",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-nau-hall",
+        "share": 0.35
+      },
+      {
+        "buildingId": "b-montesano-center-for-politics",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 10
+  },
+  {
+    "id": "m-media-studies",
+    "name": "Media Studies",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-bryan-hall",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-randall-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 10
+  },
+  {
+    "id": "m-studio-art",
+    "name": "Studio Art",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-campbell-hall",
+        "share": 0.35
+      },
+      {
+        "buildingId": "b-fiske-kimball-fine-arts-library",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-drama-building-and-theatre",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.25
+      }
+    ],
+    "meetingsPerWeek": 11
+  },
+  {
+    "id": "m-art-history",
+    "name": "Art History",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-fiske-kimball-fine-arts-library",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-campbell-hall",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-fayerweather-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-bryan-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 9
+  },
+  {
+    "id": "m-anthropology",
+    "name": "Anthropology",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-brooks-hall",
+        "share": 0.35
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 10
+  },
+  {
+    "id": "m-religious-studies",
+    "name": "Religious Studies",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-gibson-hall",
+        "share": 0.35
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-nau-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 10
+  },
+  {
+    "id": "m-environmental-sciences",
+    "name": "Environmental Sciences",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-clark-hall",
+        "share": 0.4
+      },
+      {
+        "buildingId": "b-physical-and-life-sciences-building",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-gilmer-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-chemistry-building",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 12
+  },
+  {
+    "id": "m-astronomy",
+    "name": "Astronomy",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-astronomy-building",
+        "share": 0.4
+      },
+      {
+        "buildingId": "b-physics-building-jesse-beams-laboratory",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-kerchof-hall",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 12
+  },
+  {
+    "id": "m-cognitive-science",
+    "name": "Cognitive Science",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-gilmer-hall",
+        "share": 0.4
+      },
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 11
+  },
+  {
+    "id": "m-neuroscience",
+    "name": "Neuroscience",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-gilmer-hall",
+        "share": 0.4
+      },
+      {
+        "buildingId": "b-physical-and-life-sciences-building",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-chemistry-building",
+        "share": 0.15
+      },
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 13
+  },
+  {
+    "id": "m-drama",
+    "name": "Drama",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-drama-building-and-theatre",
+        "share": 0.5
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.15
+      },
+      {
+        "buildingId": "b-old-cabell-hall",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 11
+  },
+  {
+    "id": "m-music",
+    "name": "Music",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-old-cabell-hall",
+        "share": 0.35
+      },
+      {
+        "buildingId": "b-memorial-gymnasium",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 10
+  },
+  {
+    "id": "m-african-american-studies",
+    "name": "African-American and African Studies",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-montesano-center-for-politics",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-bryan-hall",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-nau-hall",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 9
+  },
+  {
+    "id": "m-spanish",
+    "name": "Spanish",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-randall-hall",
+        "share": 0.4
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.3
+      }
+    ],
+    "meetingsPerWeek": 10
+  },
+  {
+    "id": "m-french",
+    "name": "French",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-randall-hall",
+        "share": 0.4
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.3
+      }
+    ],
+    "meetingsPerWeek": 10
+  },
+  {
+    "id": "m-linguistics",
+    "name": "Linguistics",
+    "school": "CLAS",
+    "buildings": [
+      {
+        "buildingId": "b-randall-hall",
+        "share": 0.35
+      },
+      {
+        "buildingId": "b-bryan-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 10
+  },
+  {
+    "id": "m-seas-computer-science",
+    "name": "Computer Science",
+    "school": "SEAS",
+    "buildings": [
+      {
+        "buildingId": "b-rice-hall",
+        "share": 0.4
+      },
+      {
+        "buildingId": "b-thornton",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-olsson-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-mechanical-and-aerospace-engineering-building",
+        "share": 0.1
+      }
+    ],
+    "meetingsPerWeek": 13
+  },
+  {
+    "id": "m-mechanical-engineering",
+    "name": "Mechanical Engineering",
+    "school": "SEAS",
+    "buildings": [
+      {
+        "buildingId": "b-mechanical-and-aerospace-engineering-building",
+        "share": 0.45
+      },
+      {
+        "buildingId": "b-thornton",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-olsson-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-rice-hall",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 14
+  },
+  {
+    "id": "m-civil-engineering",
+    "name": "Civil Engineering",
+    "school": "SEAS",
+    "buildings": [
+      {
+        "buildingId": "b-thornton",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-olsson-hall",
+        "share": 0.4
+      },
+      {
+        "buildingId": "b-mechanical-and-aerospace-engineering-building",
+        "share": 0.15
+      },
+      {
+        "buildingId": "b-rice-hall",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 13
+  },
+  {
+    "id": "m-electrical-engineering",
+    "name": "Electrical Engineering",
+    "school": "SEAS",
+    "buildings": [
+      {
+        "buildingId": "b-thornton",
+        "share": 0.35
+      },
+      {
+        "buildingId": "b-rice-hall",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-olsson-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-mechanical-and-aerospace-engineering-building",
+        "share": 0.1
+      }
+    ],
+    "meetingsPerWeek": 13
+  },
+  {
+    "id": "m-chemical-engineering",
+    "name": "Chemical Engineering",
+    "school": "SEAS",
+    "buildings": [
+      {
+        "buildingId": "b-chemical-engineering-building",
+        "share": 0.4
+      },
+      {
+        "buildingId": "b-olsson-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-thornton",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-chemistry-building",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 14
+  },
+  {
+    "id": "m-biomedical-engineering",
+    "name": "Biomedical Engineering",
+    "school": "SEAS",
+    "buildings": [
+      {
+        "buildingId": "b-biomedical-engineering-and-medical-science-building",
+        "share": 0.4
+      },
+      {
+        "buildingId": "b-olsson-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-thornton",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-physical-and-life-sciences-building",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 14
+  },
+  {
+    "id": "m-systems-information-engineering",
+    "name": "Systems & Information Engineering",
+    "school": "SEAS",
+    "buildings": [
+      {
+        "buildingId": "b-olsson-hall",
+        "share": 0.45
+      },
+      {
+        "buildingId": "b-thornton",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-rice-hall",
+        "share": 0.3
+      }
+    ],
+    "meetingsPerWeek": 12
+  },
+  {
+    "id": "m-aerospace-engineering",
+    "name": "Aerospace Engineering",
+    "school": "SEAS",
+    "buildings": [
+      {
+        "buildingId": "b-mechanical-and-aerospace-engineering-building",
+        "share": 0.5
+      },
+      {
+        "buildingId": "b-thornton",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-olsson-hall",
+        "share": 0.25
+      }
+    ],
+    "meetingsPerWeek": 14
+  },
+  {
+    "id": "m-engineering-undeclared",
+    "name": "Engineering (undeclared)",
+    "school": "SEAS",
+    "buildings": [
+      {
+        "buildingId": "b-thornton",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-olsson-hall",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-mechanical-and-aerospace-engineering-building",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-rice-hall",
+        "share": 0.15
+      },
+      {
+        "buildingId": "b-gilmer-hall",
+        "share": 0.1
+      }
+    ],
+    "meetingsPerWeek": 13
+  },
+  {
+    "id": "m-commerce",
+    "name": "Commerce (McIntire)",
+    "school": "COMM",
+    "buildings": [
+      {
+        "buildingId": "b-rouss-robertson",
+        "share": 0.65
+      },
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.15
+      },
+      {
+        "buildingId": "b-new-cabell-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 12
+  },
+  {
+    "id": "m-nursing",
+    "name": "Nursing",
+    "school": "NURS",
+    "buildings": [
+      {
+        "buildingId": "b-claude-moore-nursing-education-building",
+        "share": 0.5
+      },
+      {
+        "buildingId": "b-mcleod-hall",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-university-of-virginia-hospital",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 13
+  },
+  {
+    "id": "m-architecture",
+    "name": "Architecture",
+    "school": "ARCH",
+    "buildings": [
+      {
+        "buildingId": "b-campbell-hall",
+        "share": 0.7
+      },
+      {
+        "buildingId": "b-fiske-kimball-fine-arts-library",
+        "share": 0.15
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 14
+  },
+  {
+    "id": "m-kinesiology",
+    "name": "Kinesiology",
+    "school": "EDUC",
+    "buildings": [
+      {
+        "buildingId": "b-memorial-gymnasium",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-ruffner-hall",
+        "share": 0.4
+      },
+      {
+        "buildingId": "b-aquatic-and-fitness-center",
+        "share": 0.3
+      }
+    ],
+    "meetingsPerWeek": 12
+  },
+  {
+    "id": "m-education",
+    "name": "Education (Youth & Social Innovation)",
+    "school": "EDUC",
+    "buildings": [
+      {
+        "buildingId": "b-ruffner-hall",
+        "share": 0.5
+      },
+      {
+        "buildingId": "b-bavaro-hall-school-of-education",
+        "share": 0.3
+      },
+      {
+        "buildingId": "b-wilson-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 11
+  },
+  {
+    "id": "m-batten-public-policy",
+    "name": "Public Policy and Leadership",
+    "school": "BATTEN",
+    "buildings": [
+      {
+        "buildingId": "b-garrett-hall-batten-school",
+        "share": 0.4
+      },
+      {
+        "buildingId": "b-montesano-center-for-politics",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-nau-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-james-monroe-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 10
+  },
+  {
+    "id": "m-data-science",
+    "name": "Data Science",
+    "school": "DSI",
+    "buildings": [
+      {
+        "buildingId": "b-school-of-data-science",
+        "share": 0.5
+      },
+      {
+        "buildingId": "b-rice-hall",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-halsey-hall",
+        "share": 0.15
+      },
+      {
+        "buildingId": "b-kerchof-hall",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 12
+  },
+  {
+    "id": "m-law-jd",
+    "name": "Law (JD)",
+    "school": "LAW",
+    "buildings": [
+      {
+        "buildingId": "b-school-of-law",
+        "share": 0.7
+      },
+      {
+        "buildingId": "b-albert-h-small-building",
+        "share": 0.15
+      },
+      {
+        "buildingId": "b-john-w-warner-hall",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 12
+  },
+  {
+    "id": "m-darden-mba",
+    "name": "Business Administration (MBA)",
+    "school": "DARDEN",
+    "buildings": [
+      {
+        "buildingId": "b-darden-school-of-business",
+        "share": 0.7
+      },
+      {
+        "buildingId": "b-darden-center",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-darden-library",
+        "share": 0.1
+      }
+    ],
+    "meetingsPerWeek": 14
+  },
+  {
+    "id": "m-med-md",
+    "name": "Medicine (MD)",
+    "school": "MED",
+    "buildings": [
+      {
+        "buildingId": "b-claude-moore-medical-education-building",
+        "share": 0.5
+      },
+      {
+        "buildingId": "b-old-medical-school-building",
+        "share": 0.2
+      },
+      {
+        "buildingId": "b-medical-research-building-4",
+        "share": 0.15
+      },
+      {
+        "buildingId": "b-university-of-virginia-hospital",
+        "share": 0.15
+      }
+    ],
+    "meetingsPerWeek": 14
+  },
+  {
+    "id": "m-batten-mpp",
+    "name": "Public Policy (MPP)",
+    "school": "BATTEN",
+    "buildings": [
+      {
+        "buildingId": "b-garrett-hall-batten-school",
+        "share": 0.55
+      },
+      {
+        "buildingId": "b-montesano-center-for-politics",
+        "share": 0.25
+      },
+      {
+        "buildingId": "b-nau-hall",
+        "share": 0.2
+      }
+    ],
+    "meetingsPerWeek": 10
+  }
+]

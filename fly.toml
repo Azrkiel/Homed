@@ -1,0 +1,38 @@
+# Fly.io: https://homed.fly.dev. Deploy from the repo root (Git Bash, Avast TLS on this PC):
+#   flyctl deploy --remote-only --depot=false
+app = "homed"
+primary_region = "iad"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8080"
+  HOMED_DATA_DIR = "/data"
+  # Demo sign-in: anyone can sign in as any email, so this deployment is a DEMO with seed data only.
+  # Remove it (and set up Supabase sign-in) before real students or applicant data use the site.
+  HOMED_ALLOW_DEMO_SIGNIN = "1"
+
+# The JSON store lives on this volume, so data survives deploys. One machine only (one volume).
+[mounts]
+  source = "homed_data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [[http_service.checks]]
+    grace_period = "20s"
+    interval = "30s"
+    method = "GET"
+    path = "/about"
+    timeout = "10s"
+
+[[vm]]
+  memory = "512mb"
+  cpu_kind = "shared"
+  cpus = 1

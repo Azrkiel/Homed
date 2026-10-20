@@ -1,0 +1,450 @@
+[
+  {
+    "id": "ph-1110-wertland-1",
+    "propertyId": "p-1110-wertland",
+    "url": "/placeholder/building.svg",
+    "alt": "1110 Wertland Street exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-119-washington-ave-1",
+    "propertyId": "p-119-washington-ave",
+    "url": "/placeholder/building.svg",
+    "alt": "119 Washington Ave exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-1201-gordon-ave-1",
+    "propertyId": "p-1201-gordon-ave",
+    "url": "/placeholder/building.svg",
+    "alt": "1201 Gordon Ave exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-1303-gordon-ave-1",
+    "propertyId": "p-1303-gordon-ave",
+    "url": "/placeholder/building.svg",
+    "alt": "1303 Gordon Ave exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-1701-gordon-avenue-1",
+    "propertyId": "p-1701-gordon-avenue",
+    "url": "/placeholder/building.svg",
+    "alt": "1701 Gordon Avenue exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-1930-ivy-road-1",
+    "propertyId": "p-1930-ivy-road",
+    "url": "/placeholder/building.svg",
+    "alt": "1930 Ivy Road (four-unit building) exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-2101-jefferson-park-apartments-1",
+    "propertyId": "p-2101-jefferson-park-apartments",
+    "url": "/placeholder/building.svg",
+    "alt": "2101 Jefferson Park Apartments exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-2114-ivy-rd-1",
+    "propertyId": "p-2114-ivy-rd",
+    "url": "/placeholder/building.svg",
+    "alt": "2114 Ivy Rd Apartments exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-2202-jpa-1",
+    "propertyId": "p-2202-jpa",
+    "url": "/placeholder/building.svg",
+    "alt": "2202 JPA exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-32-university-circle-1",
+    "propertyId": "p-32-university-circle",
+    "url": "/placeholder/building.svg",
+    "alt": "32 University Circle exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-500-14th-st-nw-1",
+    "propertyId": "p-500-14th-st-nw",
+    "url": "/placeholder/building.svg",
+    "alt": "500 14th St NW exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-504-14th-st-nw-1",
+    "propertyId": "p-504-14th-st-nw",
+    "url": "/placeholder/building.svg",
+    "alt": "504 14th St NW exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-506-14th-st-nw-1",
+    "propertyId": "p-506-14th-st-nw",
+    "url": "/placeholder/building.svg",
+    "alt": "506 14th St NW exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-508-14th-st-nw-1",
+    "propertyId": "p-508-14th-st-nw",
+    "url": "/placeholder/building.svg",
+    "alt": "508 14th St NW exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-515-14th-st-nw-apt-b-1",
+    "propertyId": "p-515-14th-st-nw-apt-b",
+    "url": "/placeholder/building.svg",
+    "alt": "515 14th St NW Apt B exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-525-ridge-street-1",
+    "propertyId": "p-525-ridge-street",
+    "url": "/placeholder/building.svg",
+    "alt": "525 Ridge Street exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-5th-street-place-1",
+    "propertyId": "p-5th-street-place",
+    "url": "/placeholder/building.svg",
+    "alt": "5th Street Place exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-610-rugby-rd-apt-c-1",
+    "propertyId": "p-610-rugby-rd-apt-c",
+    "url": "/placeholder/building.svg",
+    "alt": "610 Rugby Rd Apt C exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-beta-bridge-1",
+    "propertyId": "p-beta-bridge",
+    "url": "/placeholder/building.svg",
+    "alt": "Beta Bridge Apartments exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-beta-ii-1",
+    "propertyId": "p-beta-ii",
+    "url": "/placeholder/building.svg",
+    "alt": "Beta II exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-bice-house-1",
+    "propertyId": "p-bice-house",
+    "url": "/placeholder/building.svg",
+    "alt": "Bice House exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-bond-house-1",
+    "propertyId": "p-bond-house",
+    "url": "/placeholder/building.svg",
+    "alt": "Bond House exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-brown-college-1",
+    "propertyId": "p-brown-college",
+    "url": "/placeholder/building.svg",
+    "alt": "Brown Residential College exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-camden-courtyard-1",
+    "propertyId": "p-camden-courtyard",
+    "url": "/placeholder/building.svg",
+    "alt": "Camden Courtyard exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-camden-plaza-1",
+    "propertyId": "p-camden-plaza",
+    "url": "/placeholder/building.svg",
+    "alt": "Camden Plaza exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-casa-bolivar-1",
+    "propertyId": "p-casa-bolivar",
+    "url": "/placeholder/building.svg",
+    "alt": "Casa Bolivar (Spanish House) exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-cherry-suites-1",
+    "propertyId": "p-cherry-suites",
+    "url": "/placeholder/building.svg",
+    "alt": "Cherry Suites exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-copeley-apartments-1",
+    "propertyId": "p-copeley-apartments",
+    "url": "/placeholder/building.svg",
+    "alt": "Copeley Apartments exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-crestline-1",
+    "propertyId": "p-crestline",
+    "url": "/placeholder/building.svg",
+    "alt": "Yugo Crestline Charlottesville exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-dovecote-at-the-corner-1",
+    "propertyId": "p-dovecote-at-the-corner",
+    "url": "/placeholder/building.svg",
+    "alt": "Dovecote at The Corner exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-faulkner-apartments-1",
+    "propertyId": "p-faulkner-apartments",
+    "url": "/placeholder/building.svg",
+    "alt": "Faulkner Apartments exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-first-and-main-1",
+    "propertyId": "p-first-and-main",
+    "url": "/placeholder/building.svg",
+    "alt": "First & Main exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-flats-at-west-village-1",
+    "propertyId": "p-flats-at-west-village",
+    "url": "/placeholder/building.svg",
+    "alt": "Flats at West Village exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-grady-apartments-1",
+    "propertyId": "p-grady-apartments",
+    "url": "/placeholder/building.svg",
+    "alt": "Grady Apartments exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-hereford-college-1",
+    "propertyId": "p-hereford-college",
+    "url": "/placeholder/building.svg",
+    "alt": "Hereford Residential College exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-international-residential-college-1",
+    "propertyId": "p-international-residential-college",
+    "url": "/placeholder/building.svg",
+    "alt": "International Residential College (IRC) exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-ivy-garden-1",
+    "propertyId": "p-ivy-garden",
+    "url": "/placeholder/building.svg",
+    "alt": "Ivy Garden Apartments exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-lambeth-field-apartments-1",
+    "propertyId": "p-lambeth-field-apartments",
+    "url": "/placeholder/building.svg",
+    "alt": "Lambeth Field Apartments exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-lark-on-main-1",
+    "propertyId": "p-lark-on-main",
+    "url": "/placeholder/building.svg",
+    "alt": "Lark on Main exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-maywood-on-jpa-1",
+    "propertyId": "p-maywood-on-jpa",
+    "url": "/placeholder/building.svg",
+    "alt": "Maywood on Jefferson Park Avenue exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-mcintire-plaza-1",
+    "propertyId": "p-mcintire-plaza",
+    "url": "/placeholder/building.svg",
+    "alt": "McIntire Plaza Apartments exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-meriwether-on-market-1",
+    "propertyId": "p-meriwether-on-market",
+    "url": "/placeholder/building.svg",
+    "alt": "The Meriwether on Market Street exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-one-hundred-avon-1",
+    "propertyId": "p-one-hundred-avon",
+    "url": "/placeholder/building.svg",
+    "alt": "One Hundred Avon exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-oxbridge-courtyard-1",
+    "propertyId": "p-oxbridge-courtyard",
+    "url": "/placeholder/building.svg",
+    "alt": "Oxbridge Courtyard Apartments exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-preston-square-1",
+    "propertyId": "p-preston-square",
+    "url": "/placeholder/building.svg",
+    "alt": "Preston Square Apartments exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-rugby-mcintyre-1",
+    "propertyId": "p-rugby-mcintyre",
+    "url": "/placeholder/building.svg",
+    "alt": "Rugby McIntyre exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-shea-house-1",
+    "propertyId": "p-shea-house",
+    "url": "/placeholder/building.svg",
+    "alt": "Shea House exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-tarleton-square-1",
+    "propertyId": "p-tarleton-square",
+    "url": "/placeholder/building.svg",
+    "alt": "Tarleton Square exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-the-fred-1",
+    "propertyId": "p-the-fred",
+    "url": "/placeholder/building.svg",
+    "alt": "The Fred exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-the-grove-at-the-corner-1",
+    "propertyId": "p-the-grove-at-the-corner",
+    "url": "/placeholder/building.svg",
+    "alt": "The Grove at the Corner exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-the-kenilworth-1",
+    "propertyId": "p-the-kenilworth",
+    "url": "/placeholder/building.svg",
+    "alt": "The Kenilworth exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-the-pavilions-1",
+    "propertyId": "p-the-pavilions",
+    "url": "/placeholder/building.svg",
+    "alt": "The Pavilions exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-the-v-1",
+    "propertyId": "p-the-v",
+    "url": "/placeholder/building.svg",
+    "alt": "The V exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-university-heights-1",
+    "propertyId": "p-university-heights",
+    "url": "/placeholder/building.svg",
+    "alt": "University Heights Apartments exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-verve-charlottesville-1",
+    "propertyId": "p-verve-charlottesville",
+    "url": "/placeholder/rendering.svg",
+    "alt": "VERVE Charlottesville rendering (placeholder)",
+    "isRendering": true,
+    "ratingCount": 0
+  },
+  {
+    "id": "ph-wertland-apartments-1115-1",
+    "propertyId": "p-wertland-apartments-1115",
+    "url": "/placeholder/building.svg",
+    "alt": "Wertland Apartments (1115 Wertland St) exterior (placeholder)",
+    "isRendering": false,
+    "ratingCount": 0
+  }
+]

@@ -1,0 +1,17 @@
+.git
+**/node_modules
+**/.next
+**/.data
+**/test-results
+**/playwright-report
+apps/mobile/*
+!apps/mobile/package.json
+apps/web/e2e
+apps/web/test
+packages/*/test
+packages/data/scripts/.cache
+supabase
+docs
+*.md
+!packages/**/README.md
+.env*

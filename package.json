@@ -1,0 +1,33 @@
+{
+  "name": "homed",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Homed: UVA student housing search, ranked by price, walk time to your classes, and looks.",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @homed/web",
+    "build": "npm run build -w @homed/web",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "check": "npm run typecheck && npm run test",
+    "e2e": "npm run build -w @homed/web && playwright test -c apps/web/playwright.config.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^22.10.0",
+    "supabase": "^2.121.0",
+    "tsx": "^4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "overrides": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  }
+}

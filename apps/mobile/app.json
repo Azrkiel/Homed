@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "Homed",
+    "slug": "homed",
+    "scheme": "homed",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "platforms": ["ios", "android", "web"],
+    "web": { "bundler": "metro", "output": "single" },
+    "plugins": ["expo-router", "expo-secure-store"],
+    "experiments": { "typedRoutes": false }
+  }
+}

@@ -1,0 +1,1182 @@
+[
+  {
+    "id": "b-aerospace-research-laboratory",
+    "code": "AER",
+    "name": "Aerospace Research Laboratory",
+    "entrance": {
+      "lat": 38.03663,
+      "lng": -78.5225
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-albert-and-shirley-small-special-collections-library",
+    "code": "ALB",
+    "name": "Albert and Shirley Small Special Collections Library",
+    "entrance": {
+      "lat": 38.03614,
+      "lng": -78.50574
+    },
+    "kind": "library"
+  },
+  {
+    "id": "b-albert-h-small-building",
+    "code": "ALBE",
+    "name": "Albert H. Small Building",
+    "entrance": {
+      "lat": 38.03212,
+      "lng": -78.51134
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-alumni-hall",
+    "code": "ALU",
+    "name": "Alumni Hall",
+    "entrance": {
+      "lat": 38.03821,
+      "lng": -78.50813
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-aquatic-and-fitness-center",
+    "code": "AQU",
+    "name": "Aquatic and Fitness Center",
+    "entrance": {
+      "lat": 38.03292,
+      "lng": -78.51351
+    },
+    "kind": "recreation"
+  },
+  {
+    "id": "b-army-judge-advocate-general-school",
+    "code": "ARM",
+    "name": "Army Judge Advocate General School",
+    "entrance": {
+      "lat": 38.05407,
+      "lng": -78.50772
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-arthur-j-morris-law-library",
+    "code": "ART",
+    "name": "Arthur J. Morris Law Library",
+    "entrance": {
+      "lat": 38.05317,
+      "lng": -78.50918
+    },
+    "kind": "library"
+  },
+  {
+    "id": "b-astronomy-building",
+    "code": "AST",
+    "name": "Astronomy Building",
+    "entrance": {
+      "lat": 38.03561,
+      "lng": -78.51519
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-barringer-wing",
+    "code": "BAR",
+    "name": "Barringer Wing",
+    "entrance": {
+      "lat": 38.03336,
+      "lng": -78.5018
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-battle-building",
+    "code": "BAT",
+    "name": "Battle Building",
+    "entrance": {
+      "lat": 38.03278,
+      "lng": -78.49737
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-bavaro-hall-school-of-education",
+    "code": "BAV",
+    "name": "Bavaro Hall / School of Education",
+    "entrance": {
+      "lat": 38.03491,
+      "lng": -78.50876
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-biomedical-engineering-and-medical-science-building",
+    "code": "BIO",
+    "name": "Biomedical Engineering and Medical Science Building",
+    "entrance": {
+      "lat": 38.0309,
+      "lng": -78.50103
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-booker-house",
+    "code": "BOO",
+    "name": "Booker House",
+    "entrance": {
+      "lat": 38.03672,
+      "lng": -78.50206
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-brody-jewish-center",
+    "code": "BRO",
+    "name": "Brody Jewish Center",
+    "entrance": {
+      "lat": 38.0428,
+      "lng": -78.50211
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-brooks-hall",
+    "code": "BROO",
+    "name": "Brooks Hall",
+    "entrance": {
+      "lat": 38.03579,
+      "lng": -78.50211
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-bryan-hall",
+    "code": "BRY",
+    "name": "Bryan Hall",
+    "entrance": {
+      "lat": 38.03327,
+      "lng": -78.50592
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-c-ray-smith-alumni-hall",
+    "code": "CRSA",
+    "name": "C Ray Smith Alumni Hall",
+    "entrance": {
+      "lat": 38.05261,
+      "lng": -78.51311
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-campbell-hall",
+    "code": "CAM",
+    "name": "Campbell Hall",
+    "entrance": {
+      "lat": 38.03885,
+      "lng": -78.50389
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-carruthers-hall",
+    "code": "CAR",
+    "name": "Carruthers Hall",
+    "entrance": {
+      "lat": 38.04977,
+      "lng": -78.50139
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-chemical-engineering-building",
+    "code": "CHE",
+    "name": "Chemical Engineering Building",
+    "entrance": {
+      "lat": 38.03344,
+      "lng": -78.51073
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-chemistry-building",
+    "code": "CHM",
+    "name": "Chemistry Building",
+    "entrance": {
+      "lat": 38.03324,
+      "lng": -78.51177
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-clark-hall",
+    "code": "CLK",
+    "name": "Clark Hall",
+    "entrance": {
+      "lat": 38.03302,
+      "lng": -78.50787
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-claude-moore-health-sciences-library",
+    "code": "CLA",
+    "name": "Claude Moore Health Sciences Library",
+    "entrance": {
+      "lat": 38.03215,
+      "lng": -78.50114
+    },
+    "kind": "library"
+  },
+  {
+    "id": "b-claude-moore-medical-education-building",
+    "code": "CLAU",
+    "name": "Claude Moore Medical Education Building",
+    "entrance": {
+      "lat": 38.03132,
+      "lng": -78.50144
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-claude-moore-nursing-education-building",
+    "code": "CMNEB",
+    "name": "Claude Moore Nursing Education Building",
+    "entrance": {
+      "lat": 38.03128,
+      "lng": -78.50218
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-clemons",
+    "code": "CLEM",
+    "name": "Clemons Library",
+    "entrance": {
+      "lat": 38.03647,
+      "lng": -78.50612
+    },
+    "kind": "library"
+  },
+  {
+    "id": "b-cobb-hall",
+    "code": "COB",
+    "name": "Cobb Hall",
+    "entrance": {
+      "lat": 38.0326,
+      "lng": -78.50292
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-cocke-hall",
+    "code": "COC",
+    "name": "Cocke Hall",
+    "entrance": {
+      "lat": 38.03344,
+      "lng": -78.5052
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-contemplative-commons",
+    "code": "CON",
+    "name": "Contemplative Commons",
+    "entrance": {
+      "lat": 38.0357,
+      "lng": -78.50879
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-corner-building",
+    "code": "COR",
+    "name": "Corner Building",
+    "entrance": {
+      "lat": 38.03394,
+      "lng": -78.49996
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-darden-center",
+    "code": "DARD",
+    "name": "Darden Center",
+    "entrance": {
+      "lat": 38.05312,
+      "lng": -78.51466
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-darden-library",
+    "code": "DARDE",
+    "name": "Darden Library",
+    "entrance": {
+      "lat": 38.05285,
+      "lng": -78.51392
+    },
+    "kind": "library"
+  },
+  {
+    "id": "b-darden-school-of-business",
+    "code": "DAR",
+    "name": "Darden School of Business",
+    "entrance": {
+      "lat": 38.05218,
+      "lng": -78.51354
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-dean-commons",
+    "code": "DEA",
+    "name": "Dean Commons",
+    "entrance": {
+      "lat": 38.03167,
+      "lng": -78.50544
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-dell-building-1",
+    "code": "DEL",
+    "name": "Dell Building 1",
+    "entrance": {
+      "lat": 38.03483,
+      "lng": -78.50999
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-dell-building-2",
+    "code": "DELL",
+    "name": "Dell Building 2",
+    "entrance": {
+      "lat": 38.03501,
+      "lng": -78.50989
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-drama-building-and-theatre",
+    "code": "DRA",
+    "name": "Drama Building and Theatre",
+    "entrance": {
+      "lat": 38.03965,
+      "lng": -78.5044
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-drama-building-and-theatre-addition",
+    "code": "DRAM",
+    "name": "Drama Building and Theatre Addition",
+    "entrance": {
+      "lat": 38.03946,
+      "lng": -78.504
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-elson-building",
+    "code": "ELS",
+    "name": "Elson Building",
+    "entrance": {
+      "lat": 38.03157,
+      "lng": -78.50337
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-emily-couric-clinical-cancer-center",
+    "code": "EMI",
+    "name": "Emily Couric Clinical Cancer Center",
+    "entrance": {
+      "lat": 38.03241,
+      "lng": -78.49902
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-ern-commons",
+    "code": "ERN",
+    "name": "Ern Commons",
+    "entrance": {
+      "lat": 38.03433,
+      "lng": -78.517
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-faulkner-house-miller-center-of-public-affairs",
+    "code": "FAU",
+    "name": "Faulkner House - Miller Center of Public Affairs",
+    "entrance": {
+      "lat": 38.04777,
+      "lng": -78.51361
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-fayerweather-hall",
+    "code": "FAY",
+    "name": "Fayerweather Hall",
+    "entrance": {
+      "lat": 38.03786,
+      "lng": -78.50308
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-fiske-kimball-fine-arts-library",
+    "code": "FIS",
+    "name": "Fiske Kimball Fine Arts Library",
+    "entrance": {
+      "lat": 38.03888,
+      "lng": -78.50345
+    },
+    "kind": "library"
+  },
+  {
+    "id": "b-fralin-museum-of-art",
+    "code": "FRA",
+    "name": "Fralin Museum of Art",
+    "entrance": {
+      "lat": 38.03828,
+      "lng": -78.50308
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-garrett-hall-batten-school",
+    "code": "GAR",
+    "name": "Garrett Hall (Batten School)",
+    "entrance": {
+      "lat": 38.03411,
+      "lng": -78.5055
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-gibson-hall",
+    "code": "GIB",
+    "name": "Gibson Hall",
+    "entrance": {
+      "lat": 38.03131,
+      "lng": -78.50516
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-gilmer-hall",
+    "code": "GIL",
+    "name": "Gilmer Hall",
+    "entrance": {
+      "lat": 38.03422,
+      "lng": -78.51286
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-halsey-hall",
+    "code": "HAL",
+    "name": "Halsey Hall",
+    "entrance": {
+      "lat": 38.03293,
+      "lng": -78.50682
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-harrison-institute-and-small-special-collections-library",
+    "code": "HAR",
+    "name": "Harrison Institute and Small Special Collections Library",
+    "entrance": {
+      "lat": 38.03605,
+      "lng": -78.50574
+    },
+    "kind": "library"
+  },
+  {
+    "id": "b-hunter-smith-band-building",
+    "code": "HUN",
+    "name": "Hunter Smith Band Building",
+    "entrance": {
+      "lat": 38.03988,
+      "lng": -78.5029
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-ivy-stacks",
+    "code": "IVY",
+    "name": "Ivy Stacks",
+    "entrance": {
+      "lat": 38.04868,
+      "lng": -78.52224
+    },
+    "kind": "library"
+  },
+  {
+    "id": "b-james-c-slaughter-recreation-center",
+    "code": "JAM",
+    "name": "James C Slaughter Recreation Center",
+    "entrance": {
+      "lat": 38.03485,
+      "lng": -78.51784
+    },
+    "kind": "recreation"
+  },
+  {
+    "id": "b-james-monroe-hall",
+    "code": "MON",
+    "name": "James Monroe Hall",
+    "entrance": {
+      "lat": 38.03488,
+      "lng": -78.50617
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-jefferson-park-medical-office-building",
+    "code": "JEF",
+    "name": "Jefferson Park Medical Office Building",
+    "entrance": {
+      "lat": 38.03263,
+      "lng": -78.49818
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-jesser-hall-formerly-materials-science",
+    "code": "JES",
+    "name": "Jesser Hall (formerly Materials Science)",
+    "entrance": {
+      "lat": 38.03317,
+      "lng": -78.51091
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-john-paul-jones-arena",
+    "code": "JOH",
+    "name": "John Paul Jones Arena",
+    "entrance": {
+      "lat": 38.04599,
+      "lng": -78.50665
+    },
+    "kind": "recreation"
+  },
+  {
+    "id": "b-john-w-warner-hall",
+    "code": "JOHN",
+    "name": "John W. Warner Hall",
+    "entrance": {
+      "lat": 38.0334,
+      "lng": -78.50681
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-kerchof-hall",
+    "code": "KER",
+    "name": "Kerchof Hall",
+    "entrance": {
+      "lat": 38.03235,
+      "lng": -78.50822
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-lacy-hall",
+    "code": "LAC",
+    "name": "Lacy Hall",
+    "entrance": {
+      "lat": 38.0357,
+      "lng": -78.51776
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-leake-building",
+    "code": "LEA",
+    "name": "Leake Building",
+    "entrance": {
+      "lat": 38.03603,
+      "lng": -78.5159
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-lorna-sundberg-international-center",
+    "code": "LOR",
+    "name": "Lorna Sundberg International Center",
+    "entrance": {
+      "lat": 38.04402,
+      "lng": -78.50327
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-madison-hall-president-s-office",
+    "code": "MAD",
+    "name": "Madison Hall - President's Office",
+    "entrance": {
+      "lat": 38.037,
+      "lng": -78.5027
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-mcintire-amphitheatre",
+    "code": "MCI",
+    "name": "McIntire Amphitheatre",
+    "entrance": {
+      "lat": 38.03348,
+      "lng": -78.50583
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-mckim-hall-school-of-medicine-administration",
+    "code": "MCK",
+    "name": "McKim Hall (School of Medicine Administration)",
+    "entrance": {
+      "lat": 38.03272,
+      "lng": -78.5019
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-mcleod-hall",
+    "code": "MCL",
+    "name": "McLeod Hall",
+    "entrance": {
+      "lat": 38.03085,
+      "lng": -78.50169
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-mechanical-and-aerospace-engineering-building",
+    "code": "MEC",
+    "name": "Mechanical and Aerospace Engineering Building",
+    "entrance": {
+      "lat": 38.03264,
+      "lng": -78.51106
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-medical-research-building-4",
+    "code": "MRBF",
+    "name": "Medical Research Building 4",
+    "entrance": {
+      "lat": 38.03049,
+      "lng": -78.49989
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-memorial-gymnasium",
+    "code": "MG",
+    "name": "Memorial Gymnasium",
+    "entrance": {
+      "lat": 38.03739,
+      "lng": -78.50719
+    },
+    "kind": "recreation"
+  },
+  {
+    "id": "b-michie-north",
+    "code": "MIC",
+    "name": "Michie North",
+    "entrance": {
+      "lat": 38.04906,
+      "lng": -78.50229
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-michie-south",
+    "code": "MICH",
+    "name": "Michie South",
+    "entrance": {
+      "lat": 38.04882,
+      "lng": -78.50253
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-minor-hall",
+    "code": "MIN",
+    "name": "Minor Hall",
+    "entrance": {
+      "lat": 38.03386,
+      "lng": -78.50651
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-montesano-center-for-politics",
+    "code": "MONT",
+    "name": "Montesano Center For Politics",
+    "entrance": {
+      "lat": 38.04895,
+      "lng": -78.51544
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-national-radio-astronomy-observatory-stone-hall",
+    "code": "NAT",
+    "name": "National Radio Astronomy Observatory (Stone Hall)",
+    "entrance": {
+      "lat": 38.03695,
+      "lng": -78.51786
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-nau-hall",
+    "code": "NAU",
+    "name": "Nau Hall",
+    "entrance": {
+      "lat": 38.03174,
+      "lng": -78.50497
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-new-cabell-hall",
+    "code": "CAB",
+    "name": "New Cabell Hall",
+    "entrance": {
+      "lat": 38.03236,
+      "lng": -78.50455
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-newcomb-hall",
+    "code": "NEW",
+    "name": "Newcomb Hall",
+    "entrance": {
+      "lat": 38.03565,
+      "lng": -78.50695
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-o-neil-hall",
+    "code": "ONE",
+    "name": "O'Neil Hall",
+    "entrance": {
+      "lat": 38.04032,
+      "lng": -78.50188
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-observatory-mountain-engineering-research-facility",
+    "code": "OBS",
+    "name": "Observatory Mountain Engineering Research Facility",
+    "entrance": {
+      "lat": 38.0355,
+      "lng": -78.52108
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-office-of-african-american",
+    "code": "OFF",
+    "name": "Office of African American",
+    "entrance": {
+      "lat": 38.03279,
+      "lng": -78.50609
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-old-cabell-hall",
+    "code": "OLD",
+    "name": "Old Cabell Hall",
+    "entrance": {
+      "lat": 38.03302,
+      "lng": -78.5048
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-old-ivy-hall",
+    "code": "OLIV",
+    "name": "Old Ivy Hall",
+    "entrance": {
+      "lat": 38.04733,
+      "lng": -78.52059
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-old-medical-school-building",
+    "code": "OLME",
+    "name": "Old Medical School Building",
+    "entrance": {
+      "lat": 38.03392,
+      "lng": -78.50076
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-olsson-hall",
+    "code": "OLS",
+    "name": "Olsson Hall",
+    "entrance": {
+      "lat": 38.03201,
+      "lng": -78.51051
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-outpatient-surgery-center",
+    "code": "OUT",
+    "name": "Outpatient Surgery Center",
+    "entrance": {
+      "lat": 38.0294,
+      "lng": -78.50352
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-peabody-hall",
+    "code": "PEA",
+    "name": "Peabody Hall",
+    "entrance": {
+      "lat": 38.03555,
+      "lng": -78.50596
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-physical-and-life-sciences-building",
+    "code": "PLS",
+    "name": "Physical and Life Sciences Building",
+    "entrance": {
+      "lat": 38.03289,
+      "lng": -78.51226
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-physics-building-jesse-beams-laboratory",
+    "code": "PHY",
+    "name": "Physics Building / Jesse Beams Laboratory",
+    "entrance": {
+      "lat": 38.03422,
+      "lng": -78.51045
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-pinn-hall-jordan-hall",
+    "code": "PIN",
+    "name": "Pinn Hall (Jordan Hall)",
+    "entrance": {
+      "lat": 38.03186,
+      "lng": -78.50051
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-president-s-house",
+    "code": "PRE",
+    "name": "President's House",
+    "entrance": {
+      "lat": 38.03797,
+      "lng": -78.50389
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-randall-hall",
+    "code": "RAN",
+    "name": "Randall Hall",
+    "entrance": {
+      "lat": 38.0333,
+      "lng": -78.50332
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-rice-hall",
+    "code": "RIC",
+    "name": "Rice Hall",
+    "entrance": {
+      "lat": 38.03162,
+      "lng": -78.51079
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-rotunda",
+    "code": "ROT",
+    "name": "Rotunda",
+    "entrance": {
+      "lat": 38.03564,
+      "lng": -78.50339
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-rouss-robertson",
+    "code": "RRH",
+    "name": "Rouss & Robertson Halls",
+    "entrance": {
+      "lat": 38.033,
+      "lng": -78.5039
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-ruffin-hall",
+    "code": "RUFF",
+    "name": "Ruffin Hall",
+    "entrance": {
+      "lat": 38.03934,
+      "lng": -78.50319
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-ruffner-hall",
+    "code": "RUF",
+    "name": "Ruffner Hall",
+    "entrance": {
+      "lat": 38.03486,
+      "lng": -78.50929
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-saunders-hall",
+    "code": "SAU",
+    "name": "Saunders Hall",
+    "entrance": {
+      "lat": 38.05219,
+      "lng": -78.51492
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-scholars-lab",
+    "code": "SCH",
+    "name": "Scholars' Lab",
+    "entrance": {
+      "lat": 38.03649,
+      "lng": -78.50561
+    },
+    "kind": "library"
+  },
+  {
+    "id": "b-school-of-data-science",
+    "code": "SDS",
+    "name": "School of Data Science",
+    "entrance": {
+      "lat": 38.04076,
+      "lng": -78.50764
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-school-of-law",
+    "code": "LAW",
+    "name": "School of Law",
+    "entrance": {
+      "lat": 38.05351,
+      "lng": -78.50909
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-shannon-library",
+    "code": "SHA",
+    "name": "Shannon Library",
+    "entrance": {
+      "lat": 38.03662,
+      "lng": -78.50527
+    },
+    "kind": "library"
+  },
+  {
+    "id": "b-shelburne-hall",
+    "code": "SHE",
+    "name": "Shelburne Hall",
+    "entrance": {
+      "lat": 38.03806,
+      "lng": -78.51926
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-sheridan-g-snyder-translational-research",
+    "code": "SHER",
+    "name": "Sheridan G. Snyder Translational Research",
+    "entrance": {
+      "lat": 38.02429,
+      "lng": -78.52704
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-shumway-hall",
+    "code": "SHU",
+    "name": "Shumway Hall",
+    "entrance": {
+      "lat": 38.03236,
+      "lng": -78.50306
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-south-lawn-commons-building",
+    "code": "SOU",
+    "name": "South Lawn Commons Building",
+    "entrance": {
+      "lat": 38.03208,
+      "lng": -78.5053
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-stacey-hall",
+    "code": "STA",
+    "name": "Stacey Hall",
+    "entrance": {
+      "lat": 38.03344,
+      "lng": -78.49593
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-student-activities-building",
+    "code": "STU",
+    "name": "Student Activities Building",
+    "entrance": {
+      "lat": 38.02962,
+      "lng": -78.51548
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-student-faculty-center",
+    "code": "STUD",
+    "name": "Student-Faculty Center",
+    "entrance": {
+      "lat": 38.05382,
+      "lng": -78.50983
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-stultz-center-for-business-and-career-development",
+    "code": "STUL",
+    "name": "Stultz Center for Business and Career Development",
+    "entrance": {
+      "lat": 38.00707,
+      "lng": -78.48039
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-thornton",
+    "code": "THN",
+    "name": "Thornton Hall",
+    "entrance": {
+      "lat": 38.03285,
+      "lng": -78.51001
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-university-of-virginia-hospital",
+    "code": "UVAH",
+    "name": "University of Virginia Hospital",
+    "entrance": {
+      "lat": 38.03119,
+      "lng": -78.49826
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-w-e-b-dubois-tutorial-center",
+    "code": "WEBDT",
+    "name": "W E B Dubois Tutorial Center",
+    "entrance": {
+      "lat": 38.03257,
+      "lng": -78.50642
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-watson-manor-institute-for-advanced-studies-in-culture",
+    "code": "WAT",
+    "name": "Watson Manor - Institute for Advanced Studies in Culture",
+    "entrance": {
+      "lat": 38.04274,
+      "lng": -78.50103
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-west-complex",
+    "code": "WES",
+    "name": "West Complex",
+    "entrance": {
+      "lat": 38.03328,
+      "lng": -78.50122
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-west-complex-outpatient-clinics",
+    "code": "WEST",
+    "name": "West Complex: Outpatient Clinics",
+    "entrance": {
+      "lat": 38.03384,
+      "lng": -78.50155
+    },
+    "kind": "other"
+  },
+  {
+    "id": "b-wilsdorf-hall",
+    "code": "WILS",
+    "name": "Wilsdorf Hall",
+    "entrance": {
+      "lat": 38.03336,
+      "lng": -78.51125
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-wilson-hall",
+    "code": "WIL",
+    "name": "Wilson Hall",
+    "entrance": {
+      "lat": 38.0325,
+      "lng": -78.50406
+    },
+    "kind": "academic"
+  },
+  {
+    "id": "b-zehmer-hall",
+    "code": "ZEH",
+    "name": "Zehmer Hall",
+    "entrance": {
+      "lat": 38.0392,
+      "lng": -78.51721
+    },
+    "kind": "academic"
+  }
+]

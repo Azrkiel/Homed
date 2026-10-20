@@ -1,0 +1,112 @@
+[
+  {
+    "id": "p-fixture-lofts",
+    "slug": "fixture-lofts",
+    "name": "Fixture Lofts",
+    "address": "100 Example Ave, Charlottesville, VA 22903",
+    "location": {
+      "lat": 38.02975,
+      "lng": -78.5089
+    },
+    "kind": "apartment_complex",
+    "onGrounds": false,
+    "neighborhood": "JPA",
+    "yearBuilt": 2019,
+    "landlordId": "ll-fixture",
+    "amenities": {
+      "gym": true,
+      "studyRooms": true,
+      "rooftop": false,
+      "pool": false,
+      "elevator": true,
+      "parkingAvailable": true,
+      "petsAllowed": false,
+      "parkingMonthly": 75
+    },
+    "noiseLevel": "moderate",
+    "litRouteToGrounds": true,
+    "onBusRoute": true,
+    "busRoutes": [
+      "UTS Northline"
+    ],
+    "studyAbroadFriendly": true,
+    "noGuarantorOption": true,
+    "source": "fixture",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "p-fixture-rugby-house",
+    "slug": "fixture-rugby-house",
+    "name": "Fixture Rugby House",
+    "address": "200 Example Rd, Charlottesville, VA 22903",
+    "location": {
+      "lat": 38.0389,
+      "lng": -78.5041
+    },
+    "kind": "house",
+    "onGrounds": false,
+    "neighborhood": "Rugby Road",
+    "yearBuilt": 1925,
+    "yearRenovated": 2015,
+    "landlordId": "ll-fixture",
+    "amenities": {
+      "gym": false,
+      "studyRooms": false,
+      "rooftop": false,
+      "pool": false,
+      "elevator": false,
+      "parkingAvailable": true,
+      "petsAllowed": true,
+      "parkingMonthly": 0
+    },
+    "noiseLevel": "social",
+    "litRouteToGrounds": true,
+    "onBusRoute": false,
+    "busRoutes": [],
+    "studyAbroadFriendly": false,
+    "noGuarantorOption": false,
+    "source": "fixture",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-09-20"
+  },
+  {
+    "id": "p-fixture-on-grounds",
+    "slug": "fixture-on-grounds",
+    "name": "Fixture Upperclass Apartments",
+    "address": "On Grounds, Charlottesville, VA 22904",
+    "location": {
+      "lat": 38.0383,
+      "lng": -78.5102
+    },
+    "kind": "on_grounds",
+    "onGrounds": true,
+    "neighborhood": "On Grounds",
+    "yearBuilt": 2003,
+    "amenities": {
+      "gym": false,
+      "studyRooms": true,
+      "rooftop": false,
+      "pool": false,
+      "elevator": true,
+      "parkingAvailable": false,
+      "petsAllowed": false
+    },
+    "noiseLevel": "quiet",
+    "litRouteToGrounds": true,
+    "onBusRoute": true,
+    "busRoutes": [
+      "UTS Inner Loop"
+    ],
+    "studyAbroadFriendly": true,
+    "noGuarantorOption": true,
+    "onGroundsInfo": {
+      "program": "upperclass_apartment",
+      "eligibility": "Rising 2nd-4th years via the upperclass housing application.",
+      "hrlUrl": "https://housing.virginia.edu/"
+    },
+    "source": "fixture",
+    "dataStatus": "unverified_seed",
+    "lastVerified": "2026-10-18"
+  }
+]
